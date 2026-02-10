@@ -1,0 +1,3 @@
+[submodule "fabm"]
+	path = fabm
+	url = https://github.com/fabm-model/fabm.git
