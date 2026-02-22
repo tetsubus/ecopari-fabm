@@ -13,10 +13,13 @@ Currently registered FABM dependencies in EcoPARI model:
 
 1. `standard_variables%temperature`
 2. `standard_variables%practical_salinity`
+3. `standard_variables%attenuation_coefficient_of_photosynthetic_radiative_flux` (only when `use_host_kext: true`)
 
 Current temporary behavior:
 
-1. `kext` is fixed to `0.2` in code (not externally provided yet).
+1. `kext` is no longer hardcoded in source. It is now controlled by FABM parameters:
+   - `use_host_kext: false` + `kext_default: 0.2` (default)
+   - `use_host_kext: true` to read host-provided attenuation
 2. Single-column wrapper assumptions are still active (`ncube=1,mx=1,my=1`) for the current Stage 1 adapter path.
 
 ## Mapping table (to be implemented for FVCOM host coupling)
@@ -25,7 +28,7 @@ Current temporary behavior:
 |---|---|---|---|---|---|
 | P0 | Water temperature | `standard_variables%temperature` | degC (or FABM host unit) | 3D temperature field | Implemented in model, host wiring pending |
 | P0 | Salinity | `standard_variables%practical_salinity` | PSU | 3D salinity field | Implemented in model, host wiring pending |
-| P0 | Light attenuation / extinction | host-specific dependency or model parameter (currently `kext=0.2`) | 1/m | from FVCOM optics/turbidity/chl or prescribed field | Not implemented as dependency |
+| P0 | Light attenuation / extinction | `standard_variables%attenuation_coefficient_of_photosynthetic_radiative_flux` or `kext_default` parameter | 1/m | from FVCOM optics/turbidity/chl or prescribed field | Parameter path implemented; host wiring pending |
 | P1 | Surface shortwave (if moving to physically consistent PAR path) | `standard_variables%surface_downwelling_shortwave_flux` (or equivalent) | W/m2 | FVCOM surface radiation forcing | Not connected |
 | P1 | Wind speed / stress (if EcoPARI weather pathway is host-driven) | FABM standard/horizontal variable as available | m/s or Pa | FVCOM met forcing / stress | Not connected |
 | P1 | Air pressure (optional; currently adapter default) | scalar dependency (host-provided) | Pa | FVCOM met forcing | Not connected |
@@ -43,6 +46,15 @@ Notes:
    - Option B: provide dynamic field from FVCOM diagnostics/forcing (recommended for production).
 3. Confirm unit compatibility between FVCOM fields and FABM expectations.
 4. Validate MPI consistency (1, 2, 4 ranks) with identical setup.
+
+Current bridge-side controls (`BIOLOGICAL_MODEL_FILE`, optional):
+
+1. `FABM_KEXT_SOURCE`:
+   - `1`: derive from `RHEAT/ZETA1/ZETA2` (default, existing FVCOM optics path)
+   - `2`: use `FABM_KEXT_CONST`
+   - `3`: use `ATANU_W`
+2. `FABM_KEXT_CONST`: constant attenuation [1/m] when source=2
+3. `FABM_KEXT_MIN`, `FABM_KEXT_MAX`: clamp range [1/m]
 
 ## Confirmed FVCOM biology hook points (from `external/FVCOM`)
 
@@ -121,6 +133,7 @@ Enable notes (FVCOM classic make):
    - EcoPARI runs without crash for short case.
 2. **Milestone S2-2 (remove hardcoded optics)**
    - Replace fixed `kext=0.2` with host-provided field or configured parameter.
+   - Current status: hardcoded value removed; parameterized fallback implemented; FVCOM host field wiring remains.
 3. **Milestone S2-3 (stability and reproducibility)**
    - Multi-rank reproducibility checks.
    - Restart consistency checks.
