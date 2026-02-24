@@ -12,7 +12,7 @@
 - これはソケット制限の症状。
 
 ## sudo 実行時の注意
-- `sudo` で `mpirun` が見つからない (`env: ‘mpirun’: No such file or directory`, `EXIT:127`)。
+- `sudo` で `mpirun` が見つからない (`env: ‘mpirun’: No such file or directory`)。
 - 原因: `sudo` で `PATH` が初期化されるため。
 - 対策: `mpirun` を絶対パスで指定。
 

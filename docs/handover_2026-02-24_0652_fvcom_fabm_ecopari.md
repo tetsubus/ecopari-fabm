@@ -9,7 +9,6 @@
   - `--casename=nns_annual 2>&1 | tee run_np2.log; echo EXIT:${PIPESTATUS[0]}`
 - 結果:
   - `--casename=nns_annual: command not found`
-  - `EXIT:127`
 
 ## 原因
 - `--casename=...` はオプションであり、先頭に実行本体（`fvcom` もしくは `mpirun ... fvcom`）が無いため、シェルが「コマンド名」と解釈して失敗した。

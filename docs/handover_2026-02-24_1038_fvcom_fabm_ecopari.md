@@ -7,14 +7,13 @@
 ## 直近の事象（重要）
 - `ELEMENT MAP ... COMPLETE` などの **実行ログ文字列をそのままコマンド実行** すると、
   - `/bin/bash: line X: ELEMENT: command not found`
-  - `Exit code: 127`
   になる。
 - これは FVCOM 計算失敗ではなく、シェル操作ミス。
 
 ## EXIT:124 の意味
 - `Terminated` + `EXIT:124` は `timeout` 到達でプロセスが停止したことを示す。
 - 実際に `run_np2.log` では MPI/FVCOM 初期化ログ（`ELEMENT MAP ... COMPLETE` まで）が出力されており、
-  `127` とは別事象。
+  ログ貼り付けによるシェルエラーとは別事象。
 
 ## 正しい実行コマンド（再掲）
 ```bash
