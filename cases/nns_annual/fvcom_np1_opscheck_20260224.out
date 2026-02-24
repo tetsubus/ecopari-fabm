@@ -1,0 +1,625 @@
+ !================================================================!
+           _______  _     _  _______  _______  _______             
+          (_______)(_)   (_)(_______)(_______)(_______)            
+           _____    _     _  _        _     _  _  _  _             
+          |  ___)  | |   | || |      | |   | || ||_|| |            
+          | |       \ \ / / | |_____ | |___| || |   | |            
+          |_|        \___/   \______) \_____/ |_|   |_|            
+  -- Version 5.0 Release
+ !================================================================!
+ !                                                                !
+ !========DOMAIN DECOMPOSITION USING: METIS 4.0.1 ================!
+ !======Copyright 1998, Regents of University of Minnesota========!
+ !                                                                !
+&NML_CASE
+ CASE_TITLE="'nns_npcheck 1h reproducibility check'                                          ",
+ TIMEZONE="UTC                                                                             ",
+ DATE_FORMAT="YMD                                                                             ",
+ DATE_REFERENCE="default                                                                         ",
+ START_DATE="1998-01-01 00:00:00                                                             ",
+ END_DATE="1998-01-01 01:00:00                                                             ",
+ /
+&NML_STARTUP
+ STARTUP_TYPE="coldstart                                                                       ",
+ STARTUP_FILE="nns_annual_restart.nc                                                           ",
+ STARTUP_UV_TYPE="default                                                                         ",
+ STARTUP_TURB_TYPE="default                                                                         ",
+ STARTUP_TS_TYPE="constant                                                                        ",
+ STARTUP_T_VALS=  10.000000000000000     , -99.000000000000000     ,
+ STARTUP_S_VALS=  35.000000000000000     , -99.000000000000000     ,
+ STARTUP_U_VALS= -99.000000000000000     ,
+ STARTUP_V_VALS= -99.000000000000000     ,
+ STARTUP_DMAX= -99.000000000000000     ,
+ /
+&NML_IO
+ INPUT_DIR="./                                                                              ",
+ OUTPUT_DIR="./                                                                              ",
+ IREPORT=0          ,
+ VISIT_ALL_VARS=F,
+ WAIT_FOR_VISIT=F,
+ USE_MPI_IO_MODE=F,
+ IO_PROCESSORS=1          ,
+ /
+&NML_INTEGRATION
+ EXTSTEP_SECONDS=  10.000000000000000     ,
+ ISPLIT=10         ,
+ IRAMP=0          ,
+ MIN_DEPTH= 0.10000000000000001     ,
+ STATIC_SSH_ADJ=  0.0000000000000000     ,
+ RK_3D_ON=F,
+ /
+&NML_RESTART
+ RST_ON=F,
+ RST_FIRST_OUT="Date to start RESTART OUTPUT: Format the same as START_DATE                     ",
+ RST_OUT_INTERVAL="A length of time: 'seconds= ','days= ', or 'cycles= '                           ",
+ RST_OUTPUT_STACK=0          ,
+ /
+&NML_NETCDF
+ NC_ON=F,
+ NC_FIRST_OUT="Date to start NETCDF OUTPUT: Format the same as START_DATE                      ",
+ NC_OUT_INTERVAL="A length of time: 'seconds= ','days= ', or 'cycles= '                           ",
+ NC_OUTPUT_STACK=0          ,
+ NC_SUBDOMAIN_FILES="FVCOM                                                                                                                   ",
+ NC_GRID_METRICS=F,
+ NC_FILE_DATE=F,
+ NC_VELOCITY=F,
+ NC_SALT_TEMP=F,
+ NC_TURBULENCE=F,
+ NC_AVERAGE_VEL=F,
+ NC_VERTICAL_VEL=F,
+ NC_WIND_VEL=F,
+ NC_WIND_STRESS=F,
+ NC_EVAP_PRECIP=F,
+ NC_SURFACE_HEAT=F,
+ NC_GROUNDWATER=F,
+ NC_BIO=F,
+ NC_WQM=F,
+ NC_VORTICITY=F,
+ NC_UARD_OBCN=F,
+ /
+&NML_NETCDF_SURFACE
+ NCSF_ON=F,
+ NCSF_FIRST_OUT="Date to start NETCDF OUTPUT: Format the same as START_DATE                      ",
+ NCSF_OUT_INTERVAL="A length of time: 'seconds= ','days= ', or 'cycles= '                           ",
+ NCSF_OUTPUT_STACK=0          ,
+ NCSF_SUBDOMAIN_FILES="FVCOM                                                                                                                   ",
+ NCSF_GRID_METRICS=F,
+ NCSF_FILE_DATE=F,
+ NCSF_VELOCITY=F,
+ NCSF_SALT_TEMP=F,
+ NCSF_TURBULENCE=F,
+ NCSF_WIND_VEL=F,
+ NCSF_WIND_STRESS=F,
+ NCSF_EVAP_PRECIP=F,
+ NCSF_SURFACE_HEAT=F,
+ /
+&NML_NETCDF_AV
+ NCAV_ON=F,
+ NCAV_FIRST_OUT="Date to start NETCDF interval averaged output: Format the same as START_DATE    ",
+ NCAV_OUT_INTERVAL="A length of time: 'seconds= ','days= ', or 'cycles= '                           ",
+ NCAV_OUTPUT_STACK=0          ,
+ NCAV_SUBDOMAIN_FILES="FVCOM                                                                                                                   ",
+ NCAV_GRID_METRICS=F,
+ NCAV_FILE_DATE=F,
+ NCAV_VELOCITY=F,
+ NCAV_SALT_TEMP=F,
+ NCAV_TURBULENCE=F,
+ NCAV_AVERAGE_VEL=F,
+ NCAV_VERTICAL_VEL=F,
+ NCAV_WIND_VEL=F,
+ NCAV_WIND_STRESS=F,
+ NCAV_EVAP_PRECIP=F,
+ NCAV_SURFACE_HEAT=F,
+ NCAV_GROUNDWATER=F,
+ NCAV_BIO=F,
+ NCAV_WQM=F,
+ NCAV_VORTICITY=F,
+ /
+&NML_SURFACE_FORCING
+ WIND_ON=F,
+ WIND_TYPE="Options::speed,stress                                                           ",
+ WIND_FILE="1_wnd.nc                                                                        ",
+ WIND_KIND="Options:constant,static,time dependant,periodic,variable                        ",
+ WIND_X=  0.0000000000000000     ,
+ WIND_Y=  0.0000000000000000     ,
+ WIND_STRESS_METHOD="Options:: LP1981, COARE, TY2001, OOST, DGHQ                                     ",
+ ZUU=  10.000000000000000     ,
+ HEATING_ON=F,
+ HEATING_TYPE="'surface' or 'flux' or 'body'                                                   ",
+ HEATING_KIND="Options:constant,static,time dependant,periodic,variable                        ",
+ HEATING_FILE="1_hfx.nc                                                                        ",
+ HEATING_LONGWAVE_LENGTHSCALE=  1.3999999999999999     ,
+ HEATING_LONGWAVE_PERCTAGE= 0.78000000000000003     ,
+ HEATING_SHORTWAVE_LENGTHSCALE=  6.2999999999999998     ,
+ HEATING_RADIATION=  0.0000000000000000     ,
+ HEATING_NETFLUX=  0.0000000000000000     ,
+ PRECIPITATION_ON=F,
+ PRECIPITATION_KIND="Options:constant,static,time dependant,periodic,variable                        ",
+ PRECIPITATION_FILE="1_emp.nc                                                                        ",
+ PRECIPITATION_PRC=  0.0000000000000000     ,
+ PRECIPITATION_EVP=  0.0000000000000000     ,
+ AIRPRESSURE_ON=F,
+ AIRPRESSURE_KIND="Options:constant,static,time dependant,periodic,variable                        ",
+ AIRPRESSURE_FILE="1_aip.nc                                                                        ",
+ AIRPRESSURE_VALUE=  0.0000000000000000     ,
+ WAVE_ON=F,
+ WAVE_FILE="1_wav.nc                                                                        ",
+ WAVE_KIND="Options:constant,static,time dependant,periodic,variable                        ",
+ WAVE_HEIGHT=  0.0000000000000000     ,
+ WAVE_LENGTH=  0.0000000000000000     ,
+ WAVE_DIRECTION=  0.0000000000000000     ,
+ WAVE_PERIOD=  0.0000000000000000     ,
+ WAVE_PER_BOT=  0.0000000000000000     ,
+ WAVE_UB_BOT=  0.0000000000000000     ,
+ /
+&NML_PHYSICS
+ HORIZONTAL_MIXING_TYPE="closure                                                                         ",
+ HORIZONTAL_MIXING_FILE="1_hvc.nc                                                                        ",
+ HORIZONTAL_MIXING_KIND="constant                                                                        ",
+ HORIZONTAL_MIXING_COEFFICIENT= 0.10000000000000001     ,
+ HORIZONTAL_PRANDTL_NUMBER=  1.0000000000000000     ,
+ VERTICAL_MIXING_TYPE="closure                                                                         ",
+ VERTICAL_MIXING_COEFFICIENT=  1.0000000000000000E-003,
+ VERTICAL_PRANDTL_NUMBER=  1.0000000000000000     ,
+ BOTTOM_ROUGHNESS_TYPE="orig                                                                            ",
+ BOTTOM_ROUGHNESS_KIND="constant                                                                        ",
+ BOTTOM_ROUGHNESS_FILE="1_brf.nc                                                                        ",
+ BOTTOM_ROUGHNESS_LENGTHSCALE=  3.0000000000000001E-003,
+ BOTTOM_ROUGHNESS_MINIMUM=  1.0000000000000000E-004,
+ CONVECTIVE_OVERTURNING=F,
+ SCALAR_POSITIVITY_CONTROL=F,
+ BAROTROPIC=F,
+ BAROCLINIC_PRESSURE_GRADIENT="sigma levels                                                                    ",
+ SEA_WATER_DENSITY_FUNCTION="dens2                                                                           ",
+ RECALCULATE_RHO_MEAN=F,
+ INTERVAL_RHO_MEAN="A length of time or number of cycles in standard format                         ",
+ TEMPERATURE_ACTIVE=F,
+ SALINITY_ACTIVE=F,
+ SURFACE_WAVE_MIXING=F,
+ BACKWARD_ADVECTION=F,
+ BACKWARD_STEP=-1         ,
+ WETTING_DRYING_ON=T,
+ ADCOR_ON=T,
+ EQUATOR_BETA_PLANE=F,
+ NOFLUX_BOT_CONDITION=T,
+ /
+&NML_RIVER_TYPE
+ RIVER_NUMBER=0          ,
+ RIVER_KIND="periodic                                                                        ",
+ RIVER_TS_SETTING="'calculated' or 'specified'                                                     ",
+ TS_ADJUST_METHOD="'average' or 'maximum'                                                          ",
+ RIVER_INFO_FILE="'default' or 'filename'                                                         ",
+ RIVER_INFLOW_LOCATION="'node' or 'edge'                                                                ",
+ /
+&NML_RIVER
+ RIVER_NAME="River Name in netcdf data file; use mulitple namelists for multiple rivers!     ",
+ RIVER_FILE="nns_npcheck_riv.nc                                                              ",
+ RIVER_GRID_LOCATION=-1         ,
+ RIVER_VERTICAL_DISTRIBUTION="FUNCTIONAL VERTICAL RIVER DISTROBUTION: SEE FVCOM MANUAL FOR",
+ /
+&NML_OPEN_BOUNDARY_CONTROL
+ OBC_ON=F,
+ OBC_NODE_LIST_FILE="1_obc.dat                                                                       ",
+ OBC_ELEVATION_FORCING_ON=F,
+ OBC_ELEVATION_FILE="1_obc.nc                                                                        ",
+ OBC_TS_TYPE=-1         ,
+ OBC_TEMP_NUDGING=F,
+ OBC_TEMP_FILE="1_obc.nc                                                                        ",
+ OBC_TEMP_NUDGING_TIMESCALE=  0.0000000000000000     ,
+ OBC_SALT_NUDGING=F,
+ OBC_SALT_FILE="1_obc.nc                                                                        ",
+ OBC_SALT_NUDGING_TIMESCALE=  0.0000000000000000     ,
+ OBC_BIO_NUDGING=F,
+ OBC_BIO_FILE="1_obc.nc                                                                        ",
+ OBC_BIO_NUDGING_TIMESCALE=  0.0000000000000000     ,
+ OBC_MEANFLOW=F,
+ OBC_MEANFLOW_FILE="1_obc.nc                                                                        ",
+ OBC_TIDEOUT_INITIAL=0          ,
+ OBC_TIDEOUT_INTERVAL=0          ,
+ OBC_LONGSHORE_FLOW_ON=F,
+ OBC_LONGSHORE_FLOW_FILE="LONGSHORE_FLOW setting is only used for GOM (see )                              ",
+ OBC_DEPTH_CONTROL_ON=T,
+ /
+&NML_GRID_COORDINATES
+ GRID_FILE="nns_annual_grd.dat                                                              ",
+ GRID_FILE_UNITS="degrees                                                                         ",
+ PROJECTION_REFERENCE="none                                                                                                                                                                                                    ",
+ SIGMA_LEVELS_FILE="nns_annual_sigma.dat                                                            ",
+ DEPTH_FILE="nns_annual_dep.dat                                                              ",
+ CORIOLIS_FILE="nns_annual_cor.dat                                                              ",
+ SPONGE_FILE="nns_annual_spg.dat                                                              ",
+ /
+&NML_GROUNDWATER
+ GROUNDWATER_ON=F,
+ GROUNDWATER_TEMP_ON=F,
+ GROUNDWATER_SALT_ON=F,
+ GROUNDWATER_KIND="Options:constant,static,time dependant,periodic,variable                        ",
+ GROUNDWATER_FILE="1_grndwtr.nc                                                                    ",
+ GROUNDWATER_FLOW=  0.0000000000000000     ,
+ GROUNDWATER_TEMP=  0.0000000000000000     ,
+ GROUNDWATER_SALT=  0.0000000000000000     ,
+ /
+&NML_LAG
+ LAG_PARTICLES_ON=F,
+ LAG_START_FILE="init_lag.nc                                                                     ",
+ LAG_OUT_FILE="lag_out.nc                                                                      ",
+ LAG_FIRST_OUT="A Date or time                                                                  ",
+ LAG_RESTART_FILE="lag_restart.nc                                                                  ",
+ LAG_OUT_INTERVAL="A length of time: 'seconds= ','days= ', or 'cycles= '                           ",
+ LAG_SCAL_CHOICE="none                                                                            ",
+ /
+&NML_ADDITIONAL_MODELS
+ DATA_ASSIMILATION=F,
+ DATA_ASSIMILATION_FILE="./1_run.nml                                                                     ",
+ BIOLOGICAL_MODEL=T,
+ STARTUP_BIO_TYPE="constant                                                                        ",
+ BIOLOGICAL_MODEL_FILE="bio_model_new.in                                                                ",
+ SEDIMENT_MODEL=F,
+ SEDIMENT_MODEL_FILE="DO NOT ADD UNTILL FVCOM IS RUNNING BY ITS SELF FIRST                            ",
+ SEDIMENT_PARAMETER_TYPE="DO NOT ADD UNTILL FVCOM IS RUNNING BY ITS SELF FIRST                            ",
+ SEDIMENT_PARAMETER_FILE="DO NOT ADD UNTILL FVCOM IS RUNNING BY ITS SELF FIRST                            ",
+ BEDFLAG_TYPE="DO NOT ADD UNTIL FVCOM IS RUNNING BY ITS SELF FIRST                             ",
+ BEDFLAG_FILE="DO NOT ADD UNTILL FVCOM IS RUNNING BY ITS SELF FIRST                            ",
+ ICING_MODEL=F,
+ ICING_FORCING_FILE="DO NOT ADD UNTILL FVCOM IS RUNNING BY ITS SELF FIRST                            ",
+ ICING_FORCING_KIND="Options:constant,static,time dependant,periodic,variable                        ",
+ ICING_AIR_TEMP=  0.0000000000000000     ,
+ ICING_WSPD=  0.0000000000000000     ,
+ ICE_MODEL=F,
+ ICE_FORCING_FILE="DO NOT ADD UNTILL FVCOM IS RUNNING BY ITS SELF FIRST                            ",
+ ICE_FORCING_KIND="Options:constant,static,time dependant,periodic,variable                        ",
+ ICE_SEA_LEVEL_PRESSURE=  0.0000000000000000     ,
+ ICE_AIR_TEMP=  0.0000000000000000     ,
+ ICE_SPEC_HUMIDITY=  0.0000000000000000     ,
+ ICE_SHORTWAVE=  0.0000000000000000     ,
+ ICE_LONGWAVE_TYPE="'PW' or 'RM'                                                                    ",
+ ICE_CLOUD_COVER=  0.0000000000000000     ,
+ HIGH_LATITUDE_WAVE=F,
+ /
+&NML_PROBES
+ PROBES_ON=F,
+ PROBES_NUMBER=0          ,
+ PROBES_FILE="Probe namelist file name                                                        ",
+ /
+&NML_BOUNDSCHK
+ BOUNDSCHK_ON=F,
+ CHK_INTERVAL=0          ,
+ VELOC_MAG_MAX=  0.0000000000000000     ,
+ ZETA_MAG_MAX=  0.0000000000000000     ,
+ TEMP_MAX=  0.0000000000000000     ,
+ TEMP_MIN=  0.0000000000000000     ,
+ SALT_MAX=  0.0000000000000000     ,
+ SALT_MIN=  0.0000000000000000     ,
+ /
+&NML_MLD
+ NC_MLD=F,
+ GAMMA_MIN=  3.9999998989515007E-005,
+ MLD_DEFAULT=  5.0000000000000000     ,
+ DEEPWATER_DEPTH=  100.00000000000000     ,
+ DEEPWATER_GAMMA=  2.9999999242136255E-005,
+ /
+ ! PROJ 4 CARTOGRAPHIC PROJECTION DISABLED!
+ ! DATA ASSIMILATION MODE IS OFF 
+ ! VISIT SIMULATION MODE IS OFF
+ !                 RUNNING COLDSTART                              !
+ !                                                                !
+ !              OPENING FILES FOR COLDSTART                       !
+ !                                                                !
+ ! No Startup file needed for this cold start
+ !========= Setting up model time parameters ===========
+ !                SET TIME FOR COLDSTART                          !
+ !                                                                !
+ ! NO NETCDF COLD START FILE
+ ! This case uses real world with specified start and end dates
+ !========Start Time==========
+ !    Day #    :                50814
+ ! MicroSecond #:                    0
+ ! (Date Time=1998-01-01T00:00:00.000000Z)
+ ! (Local Time=1998-01-01T00:00:00.000000Z); time zone: UTC                                                              
+ !==========================
+ !========End Time==========
+ !    Day #    :                50814
+ ! MicroSecond #:           3600000000
+ ! (Date Time=1998-01-01T01:00:00.000000Z)
+ ! (Local Time=1998-01-01T01:00:00.000000Z); time zone: UTC                                                              
+ !==========================
+ !========External Time STEP==========
+ !    Day #    :                    0
+ ! MicroSecond #:             10000000
+ ! (Human Time=d 0000000::h00:m00:s10.000000)
+ !==========================
+ ! DTE(seconds)       =    10.000000000000000     
+ !========Internal Time STEP==========
+ !    Day #    :                    0
+ ! MicroSecond #:            100000000
+ ! (Human Time=d 0000000::h00:m01:s40.000000)
+ !==========================
+ ! DTI(seconds)       =    100.00000000000000     
+ !=============================
+ !  ISTART =                     1
+ !  IEND   =                    36
+ !=============================
+ !+++++++++++ FINISED MODEL TIME SETUP ++++++++++++++
+ !===================================================
+ !               READING GRID FOR COLDSTART                       !
+ !                                                                !
+ !  Finished Reading SIGMA File
+ !  SIGMA COORDINATE TYPE = : UNIFORM
+ !  P_SIGMA (UNIFORM)     = :    1.0000000000000000     
+ !  # OF SIGMA LEVELS(KB) = :           11
+ !
+ !  Finished Reading Grid File
+ !  # OF NODES            :           4
+ !  # OF CELLS            :           2
+ !
+ !  OBC IS OFF  
+ !
+ !  OPEN BOUNDARY LONGSHORE FLOW IS OFF  
+ !
+ ! SETTING UP FVCOM PROCESSOR ENVIRONMENT
+ !  MPI IO MODE IS NOT ACTIVE
+ ! Finished SETUP_LOCAL_DOMAINS
+ !
+ !                ALLOCATING MEMORY    
+ !
+ !  # MBYTES TOTAL MEM    :   1.8832000000000002E-002
+ !              READING FILES FOR COLDSTART                       !
+ !                                                                !
+ !  Finished Reading coordinates from Grid File
+ !  Max/Min(X)  =          :   1.2900000000000000        1.2800000000000000     
+ !  Max/Min(Y)  =          :   59.340000000000003        59.329999999999998     
+ !
+ !  Finished Reading DEPTH File
+ !  Max DEPTH =           :   110.00000000000000     
+ !  Min DEPTH =           :   110.00000000000000     
+ !
+ !  Finished Reading SPONGE File: NO SPONGE NODES
+ !  SPONGE NODES  =           0
+ !
+ !
+ !
+ !                SIGMA LAYER INFO     
+ SIGMA TYPE:UNIFORM
+  k             z           zz           dz           dzz
+     1  -0.00000000  -0.05000000   0.10000000   0.10000000
+     2  -0.10000000  -0.15000000   0.10000000   0.10000001
+     3  -0.20000000  -0.25000001   0.10000001   0.10000000
+     4  -0.30000001  -0.35000001   0.09999999   0.09999999
+     5  -0.40000001  -0.45000000   0.09999999   0.10000001
+     6  -0.50000000  -0.55000001   0.10000002   0.09999999
+     7  -0.60000002  -0.65000001   0.09999996   0.09999999
+     8  -0.69999999  -0.75000000   0.10000002   0.09999999
+     9  -0.80000001  -0.84999999   0.09999996   0.09999999
+    10  -0.89999998  -0.94999999   0.10000002   0.00000000
+    11  -1.00000000  -1.04999998   0.00000000   0.00000000
+ !
+ ! BCOND TYPE             : TOTAL BC NODES; BC NODES IN EACH DOMAIN
+ !  IOBCN                 :     0 =>      0,
+ !  IBCN(1)               :     0 =>      0,
+ !  IBCN(2)               :     0 =>      0,
+ !  IBCN(3)               :     0 =>      0,
+ !  IBCN(4)               :     0 =>      0,
+ !  IBCN(5)               :     0 =>      0,
+ !
+ !           SETTING UP TRIS/ELEMENTS/EDGES/CVS          
+ !
+ !  NEIGHBOR FINDING      :    COMPLETE
+ !  ISONB SETTING         :    COMPLETE
+ !  NBVE/NBVT             :    COMPLETE
+ !  EDGE SETUP            :    COMPLETE
+ !  NISBCE/LISBCE/EPOR    :    COMPLETE
+ !  TRIS/EDGES/CVOLS      :    COMPLETE
+ !  CELL AREA             :    COMPLETE
+ !
+ !           SETTING UP LINEAR INTEROPOLATION COEFFICIENTS
+ !
+ !  INTERP COEFFICIENTS   :    COMPLETE
+ ! //////////////////////////////////////////////
+ ! NO NORTH POLE FOUND; PROCEED WITH SPHERICAL MODEL!
+ ! //////////////////////////////////////////////
+ !
+ !           SETTING UP OPEN BOUNDARY CONDITIONS
+ !
+         STRUCTURE:              ECOPARI
+ !
+ !           SETTING UP PRESCRIBED BOUNDARY CONDITIONS   
+ !
+ ! TIDAL ELEVATION FORCING IS EITHER IN NESTING OR OFF!
+ ! OPEN BOUNDARY TEMPERATURE NUDGING IS OFF!
+ ! OPEN BOUNDARY SALINITY NUDGING IS OFF!
+ ! OPEN BOUNDARY BIOLOGICAL NUDGING IS OFF!
+ ! THERE ARE NO RIVERS IN THIS MODEL
+ ! SURFACE HEAT FORCING IS OFF!
+ ! SURFACE WIND FORCING IS OFF!
+ ! SURFACE PRECIPITATION FORCING IS OFF!
+ ! SURFACE AIR PRESSURE FORCING IS OFF!
+ !  GROUND WATER FORCING IS OFF!
+ ! ICING MODEL IS OFF!
+ ! ICE MODEL IS OFF!
+ !
+ !           SETTING INITIAL CONDITIONS 
+ !
+ ! INITIALIZING SEA SURFACE HEIGHT
+ ! INITIALIZING VELOCITY FIELDS
+ ! INITIALIZING TURBULENCE FIELDS
+ ! INITIALIZING TEMPERATURE AND SALINITY
+ ! INITIALIZING BIOLOGICAL VARIABLES
+ !==============================================================
+ ! SETTING UP NCDIO: CREATING AND DUMPING OUTPUT FILE META DATA
+ !==============================================================
+ ! FINISHED NCDIO SETUP!
+ !==============================================================
+ ! 
+ !           SETTING UP NESTING IO
+ ! Time Series Probes are off
+ !====================================================
+ !====================================================
+ !============== STARTING MAIN LOOP AT:===============
+ !        0 1998-01-01T00:00:00.000000      UNKNOWN       -1.0000  |                    |
+ !====================================================
+ !===================INITIAL CONDITIONS======================
+ !  QUANTITY              :     AVG           MAX         MIN
+ !  EXTERNAL UVEL         :    0.000000    0.000000    0.000000
+ !  EXTERNAL VVEL         :    0.000000    0.000000    0.000000
+ !  FREE SURFACE          :    0.000000    0.000000    0.000000
+ !  BATH DEPTH            :  110.000000  110.000000  110.000000
+ !  INTERNAL UVEL         :    0.000000    0.000000    0.000000
+ !  INTERNAL VVEL         :    0.000000    0.000000    0.000000
+ !  SALINITY              :   35.000000   35.000000   35.000000
+ !  TEMPERATURE           :   10.000000   10.000000   10.000000
+ !  TURBULENT KE          :    0.000000    0.000000    0.000000
+ !  TURB KE*L             :    0.000000    0.000000    0.000000
+ !  TURB LENGTH SCALE     :    0.900000    1.000000    0.000000
+ !  KM                    :    0.001800    0.002000    0.000000
+ !  KQ                    :    0.001800    0.002000    0.000000
+ !  KH                    :    0.001800    0.002000    0.000000
+ !  DENSITY               : 1026.971410 1026.971410 1026.971410
+ !  DEPTH                 :  110.000000  110.000000  110.000000
+ !  WET/DRY INFO          :   #WET       #DRY             %WET
+ !  NO DRY POINTS          
+ !====================================================
+ !====================================================
+ !====================================================
+ DBG LT_ECO entry, npl_full=         135
+<table of ecosystem variables>
+ (ccpl : location at ccpl array)
+ (fixed: fixed location independent of input condition)
+
+variable: ccpl: fixed
+ phy( 1):    1:     1
+ phy( 2):    2:     2
+ phy( 3):    3:     3
+ sqn( 1):    4:    11
+ sqn( 2):    5:    12
+ sqn( 3):    6:    13
+ sqp( 1):    7:    21
+ sqp( 2):    8:    22
+ sqp( 3):    9:    23
+ zoo( 1):   10:    31
+ poc( 1):   11:    41
+ poc( 2):   12:    42
+ poc( 3):   13:    43
+ pon( 1):   14:    51
+ pon( 2):   15:    52
+ pon( 3):   16:    53
+ pop( 1):   17:    61
+ pop( 2):   18:    62
+ pop( 3):   19:    63
+ doc( 1):   20:    71
+ doc( 2):   21:    72
+ doc( 3):   22:    73
+ don( 1):   23:    81
+ don( 2):   24:    82
+ don( 3):   25:    83
+ dop( 1):   26:    91
+ dop( 2):   27:    92
+ dop( 3):   28:    93
+ adoc   :   29:   101
+ bac( 1):   30:   102
+ po4    :   31:   122
+ nh4    :   32:   123
+ no2    :   33:   124
+ no3    :   34:   125
+ sio2   :   35:   126
+ h2s    :   36:   127
+ sss    :   37:   128
+ fe     :   38:   129
+ feoh3  :   39:   130
+ mn     :   40:   131
+ mno2   :   41:   132
+ al     :   42:   133
+ alpo4  :   43:   134
+ do     :   44:   135
+<table of ecosystem variables>
+ (ccbt : location at ccbt array)
+ (fixed: fixed location independent of input condition)
+
+variable: ccbt: fixed
+ mei( 1):    1:     1
+ mdf( 1):    2:    11
+ bba    :    3:    31
+ dnb    :    4:    32
+ bma    :    5:    33
+ det( 1):    6:    34
+ det( 2):    7:    35
+ det( 3):    8:    36
+ det( 1):    9:    44
+ det( 2):   10:    45
+ det( 3):   11:    46
+ det( 1):   12:    54
+ det( 2):   13:    55
+ det( 3):   14:    56
+ adoc   :   15:    64
+ doc( 1):   16:    65
+ doc( 2):   17:    66
+ doc( 3):   18:    67
+ don( 1):   19:    75
+ don( 2):   20:    76
+ don( 3):   21:    77
+ dop( 1):   22:    85
+ dop( 2):   23:    86
+ dop( 3):   24:    87
+ po4    :   25:    95
+ nh4    :   26:    96
+ no2    :   27:    97
+ no3    :   28:    98
+ h2s    :   29:    99
+ sss    :   30:   100
+ so4    :   31:   101
+ spo4   :   32:   102
+ snh4   :   33:   103
+ fpo4   :   34:   104
+ fe     :   35:   105
+ feoh3  :   36:   106
+ mn     :   37:   107
+ mno2   :   38:   108
+ fes    :   39:   109
+ al     :   40:   110
+ alpo4  :   41:   111
+ do     :   42:   112
+ Max of phy, zoo, pz, bac and pom =
+           3           1           0           1           3
+ Max of mei, mdf and msf =
+           1           1           0
+ Max bivalve =           1
+ !   IINT         SIMTIME(UTC)            FINISH IN       SECS/IT   PERCENT COMPLETE   
+ !        1 1998-01-01T00:01:40.000000   0000:00:00:00     0.0129  |                    |
+ !        2 1998-01-01T00:03:20.000000   0000:00:00:00     0.0076  |=                   |
+ !        3 1998-01-01T00:05:00.000000   0000:00:00:00     0.0059  |=                   |
+ !        4 1998-01-01T00:06:40.000000   0000:00:00:00     0.0049  |==                  |
+ !        5 1998-01-01T00:08:20.000000   0000:00:00:00     0.0044  |==                  |
+ !        6 1998-01-01T00:10:00.000000   0000:00:00:00     0.0041  |===                 |
+ !        7 1998-01-01T00:11:40.000000   0000:00:00:00     0.0038  |===                 |
+ !        8 1998-01-01T00:13:20.000000   0000:00:00:00     0.0036  |====                |
+ !        9 1998-01-01T00:15:00.000000   0000:00:00:00     0.0034  |=====               |
+ !       10 1998-01-01T00:16:40.000000   0000:00:00:00     0.0033  |=====               |
+ !   IINT         SIMTIME(UTC)            FINISH IN       SECS/IT   PERCENT COMPLETE   
+ !       11 1998-01-01T00:18:20.000000   0000:00:00:00     0.0032  |======              |
+ !       12 1998-01-01T00:20:00.000000   0000:00:00:00     0.0031  |======              |
+ !       13 1998-01-01T00:21:40.000000   0000:00:00:00     0.0030  |=======             |
+ !       14 1998-01-01T00:23:20.000000   0000:00:00:00     0.0029  |=======             |
+ !       15 1998-01-01T00:25:00.000000   0000:00:00:00     0.0029  |========            |
+ !       16 1998-01-01T00:26:40.000000   0000:00:00:00     0.0028  |========            |
+ !       17 1998-01-01T00:28:20.000000   0000:00:00:00     0.0028  |=========           |
+ !       18 1998-01-01T00:30:00.000000   0000:00:00:00     0.0027  |==========          |
+ !       19 1998-01-01T00:31:40.000000   0000:00:00:00     0.0027  |==========          |
+ !       20 1998-01-01T00:33:20.000000   0000:00:00:00     0.0026  |===========         |
+ !   IINT         SIMTIME(UTC)            FINISH IN       SECS/IT   PERCENT COMPLETE   
+ !       21 1998-01-01T00:35:00.000000   0000:00:00:00     0.0026  |===========         |
+ !       22 1998-01-01T00:36:40.000000   0000:00:00:00     0.0026  |============        |
+ !       23 1998-01-01T00:38:20.000000   0000:00:00:00     0.0025  |============        |
+ !       24 1998-01-01T00:40:00.000000   0000:00:00:00     0.0025  |=============       |
+ !       25 1998-01-01T00:41:40.000000   0000:00:00:00     0.0025  |=============       |
+ !       26 1998-01-01T00:43:20.000000   0000:00:00:00     0.0025  |==============      |
+ !       27 1998-01-01T00:45:00.000000   0000:00:00:00     0.0024  |===============     |
+ !       28 1998-01-01T00:46:40.000000   0000:00:00:00     0.0024  |===============     |
+ !       29 1998-01-01T00:48:20.000000   0000:00:00:00     0.0024  |================    |
+ !       30 1998-01-01T00:50:00.000000   0000:00:00:00     0.0024  |================    |
+ !   IINT         SIMTIME(UTC)            FINISH IN       SECS/IT   PERCENT COMPLETE   
+ !       31 1998-01-01T00:51:40.000000   0000:00:00:00     0.0023  |=================   |
+ !       32 1998-01-01T00:53:20.000000   0000:00:00:00     0.0023  |=================   |
+ !       33 1998-01-01T00:55:00.000000   0000:00:00:00     0.0023  |==================  |
+ !       34 1998-01-01T00:56:40.000000   0000:00:00:00     0.0023  |==================  |
+ !       35 1998-01-01T00:58:20.000000   0000:00:00:00     0.0023  |=================== |
+ !       36 1998-01-01T01:00:00.000000   0000:00:00:00     0.0022  |====================|
+ TADA!
