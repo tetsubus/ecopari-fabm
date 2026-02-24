@@ -1,0 +1,608 @@
+!Lake Shinji and Nakaumi 200m
+
+!&size
+!   mx=50  my=18  mz=63           ! problem size
+!/
+
+&size
+   mx=217  my=96  mz=67           ! problem size
+/
+
+!&size
+!  mxpe=24 mype=12                         ! 領域分割数
+!  mx=10 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9   !217
+!  my=8 8 8 8 8 8 8 8 8 8 8 8   !96
+!  mz=67                                  ! problem size
+!/
+
+!&size
+!  mxpe=16 mype=16                         ! 領域分割数
+!  mx=14 14 14 14 14 14 14 14 14 13 13 13 13 13 13 13   !217
+!  my=6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6   !96
+!  mz=67                                  ! problem size
+!/
+
+!&size
+!  mxpe=16 mype=8                         ! 領域分割数
+!  mx=14 14 14 14 14 14 14 14 14 13 13 13 13 13 13 13   !217
+!  my=12 12 12 12 12 12 12 12   !96
+!  mz=67                                  ! problem size
+!/
+
+!&size
+!  mxpe=20 mype=8                         ! 領域分割数
+!  mx=11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 10 10 10   !217
+!  my=12 12 12 12 12 12 12 12   !96
+!  mz=67                                  ! problem size
+!/
+
+!&size
+!  mxpe=5 mype=2                         ! 領域分割数
+!  mx=44 44 43 43 43   !217
+!  my=48 48   !96
+!  mz=67                                  ! problem size
+!/
+
+!&size
+!  mxpe=28 mype=9                         ! 領域分割数
+!  mx=8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7
+!  my=11,11,11,11,11,11,10,10,10
+!  mz=67                                  ! problem size
+!/
+
+&grid
+  dx=200  dy=200                ! delta-x, delta-y
+  z = -40.0 -30.0 -20.0 -15.0 -14.0 -13.0 -12.5 -12.0 -11.5 -11.0 -10.5 -10.0
+       -9.8 -9.6 -9.4 -9.2 -9.0 -8.8 -8.6 -8.4 -8.2 -8.0
+       -7.8 -7.6 -7.4 -7.2 -7.0 -6.8 -6.6 -6.4 -6.2 -6.0
+       -5.8 -5.6 -5.4 -5.2 -5.0 -4.8 -4.6 -4.4 -4.2 -4.0
+       -3.8 -3.6 -3.4 -3.2 -3.0 -2.8 -2.6 -2.4 -2.2 -2.0
+       -1.8 -1.6 -1.4 -1.2 -1.0 -0.8 -0.6 -0.4 -0.2 -0.0
+        0.2  0.4  0.6  0.8  1.0  5.0
+/
+
+!---------------------------------------------
+&history ijk = 49,29,60 / !(TP-0.3m) Center of Lake Shinji
+&history ijk = 49,29,59 / !(TP-0.5m)
+&history ijk = 49,29,58 / !(TP-0.7m)
+&history ijk = 49,29,56 / !(TP-1.1m)
+&history ijk = 49,29,51 / !(TP-2.1m)
+&history ijk = 49,29,48 / !(TP-2.8m)
+&history ijk = 49,29,46 / !(TP-3.1m)
+&history ijk = 49,29,41 / !(TP-4.1m)
+&history ijk = 49,29,38 / !(TP-4.7m)
+&history ijk = 49,29,36 / !(TP-5.1m)
+
+&history ijk = 92, 40, 61 /!(TP-0.1m) Ohashi River (Upstream)
+&history ijk = 92, 40, 59 /!(TP-0.5m)
+&history ijk = 92, 40, 57 /!(TP-0.9m)
+!&history ijk = 92, 40, 56 /!(TP-1.1m)
+&history ijk = 92, 40, 54 /!(TP-1.5m)
+&history ijk = 92, 40, 52 /!(TP-1.9m)
+!&history ijk = 92, 40, 51 /!(TP-2.1m)
+&history ijk = 92, 40, 49 /!(TP-2.5m)
+&history ijk = 92, 40, 47 /!(TP-2.9m)
+&history ijk = 92, 40, 46 /!(TP-3.1m)
+&history ijk = 92, 40, 44 /!(TP-3.5m)
+&history ijk = 92, 40, 41 /!(TP-4.1m)
+
+&history ijk = 123, 31, 61/ !(TP-0.1m) Ohashi River (Downstream)
+&history ijk = 123, 31, 59/ !(TP-0.5m)
+&history ijk = 123, 31, 57/ !(TP-0.9m)
+!&history ijk = 123, 31, 56/ !(TP-1.1m)
+&history ijk = 123, 31, 54/ !(TP-1.5m)
+&history ijk = 123, 31, 52/ !(TP-1.9m)
+!&history ijk = 123, 31, 51/ !(TP-2.1m)
+&history ijk = 123, 31, 49/ !(TP-2.5m)
+&history ijk = 123, 31, 47/ !(TP-2.9m)
+&history ijk = 123, 31, 44/ !(TP-3.5m)
+!&history ijk = 123, 31, 42/ !(TP-3.9m)
+
+!&history ijk = 153,39,61 / !(TP-0.1m) Center of Lake Nakaumi
+!&history ijk = 153,39,60 / !(TP-0.3m)
+!&history ijk = 153,39,56 / !(TP-1.1m)
+!&history ijk = 153,39,51 / !(TP-2.1m)
+!&history ijk = 153,39,46 / !(TP-3.1m)
+!&history ijk = 153,39,43 / !(TP-3.7m)
+!&history ijk = 153,39,41 / !(TP-4.1m)
+!&history ijk = 153,39,36 / !(TP-5.1m)
+!&history ijk = 153,39,33 / !(TP-5.7m)
+!&history ijk = 153,39,32 / !(TP-5.9m)
+
+&history ijk = 153,39,30 / !(TP-6.3m) N06
+&history ijk = 153,39,32 / !(TP-5.9m) N06
+&history ijk = 153,39,34 / !(TP-5.5m) N06
+&history ijk = 153,39,44 / !(TP-3.5m) N06
+&history ijk = 153,39,57 / !(TP-0.9m) N06
+&history ijk = 153,39,59 / !(TP-0.5m) N06
+
+&history ijk = 169,85,61/ !(TP-0.1m) Sakai Channel
+&history ijk = 169,85,56/ !(TP-1.1m)
+&history ijk = 169,85,41/ !(TP-4.1m)
+&history ijk = 169,85,36/ !(TP-5.1m)
+
+&history ijk = 141,69,31 / !(TP-6.1m) H01
+&history ijk = 141,69,59 / !(TP-0.5m) H01
+&history ijk = 133,53,33 / !(TP-4.7m) H02
+&history ijk = 133,53,59 / !(TP-0.5m) H02
+&history ijk = 130,32,47 / !(TP-2.9m) N01
+&history ijk = 130,32,59 / !(TP-0.5m) N01
+&history ijk = 136,37,39 / !(TP-4.6m) N02
+&history ijk = 136,37,59 / !(TP-0.5m) N02
+&history ijk = 166,37,49 / !(TP-6.46m) N03
+&history ijk = 166,37,59 / !(TP-0.5m) N03
+&history ijk = 183,27,33 / !(TP-5.75m) N04
+&history ijk = 183,27,59 / !(TP-0.5m) N04
+&history ijk = 152,28,35 / !(TP-5.3m) N05
+&history ijk = 152,28,59 / !(TP-0.5m) N05
+&history ijk = 159,61, 9 / !(TP-11.45m) N07
+&history ijk = 159,61,59 / !(TP-0.5m) N07
+&history ijk = 156,71,11 / !(TP-10.45m) N08
+&history ijk = 156,71,59 / !(TP-0.5m) N08
+
+&history ijk = 73,32,41 / !(TP-5.1m) S01
+&history ijk = 73,32,59 / !(TP-0.5m) S01
+&history ijk = 51,18,38 / !(TP-5.1m) S02
+&history ijk = 51,18,59 / !(TP-5.1m) S02
+&history ijk = 45,38,39 / !(TP-5.1m) S04
+&history ijk = 45,38,59 / !(TP-5.1m) S04
+&history ijk = 22,24,40 / !(TP-5.1m) S06
+&history ijk = 22,24,59 / !(TP-5.1m) S06
+&history ijk = 113,31,37 / !(TP-4.93m) S05
+&history ijk = 113,31,59 / !(TP-0.5m) S05
+&history ijk = 27,14,39 / !(TP-5.1m) S07
+&history ijk = 27,14,59 / !(TP-5.1m) S07
+&history ijk = 18,29,42 / !(TP-5.1m) S08
+&history ijk = 18,29,59 / !(TP-5.1m) S08
+
+&history ijk = 28,32,36 /
+
+&vertical ij = 49,29/
+&vertical ij = 92,40/
+&vertical ij = 123,31/
+&vertical ij = 153,39/
+&vertical ij = 169,85/
+
+!&output
+file   = 'vertical'            ! restart, result, history, vertical
+type   = 'spec'                ! 'step' or 'time' or 'spec'
+start  = 0
+end    = 99999999999
+! intrvl = 86400
+times = 15141600
+15152400
+16102800
+16113600
+16124400
+16189200
+16200000
+16210800
+16794000
+16804800
+16815600
+16826400
+/
+
+&map
+!  file='../map/All.200m.dep_mesh_Modified12.dep'      ! map-file name
+  file='../map/All.200m.dep_20260129.dep'      ! map-file name
+!  file='GA_depth.dat'      ! map-file name
+/
+
+&time  
+  istart  = 222758                   ! 計算を開始する時間ステップ数
+  iend    = 999999999           ! end time step
+  start  = 0
+!  end    = 1123200            ! 2015/1/14 0:00
+!  end    = 4060800            ! 2015/2/17 0:00
+!  end    = 5875200            ! 2015/3/10 0:00
+!  end    = 9676800            ! 2015/4/23 0:00
+!  end    = 12096000            ! 2015/5/21 0:00
+!  end    = 13392000            ! 2015/6/5 0:00
+!  end    = 14083200            ! 2015/6/13 0:00
+!  end    = 16848000            ! 2015/7/15 0:00
+!  end    = 18316800            ! 2015/8/1 0:00
+!  end    = 20995200            ! 2015/9/1 0:00
+!  end    = 22291200            ! 2015/9/16 0:00
+!  end    = 24796800            ! 2015/10/15 0:00
+!  end    = 27734400            ! 2015/11/18 0:00
+!  end    = 29030400            ! 2015/12/3 0:00
+  end    = 31536000            ! 2016/1/1 0:00
+  dt_max  =  300                ! max. of delta-t[s]
+  dt_min  =  5                 ! min. of delta-t[s]
+  dt_safe = 0.6                 ! safety factor of delta-t
+/
+
+&matrix
+  max_iteration = 2000          ! 最大反復回数, default:1000
+  eps_a         = 1.0e-12       ! default:1e-12
+  eps_r         = 1.0e-12       ! default:1e-12
+  lnrmbcg       = 1             ! 行列ソルバーの判定条件, default:2
+/
+
+&control
+  lcal_flow  = T
+  lcal_press = F                 ! cal. full-3D
+  lcal_temp  = T                  ! cal. temp.
+  lcal_salt  = T                  ! cal. salinity
+  lcal_eco   = T                  ! cal. ecosystem.
+  lcal_wds   = F                  !冠水･干出による移動境界あり
+  lcal_adj   = T                   !対流調節を行う
+  lcal_temp_b = T                !流動のみでも泥温計算
+! lcal_bt_only = F              !底生系のみオフライン計算
+
+  turb_type  = 'SGS','Richardson' ! 乱流モデルの選択 ['SGS', 'Mellor-Yamada', 'Hosoda', 'Richardson', 'Nakamura1', 'Nakamura2', 'Yoon', 'Sasaki', 'Henderson']
+  opnbc_type = 'Sommerfeld'        ! 開境界モデルの選択 ['free', 'R&B', 'Sommerfeld', 'Hino', 'file']
+/
+
+&scheme                         ! 1.0=2nd CDS, 1/3=3rd
+ param_scheme_v_h=0.333333      ! velocity(horizontal)
+ param_scheme_t_h=0.333333      ! temperature(horizontal)
+ param_scheme_s_h=0.333333      ! salinity(horizontal)
+ param_scheme_v_v=1.00          ! velocity(vertical)
+ param_scheme_t_v=1.00          ! temperature(vertical)
+ param_scheme_s_v=1.00          ! salinity(vertical)
+ PARAM_SCHEME_PL_H = 0.33333
+ PARAM_SCHEME_PL_V = 1.000
+/
+
+&density
+  model = 'Knudsen'             ! 'const','drdt','knudsen'
+  r0   = 1020.0                 ! standard density
+/ 
+
+&eco_benthic
+!  file_bt    = 'benthic-800m.csv'
+!  file_wsed  = 'sedimentation-800m.txt'
+!  level_bt
+!  level_wsed
+  z_benthic=0.0, 0.002, 0.005, 0.01, 0.02, 0.04, 0.06, 0.1, 0.2, 0.5, 1.0
+!  w_benthic
+  sed_phi = 0.9
+  sed_rho = 2600
+  w_sed = 0
+  dt_source  = -1
+/
+
+&property
+  gravity       = -9.8D0             ! Gravity [m/s2]
+  gammas        = 6.0D-4                ! 豬ｷ豌ｴ髱｢縺ｮ鞫ｩ謫ｦ菫よ焚
+  gammab        = 0.0026             ! 豬ｷ蠎暮擇縺ｮ鞫ｩ謫ｦ菫よ焚
+  gammah        = 0.0D0              ! 驩帷峩髱｢縺ｮ鞫ｩ謫ｦ菫よ焚
+  latitude      = 35.400             ! 邱ｯ蠎ｦ[deg]
+  heat_capacity = 4.12D3            ! Heat capacity of sea water [J/kg/K]
+  viscosity_h   = 100.D0             ! Viscosity (horizontal) [m2/s]
+  diffusion_t_h = 50.D0              ! Thermal diffusivity (horizontal) [m2/s]
+  diffusion_s_h = 50.D0              ! Diffusivity (horizontal) [m2/s]
+  viscosity_v   = 0.1D-3             ! Viscosity (vertical) [m2/s]
+  diffusion_t_v = 0.1D-3             ! Thermal diffusivity (vertical) [m2/s]
+  diffusion_s_v = 0.1D-3             ! Diffusivity (vertical) [m2/s]
+  diffusion_t_b = 1.47D-7
+/
+
+&turb_0eq                        ! 0譁ｹ遞句ｼ丈ｹｱ豬√Δ繝・Ν縺ｮ螳壽焚
+ sgs_const = 0.12
+   sc_h      = 0.9               ! 水平方向乱流Schmidt数
+   pr_h      = 0.9               ! 水平方向乱流Prandtl数
+   sc_v      = 1.0               ! 鉛直方向乱流Schmidt数
+   pr_v      = 1.0               ! 鉛直方向乱流Prandtl数
+
+! ! Richardson(???,1991)
+  richardson_alfa_v    =  5.2d0       ! g(Ri)=(1+a*Ri)** ?av(5.2)
+  richardson_beta_v    = -1.0d0       ! g(Ri)=(1+a*Ri)** ? v(-1)
+  richardson_alfa_t    =  3.3333333d0 ! f(Ri)=(1+a*Ri**?)** ?at(10/3) Munk and Anderson
+  richardson_beta_t    = -1.5d0       ! f(Ri)=(1+a*Ri**?)** ? t(-3/2)
+  richardson_gamma_t   =  1.0d0       ! f(Ri)=(1+a*Ri**?)** ??t(1)
+  richardson_alfa_s    =  3.3333333d0 ! f(Ri)=(1+a*Ri**?)** ?as(10/3)
+  richardson_beta_s    = -1.5d0       ! f(Ri)=(1+a*Ri**?)** ? s(-3/2)
+  richardson_gamma_s   =  1.0d0       ! f(Ri)=(1+a*Ri**?)** ??s(1)
+/
+
+&initial           ! initial value
+! t = 4
+! s = 3
+! h = 0.0
+ file = '../2025_231/restart'    ! time縺ｧistart>=0
+/
+
+&bc_tide                          ! 貎ｮ菴阪・蠅・阜譚｡莉ｶ
+  startup = 86400                 ! 謖ｯ蟷・・遶九■荳翫′繧頑凾髢甜s]
+!  file = '/sqfs2/cmc/1/work/jh230015/z6b268/GA/Lake_Shinji/tide/tide_mihonoseki20150101-20151231.dat'     ! 貎ｮ菴阪・繝輔ぃ繧､繝ｫ蜷
+  file = '../tide/tide_mihonoseki20150101-20151231.dat'     ! 貎ｮ菴阪・繝輔ぃ繧､繝ｫ蜷
+  index = 218, 218, 0, 97         ! 開境界位置(iMin, iMax, jMin, jMax)
+/
+
+&weather
+  heat_flux = t                     ! calculate convective heat flux or not
+!  file = '/sqfs2/cmc/1/work/jh230015/z6b268/GA/Lake_Shinji/weather/weatherMatsue_20150101-20151231.dat'      ! 豌苓ｱ｡繝輔ぃ繧､繝ｫ蜷
+  file = '../weather/weatherMatsue_20150101-20151231.dat'      ! 豌苓ｱ｡繝輔ぃ繧､繝ｫ蜷
+  filetype = 'Text'                       !['Text', 'NetCDF']
+  cycle = -1.0d0                          !
+  ALBEDO       = 7.0D-2             ! アルベード[-]; 0.06-0.08
+  EPSILON      = 0.96D0             ! 長波放射の射出率[-]
+  COEF_EXT     = 0.8D0              ! 光の消散係数[1/m]
+  COEF_WIND10M = 1.0D0              ! 気象ファイルの風速と、10m地点の風速比[-]
+  ce1=1.85d-3
+  ce2=1.95d-3
+  lvap =  2453000.0d0 !J/kg]
+  cap = 1005.0d0                          !
+  aesat = 7.5d0                           !
+  besat = 237.3d0                         !
+  fesat = 6.1078d0                        !
+/
+
+&open_boundary
+  type_t    = 'file'
+  type_s    = 'file'
+  type_pl   = 'file'
+!  file      = '/sqfs2/cmc/1/work/jh230015/z6b268/GA/Lake_Shinji/obc/obc20150101-20151231_mihonoseki_upp.dat'
+  file      = '../obc/obc20150101-20151231_mihonoseki_upp.dat'
+  index     = 217, 218, 0, 97, 36, 67  ! up
+/
+
+&open_boundary
+  type_t    = 'file'
+  type_s    = 'file'
+  type_pl   = 'file'
+!  file      = '/sqfs2/cmc/1/work/jh230015/z6b268/GA/Lake_Shinji/obc/obc20150101-20151231_mihonoseki_btm.dat'
+  file      = '../obc/obc20150101-20151231_mihonoseki_btm.dat'
+  index     = 217, 218, 0, 97, 1, 35  ! Bottom
+/
+
+&output  
+ file   = 'history'             ! restart, result, history, vertical
+ type   = 'time'                ! 'step' or 'time'
+ start  = 0  
+ end    = 99999999999
+ intrvl = 21600                   ! 
+/
+
+!&output  
+ file   = 'result'              ! restart, result, history, vertical
+ type   = 'time'                ! 'step' or 'time'
+ start  = 0  
+ end    = 99999999999
+ intrvl = 864000
+ rslt_intrvl=8640000
+/
+
+!&output  
+ file   = 'result_netcdf'              ! restart, result, history, vertical
+ type   = 'time'                ! 'step' or 'time'
+ start  = 0  
+ end    = 99999999999
+ intrvl = 864000
+ rslt_intrvl=8640000
+ nc_deflate_level=0
+/
+
+&output  !restart繝輔ぃ繧､繝ｫ繧剃ｸ螳夐俣髫斐〒蜃ｺ蜉
+ file   = 'restart'             ! restart, result, history, vertical
+ type   = 'time'                ! 'step' or 'time'
+ start  = 0
+ end    = 99999999999
+! intrvl = 7776000   !90days
+ intrvl = 2592000   !30days
+! intrvl = 86400                 ! 12h
+! intrvl = 43200                 ! 12h
+! intrvl = 864000              ! 10day
+/
+
+&river file='../river/Correced_RD_2015_Hii_River_Kamijima_4.riv'       nindx=1 index=3,3,20,20 angle=90 width=200 bottom=-1 /
+&river file='../river/20150101-20151231_02iinashigawa_2.riv'       nindx=1 index=169,169,27,27 angle=0 width=200 bottom=-1 /
+
+!&river file='../river/Correced_RD_2015_Hii_River_Kamijima.riv'       nindx=1 index=3,3,20,20 angle=90 width=200 bottom=-1 /
+!&river file='/sqfs2/cmc/1/work/jh230015/z6b268/GA/Lake_Shinji/river/2015/20150101-20151231_06funakawa.riv'     nindx=1 index=2,2,27,27 angle=90 width=200 bottom=-1 /  
+!&river file='/work/00/gr29/r29001/STOC_LT/Lake_S_N/2022/Input_Data/river/2015/20150101-20151231_07goemonngawa.riv'  nindx=1 index=8,8,9,9 angle=90 width=200 bottom=-1 /    
+!&river file='/work/00/gr29/r29001/STOC_LT/Lake_S_N/2022/Input_Data/river/2015/20150101-20151231_09shintatekawa.riv' nindx=1 index=15,15,3,3 angle=90 width=200 bottom=-1 /   
+!&river file='/work/00/gr29/r29001/STOC_LT/Lake_S_N/2022/Input_Data/river/2015/20150101-20151231_10sasougawa.riv'    nindx=1 index=22,22,7,7 angle=0 width=200 bottom=-1 /     
+!&river file='/work/00/gr29/r29001/STOC_LT/Lake_S_N/2022/Input_Data/river/2015/20150101-20151231_12kimachikawa.riv'  nindx=1 index=40,40,13,13 angle=0 width=200 bottom=-1 /  
+!&river file='/work/00/gr29/r29001/STOC_LT/Lake_S_N/2022/Input_Data/river/2015/20150101-20151231_14inbegawa.riv'     nindx=1 index=86,86,26,26 angle=0 width=200 bottom=-1 /  
+!&river file='/work/00/gr29/r29001/STOC_LT/Lake_S_N/2022/Input_Data/river/2015/20150101-20151231_16tamayugawa.riv'   nindx=1 index=70,70,21,21 angle=0 width=200 bottom=-1 /
+!&river file='/work/00/gr29/r29001/STOC_LT/Lake_S_N/2022/Input_Data/river/2015/20150101-20151231_15inogawa.riv'      nindx=1 index=22,22,34,34 angle=180 width=200 bottom=-1 /
+!&river file='/work/00/gr29/r29001/STOC_LT/Lake_S_N/2022/Input_Data/river/2015/20150101-20151231_08asakumigawa.riv'  nindx=1 index=112,112,38,38 angle=180 width=200 bottom=-1 /
+
+&ecosystem
+  start_day=0
+  start_hour=0.0
+  phy=1,1,1,0,0,0,0,0,0,0   ! 讀咲黄繝励Λ繝ｳ繧ｯ繝医Φ縺ｮ繧ｰ繝ｫ繝ｼ繝玲欠螳
+  zoo=1,0,0,0,0,0,0,0,0,0   ! 蜍慕黄繝励Λ繝ｳ繧ｯ繝医Φ縺ｮ繧ｰ繝ｫ繝ｼ繝玲欠螳
+  pz =0,0,0,0,0,0,0,0,0,0   ! 蜴溽函蜍慕黄縺ｮ繧ｰ繝ｫ繝ｼ繝玲欠螳
+  bac=1,0,0,0,0,0,0,0,0,0   ! 螂ｽ豌玲ｧ邏ｰ闖後・繧ｰ繝ｫ繝ｼ繝玲欠螳
+  pom=1,1,1,0,0,0,0,0,0,0   ! 諛ｸ豼∵・繝ｻ貅ｶ蟄俶・譛画ｩ溽黄縺ｮ繧ｰ繝ｫ繝ｼ繝玲欠螳
+  mei=0,0,0,0,0,0,0,0,0,0   ! 繝｡繧､繧ｪ繝吶Φ繝医せ縺ｮ繧ｰ繝ｫ繝ｼ繝玲欠螳
+  mdf=0,0,0,0,0,0,0,0,0,0   ! 蝣・ｩ咲黄鬟溯・・繧ｰ繝ｫ繝ｼ繝玲欠螳
+  msf=0,0,0,0,0,0,0,0,0,0   ! 諛ｸ豼∫黄鬟溯・・繧ｰ繝ｫ繝ｼ繝玲欠螳
+! z_benthic=0.0, 0.001, 0.002, 0.004, 0.008, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0
+! w_benthic    = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+  benthic_model = 'normal'  ! 蠎慕函邉ｻ繝｢繝・Ν縺ｮ繧ｿ繧､繝・detailed/normal/mix)
+!  egfile = "/sqfs2/cmc/1/work/jh230015/z6b268/GA/Lake_Shinji/eco/dummyeg217X96.dat"
+  egfile = "../eco/dummyeg217X96.dat"
+!  fishfile = "../eco/fish0.fish"
+  fishery_model = 'null'                  ! 魚類モデルの選択 ['null', 'normal', 'detailed']
+/
+
+&initial_pelagic
+  phy  = 8.04D-03 0.000078 0.000056 0.000099 0.000004 0.000015 0.000014 0.000012 0.000051 4.50D-05    ! 
+  sqn  = 2.81D-03 2.81D-03 2.81D-03 2.81D-03 2.81D-03 2.81D-03 2.81D-03 2.81D-03 2.81D-03 2.81D-03    !ecosystem.dat 縺ｮLehman縺ｮ蛟､縺九ｉ謗ｨ螳
+  sqp  = 1.85D-04 1.85D-04 1.85D-04 1.85D-04 1.85D-04 1.85D-04 1.85D-04 1.85D-04 1.85D-04 1.85D-04   !ecosystem.dat 縺ｮLehman縺ｮ蛟､縺九ｉ謗ｨ螳
+  zoo  = 0.002972 0.000157 0.000036 0.000126 0.000348 0.000084 0.000004 0.000004 0.000004 0.000002                    !
+  pz   = 1.06D-3, 1.17D-3                    ! ise /2
+  bac  = 1.43D-3                             ! ise /2
+  poc  = 1.92D-3 1.34D-2 3.83D-3             !
+  pon  = 0.003434524 6.25D-4 0.000767857             !
+  pop  = 0.000244624 1.00D-4 5.64516E-05             !
+  doc  = 0.67D-2 4.66D-2 1.33D-2             ! ise /2
+  don  = 7.78D-4 5.00D-4 2.58D-3             ! average 2012/01
+  dop  = 1.02D-4 3.91D-5 5.38D-5             ! average 2012/01
+  adoc = 1.11D-3                             ! ise /2
+  po4  = 2.34604E-05                             ! average 2012/01
+  nh4  = 5.36D-4                             ! average 2012/01
+  no2  = 2.11D-4                             ! average 2012/01(???)
+  no3  = 1.84D-2                             ! average 2012/01
+  sio2 = 0.835D-2                            ! ise /2
+  h2s  = 0.0D0
+  fe   = 1.0D-6
+  feoh3 = 1.0D-6
+  mn    = 0.0D0
+  mno2  = 0.0D0
+  do    = 3.330D-1
+/
+
+&initial_benthic !邇九￥繧薙ｈ繧・
+ mei     = 0.0
+ mdf     = 0.0
+ msf     = 0.0
+ bba     = 0.0
+ dnb     = 0.0
+ bma     = 0.0
+ detc(1) = 0.0
+ detc(2) = 0.0
+ detc(3) = 0.0
+ detn(1) = 0.0
+ detn(2) = 0.0
+ detn(3) = 0.0
+ detp(1) = 0.0
+ detp(2) = 0.0
+ detp(3) = 0.0
+ adoc    = 0.0
+ doc(1) = 0.0
+ doc(2) = 0.0
+ doc(3) = 0.0
+ don(1) = 0.0
+ don(2) = 0.0
+ don(3) = 0.0
+ dop(1) = 0.0
+ dop(2) = 0.0
+ dop(3) = 0.0
+ po4     = 0.0
+ nh4     = 0.0
+ no2     = 0.0
+ no3     = 0.0
+ h2s     = 0.0
+ so4     = 0.0
+ spo4    = 0.0
+ snh4    = 0.0
+ fpo4    = 0.0
+ fe      = 0.0
+ feoh3   = 0.0
+ mn      = 0.0
+ mno2    = 0.0
+ fes     = 0.0
+ do      = 0.0
+ tt      = 20.0
+/
+
+! 豬ｮ驕顔ｳｻ縺ｮ蜃ｺ蜉帛､画焚
+
+&output_pelagic
+  phy(1) = T,T,T,F,F,F,F,F,F,F
+  sqn(1) = T,T,T,F,F,F,F,F,F,F
+  sqp(1) = T,T,T,F,F,F,F,F,F,F
+  zoo(1) = F,F,F,F,F,F,F,F,F,F
+  poc(1) = T,T,T,F,F,F,F,F,F,F
+  pon(1) = T,T,T,F,F,F,F,F,F,F
+  pop(1) = T,T,T,F,F,F,F,F,F,F
+  doc(1) = T,T,T,F,F,F,F,F,F,F
+  don(1) = T,T,T,F,F,F,F,F,F,F
+  dop(1) = T,T,T,F,F,F,F,F,F,F
+  adoc   = T
+  bac(1) = T,F,F,F,F,F,F,F,F,F
+  pz(1)  = F,F,F,F,F,F,F,F,F,F
+  po4    = T
+  nh4    = T
+  no2    = T
+  no3    = T
+  sio2   = T
+  h2s    = F
+  fe     = F
+  feoh3  = F
+  mno2   = F
+  mn     = F
+  al     = F
+  alpo4  = F
+  sss    = F
+  do     = T
+/
+
+
+&eco_normal_benthic
+! file    = '/sqfs2/cmc/1/work/jh230015/z6b268/GA/Lake_Shinji/eco/sbmmsf.dat'
+ file    = '../eco/sbmmsf.dat'
+/
+
+!&eco_recover_benthic
+!  mei  = 1.0D-9, 1.0D-9, 1.0D-9
+!  mdf  = 1.0D-9, 1.0D-9, 1.0D-9
+!  msf  = 1.0D-9, 1.0D-9, 1.0D-9
+!  bba  = 1.0D-9
+!  dnb  = 1.0D-9
+!  bma  = 1.0D-9
+!/
+
+!&eco_diffusion_wb
+!  adoc  = 1.67D-9
+!  doc(1) = 1.67D-9
+!  doc(2) = 1.67D-9
+!  doc(3) = 1.67D-9
+!  don(1) = 1.67D-9
+!  don(2) = 1.67D-9
+!  don(3) = 1.67D-9
+!  dop(1) = 1.67D-9
+!  dop(2) = 1.67D-9
+!  dop(3) = 1.67D-9
+!  po4     = 1.0D-9                  ! 繝ｪ繝ｳ[molP/m3]
+!  nh4     = 1.0D-9                  ! 繧｢繝ｳ繝｢繝九い[molN/m3]
+!  no2     = 1.0D-9                  ! 莠懃｡晞・[molN/m3]
+!  no3     = 1.0D-9                  ! 遑晞・[molN/m3]
+!  h2s     = 1.0D-9                  ! 遑ｫ蛹匁ｰｴ邏[molS/m3]
+!  so4     = 1.0D-9                  ! 遑ｫ驟ｸ[molS/m3]
+!  spo4    = 1.0D-9                  ! 蝨溽ｲ貞ｭ仙精逹諷九Μ繝ｳ[molP/kg]
+!  snh4    = 1.0D-9                  ! 蝨溽ｲ貞ｭ仙精逹諷九い繝ｳ繝｢繝九い[molN/kg]
+!  fpo4    = 1.0D-9                 ! 驩・精逹諷九Μ繝ｳ[molP/kg]
+!  fe      = 1.0D-9                 ! 貅ｶ蟄俶・隨ｬ荳驩ЪmolFe/m3]
+!  feoh3   = 1.0D-9                  ! 豌ｴ驟ｸ蛹也ｬｬ莠碁延[molFe/kg]
+!  mn      = 1.0D-9                  ! 貅ｶ蟄俶・繝槭Φ繧ｬ繝ｳ[molMn/m3]
+!  mno2    = 1.0D-9                  ! 莠碁・蛹悶・繝ｳ繧ｬ繝ｳ[molMn/kg]
+!  fes     = 1.0D-9                  ! 遑ｫ蛹夜延[molFe/kg]
+!  do      = 1.0D-9                  ! 貅ｶ蟄倬・邏[molO2/m3]
+!/
+
+!&eco_diffusion_vb
+!  mei     = 1.0D-9                  ! 繝｡繧､繧ｪ繝吶Φ繝医せ[molC/kg]
+!  mdf     = 1.0D-9                  ! 蝣・ｩ咲黄鬟溯・molC/m2]
+!  msf     = 1.0D-9                  ! 諛ｸ豼∫黄鬟溯・molC/m2]
+!  bba     = 1.0D-9                  ! 蠎慕函螂ｽ豌玲ｧ邏ｰ闖啓molC/kg]
+!  dnb     = 1.0D-9                  ! 蠎慕函閼ｱ遯定曙[molC/kg]
+!  bma     = 1.0D-9                  ! 蠎慕函蠕ｮ邏ｰ阯ｻ鬘杣molC/kg]
+!  detc(1) = 1.0D-9 1.0D-9 1.0D-9    ! 繝・ヨ繝ｪ繧ｿ繧ｹ(轤ｭ邏)[molC/kg]
+!  detn(1) = 1.0D-9 1.0D-9 1.0D-9    ! 繝・ヨ繝ｪ繧ｿ繧ｹ(遯堤ｴ)[molN/kg]
+!  detp(1) = 1.0D-9 1.0D-9 1.0D-9    ! 繝・ヨ繝ｪ繧ｿ繧ｹ(繝ｪ繝ｳ)[molP/kg]
+!  doc(1)  = 1.0D-9 1.0D-9 1.0D-9    ! 貅ｶ蟄俶・譛画ｩ溽黄(轤ｭ邏)[molC/m3]
+!  don(1)  = 1.0D-9 1.0D-9 1.0D-9    ! 貅ｶ蟄俶・譛画ｩ溽黄(轤ｭ邏)[molC/m3]
+!  dop(1)  = 1.0D-9 1.0D-9 1.0D-9    ! 貅ｶ蟄俶・譛画ｩ溽黄(轤ｭ邏)[molC/m3]
+!  adoc    = 1.0D-9                  ! ADOC[molC/m3]
+!  po4     = 1.0D-9                  ! 繝ｪ繝ｳ[molP/m3]
+!  nh4     = 1.0D-9                  ! 繧｢繝ｳ繝｢繝九い[molN/m3]
+!  no2     = 1.0D-9                  ! 莠懃｡晞・[molN/m3]
+!  no3     = 1.0D-9                  ! 遑晞・[molN/m3]
+!  h2s     = 1.0D-9                  ! 遑ｫ蛹匁ｰｴ邏[molS/m3]
+!  so4     = 1.0D-9                  ! 遑ｫ驟ｸ[molS/m3]
+!  spo4    = 1.0D-9                  ! 蝨溽ｲ貞ｭ仙精逹諷九Μ繝ｳ[molP/kg]
+!  snh4    = 1.0D-9                  ! 蝨溽ｲ貞ｭ仙精逹諷九い繝ｳ繝｢繝九い[molN/kg]
+!  fpo4    = 1.0D-9                 ! 驩・精逹諷九Μ繝ｳ[molP/kg]
+!  fe      = 1.0D-9                 ! 貅ｶ蟄俶・隨ｬ荳驩ЪmolFe/m3]
+!  feoh3   = 1.0D-9                  ! 豌ｴ驟ｸ蛹也ｬｬ莠碁延[molFe/kg]
+!  mn      = 1.0D-9                  ! 貅ｶ蟄俶・繝槭Φ繧ｬ繝ｳ[molMn/m3]
+!  mno2    = 1.0D-9                  ! 莠碁・蛹悶・繝ｳ繧ｬ繝ｳ[molMn/kg]
+!  fes     = 1.0D-9                  ! 遑ｫ蛹夜延[molFe/kg]
+!  do      = 1.0D-9                  ! 貅ｶ蟄倬・邏[molO2/m3]
+!/
+
+!&reaction ijk  =  49,29,59   /          !  S03
+!&reaction ijk  = 153,39,59   /          !  N06
+!&reaction ijk  =  22,24,40   /          !  S06
+!&reaction ijk  =  18,29,42   /          !  S08
+!&reaction ijk  = 210,19,38   /          !  Yonago_Bay
+
+!&reaction_interval  reaction_intrvl = 864000   /

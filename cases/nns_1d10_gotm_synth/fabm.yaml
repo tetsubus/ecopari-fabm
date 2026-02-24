@@ -1,0 +1,5 @@
+instances:
+  ecopari:
+    model: ecopari/pelagic
+    initialization:
+      PHY_1___: 0.001

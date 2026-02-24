@@ -1,0 +1,2475 @@
+ ------------------------------------------------------------------------
+ GOTM started on 2026/02/24 at 16:18:48
+ ------------------------------------------------------------------------
+    initialize_gotm
+ ------------------------------------------------------------------------
+        Reading configuration from: gotm.yaml
+        configuring modules ....
+    init_airsea_yaml
+        done
+            
+ WARNING: surface/ice section in gotm.yaml is ignored because GOTM was compiled 
+ without STIM.
+            
+ To change this, specify -DGOTM_USE_STIM=ON when running cmake, then rebuild GOT
+ M.
+    init_observations_yaml
+    init_stokes_drift_yaml
+        done
+    init_turbulence_yaml
+        done.
+            
+ WARNING: cvmix section in gotm.yaml is ignored because GOTM was compiled withou
+ t CVMix.
+            
+ To change this, specify -DGOTM_USE_CVMIX=ON when running cmake, then rebuild GO
+ TM.
+    init_gotm_fabm_yaml
+        Reading configuration from:
+            fabm.yaml
+        done.
+    init_meanflow_yaml
+        done
+    init_eqstate_yaml
+    init_density()
+            rho0=     1027.00000000000     
+        done.
+ Initializing ecopari...
+    model type: ecopari/pelagic
+    initialization succeeded.
+        NNS 1D10 - GOTM EcoPARI Synthetic 1y
+        Using           10  layers to resolve a depth of   110.000000000000     
+        The station PROVESS Northern Experiment 1998 is situated at (lat,long) 
+   59.3333300000000        1.28333300000000     
+        PROVESS Northern Experiment 1998
+        initializing modules....
+    init_input
+        done
+    init_time
+        Time step:         600.000000000000       seconds
+        Time format:               2
+        Start:          1998-01-01 00:00:00
+        Stop:           1999-01-01 00:00:00
+         ==>          365  day(s) and                      0  seconds ==> 
+                 52560  micro time steps
+    post_init_meanflow
+        allocation meanflow memory..
+        done.
+    init_tridiagonal
+        sigma coordinates (zooming possible)
+    post_init_observations
+        allocation observation memory..
+        Reading salinity from:
+            s_prof_sine_1y.dat
+        Reading temperature from:
+            t_prof_sine_1y.dat
+        Reading mimic_3d/ext_pressure/h from:
+            ext_press_sine_1y.dat
+        Reading mimic_3d/ext_pressure/dpdx from:
+            ext_press_sine_1y.dat
+        Reading mimic_3d/ext_pressure/dpdy from:
+            ext_press_sine_1y.dat
+        Using constant mimic_3d/w/height =   0.000000000000000E+000
+        Reading mimic_3d/zeta from:
+            zeta_sine_1y.dat
+        Using constant waves/Hs =   0.000000000000000E+000
+        Using constant waves/Tz =   0.000000000000000E+000
+        Using constant waves/phiw =   0.000000000000000E+000
+        done.
+    post_init_stokes_drift
+        allocation stokes_drift memory..
+        Stokes drift profile off.
+        done.
+    post_init_turbulence
+        allocation turbulence memory..
+        done.
+         
+        --------------------------------------------------------
+        You are using the k-epsilon model
+        with the following properties:
+         
+            ce1                                  =   1.44000000000000     
+            ce2                                  =   1.92000000000000     
+            ce3minus                             = -0.744378943205703     
+            ce3plus                              =   1.50000000000000     
+            cex                                  =   1.44000000000000     
+            ce4                                  =  0.000000000000000E+000
+            sig_k                                =   1.00000000000000     
+            sig_e                                =   1.20000006940017     
+         
+            Value of the stability function
+            in the log-law,                   cm0 =  0.527046261454271     
+            in shear-free turbulence,        cmsf =  0.730911229264925     
+         
+            von Karman constant,           kappa =  0.400000000000000     
+            homogeneous decay rate,            d =  -1.08695652173913     
+            spatial decay rate (no shear), alpha =  -7.95123897814375     
+            length-scale slope (no shear),     L =  4.595791868626506E-002
+            steady-state Richardson-number, Ri_st=  0.250000000000000     
+        --------------------------------------------------------
+         
+    Initial salinity: practical
+    Initial temperature: in-situ
+    
+    post_init_airsea
+    Air-sea fluxes:
+        Reading surface/u10 from:
+            meteo_sine_1y.dat
+        Reading surface/v10 from:
+            meteo_sine_1y.dat
+        Reading surface/airp from:
+            meteo_sine_1y.dat
+            applying scale factor =    100.000000000000     
+        Reading surface/airt from:
+            meteo_sine_1y.dat
+        Reading surface/hum from:
+            meteo_sine_1y.dat
+        Reading surface/cloud from:
+            meteo_sine_1y.dat
+        albedo method:            1
+        short wave radition:
+            swr=swr(t(lon),lat,cloud)
+        latent, sensible and momentum-fluxes:
+            using Kondo formulation
+        longwave radiation:
+            using Clark formulation
+        Using constant surface/precip =   0.000000000000000E+000
+        rain_impact=       F
+        calc_evaporation=  F
+        Reading surface/sst from:
+            sst_sine_1y.dat
+        Using constant surface/sss =   0.000000000000000E+000
+        done
+    register_all_variables()
+        register_coordinate_variables()
+        register_density_variables()
+        register_meanflow_variables()
+        register_airsea_variables()
+        register_observation_variables()
+        register_stokes_drift_variables()
+        register_turbulence_variables()
+        register_diagnostic_variables()
+    post_init_gotm_fabm
+        FABM pelagic state variables:
+            ecopari_PHY_1___  mmol/m3  ecopari PHY_1___
+            ecopari_PHY_2___  mmol/m3  ecopari PHY_2___
+            ecopari_PHY_3___  mmol/m3  ecopari PHY_3___
+            ecopari_PHY_4___  mmol/m3  ecopari PHY_4___
+            ecopari_PHY_5___  mmol/m3  ecopari PHY_5___
+            ecopari_PHY_6___  mmol/m3  ecopari PHY_6___
+            ecopari_PHY_7___  mmol/m3  ecopari PHY_7___
+            ecopari_PHY_8___  mmol/m3  ecopari PHY_8___
+            ecopari_PHY_9___  mmol/m3  ecopari PHY_9___
+            ecopari_PHY_10__  mmol/m3  ecopari PHY_10__
+            ecopari_SQN_1___  mmol/m3  ecopari SQN_1___
+            ecopari_SQN_2___  mmol/m3  ecopari SQN_2___
+            ecopari_SQN_3___  mmol/m3  ecopari SQN_3___
+            ecopari_SQN_4___  mmol/m3  ecopari SQN_4___
+            ecopari_SQN_5___  mmol/m3  ecopari SQN_5___
+            ecopari_SQN_6___  mmol/m3  ecopari SQN_6___
+            ecopari_SQN_7___  mmol/m3  ecopari SQN_7___
+            ecopari_SQN_8___  mmol/m3  ecopari SQN_8___
+            ecopari_SQN_9___  mmol/m3  ecopari SQN_9___
+            ecopari_SQN_10__  mmol/m3  ecopari SQN_10__
+            ecopari_SQP_1___  mmol/m3  ecopari SQP_1___
+            ecopari_SQP_2___  mmol/m3  ecopari SQP_2___
+            ecopari_SQP_3___  mmol/m3  ecopari SQP_3___
+            ecopari_SQP_4___  mmol/m3  ecopari SQP_4___
+            ecopari_SQP_5___  mmol/m3  ecopari SQP_5___
+            ecopari_SQP_6___  mmol/m3  ecopari SQP_6___
+            ecopari_SQP_7___  mmol/m3  ecopari SQP_7___
+            ecopari_SQP_8___  mmol/m3  ecopari SQP_8___
+            ecopari_SQP_9___  mmol/m3  ecopari SQP_9___
+            ecopari_SQP_10__  mmol/m3  ecopari SQP_10__
+            ecopari_ZOO_1___  mmol/m3  ecopari ZOO_1___
+            ecopari_ZOO_2___  mmol/m3  ecopari ZOO_2___
+            ecopari_ZOO_3___  mmol/m3  ecopari ZOO_3___
+            ecopari_ZOO_4___  mmol/m3  ecopari ZOO_4___
+            ecopari_ZOO_5___  mmol/m3  ecopari ZOO_5___
+            ecopari_ZOO_6___  mmol/m3  ecopari ZOO_6___
+            ecopari_ZOO_7___  mmol/m3  ecopari ZOO_7___
+            ecopari_ZOO_8___  mmol/m3  ecopari ZOO_8___
+            ecopari_ZOO_9___  mmol/m3  ecopari ZOO_9___
+            ecopari_ZOO_10__  mmol/m3  ecopari ZOO_10__
+            ecopari_POC_1___  mmol/m3  ecopari POC_1___
+            ecopari_POC_2___  mmol/m3  ecopari POC_2___
+            ecopari_POC_3___  mmol/m3  ecopari POC_3___
+            ecopari_POC_4___  mmol/m3  ecopari POC_4___
+            ecopari_POC_5___  mmol/m3  ecopari POC_5___
+            ecopari_POC_6___  mmol/m3  ecopari POC_6___
+            ecopari_POC_7___  mmol/m3  ecopari POC_7___
+            ecopari_POC_8___  mmol/m3  ecopari POC_8___
+            ecopari_POC_9___  mmol/m3  ecopari POC_9___
+            ecopari_POC_10__  mmol/m3  ecopari POC_10__
+            ecopari_PON_1___  mmol/m3  ecopari PON_1___
+            ecopari_PON_2___  mmol/m3  ecopari PON_2___
+            ecopari_PON_3___  mmol/m3  ecopari PON_3___
+            ecopari_PON_4___  mmol/m3  ecopari PON_4___
+            ecopari_PON_5___  mmol/m3  ecopari PON_5___
+            ecopari_PON_6___  mmol/m3  ecopari PON_6___
+            ecopari_PON_7___  mmol/m3  ecopari PON_7___
+            ecopari_PON_8___  mmol/m3  ecopari PON_8___
+            ecopari_PON_9___  mmol/m3  ecopari PON_9___
+            ecopari_PON_10__  mmol/m3  ecopari PON_10__
+            ecopari_POP_1___  mmol/m3  ecopari POP_1___
+            ecopari_POP_2___  mmol/m3  ecopari POP_2___
+            ecopari_POP_3___  mmol/m3  ecopari POP_3___
+            ecopari_POP_4___  mmol/m3  ecopari POP_4___
+            ecopari_POP_5___  mmol/m3  ecopari POP_5___
+            ecopari_POP_6___  mmol/m3  ecopari POP_6___
+            ecopari_POP_7___  mmol/m3  ecopari POP_7___
+            ecopari_POP_8___  mmol/m3  ecopari POP_8___
+            ecopari_POP_9___  mmol/m3  ecopari POP_9___
+            ecopari_POP_10__  mmol/m3  ecopari POP_10__
+            ecopari_DOC_1___  mmol/m3  ecopari DOC_1___
+            ecopari_DOC_2___  mmol/m3  ecopari DOC_2___
+            ecopari_DOC_3___  mmol/m3  ecopari DOC_3___
+            ecopari_DOC_4___  mmol/m3  ecopari DOC_4___
+            ecopari_DOC_5___  mmol/m3  ecopari DOC_5___
+            ecopari_DOC_6___  mmol/m3  ecopari DOC_6___
+            ecopari_DOC_7___  mmol/m3  ecopari DOC_7___
+            ecopari_DOC_8___  mmol/m3  ecopari DOC_8___
+            ecopari_DOC_9___  mmol/m3  ecopari DOC_9___
+            ecopari_DOC_10__  mmol/m3  ecopari DOC_10__
+            ecopari_DON_1___  mmol/m3  ecopari DON_1___
+            ecopari_DON_2___  mmol/m3  ecopari DON_2___
+            ecopari_DON_3___  mmol/m3  ecopari DON_3___
+            ecopari_DON_4___  mmol/m3  ecopari DON_4___
+            ecopari_DON_5___  mmol/m3  ecopari DON_5___
+            ecopari_DON_6___  mmol/m3  ecopari DON_6___
+            ecopari_DON_7___  mmol/m3  ecopari DON_7___
+            ecopari_DON_8___  mmol/m3  ecopari DON_8___
+            ecopari_DON_9___  mmol/m3  ecopari DON_9___
+            ecopari_DON_10__  mmol/m3  ecopari DON_10__
+            ecopari_DOP_1___  mmol/m3  ecopari DOP_1___
+            ecopari_DOP_2___  mmol/m3  ecopari DOP_2___
+            ecopari_DOP_3___  mmol/m3  ecopari DOP_3___
+            ecopari_DOP_4___  mmol/m3  ecopari DOP_4___
+            ecopari_DOP_5___  mmol/m3  ecopari DOP_5___
+            ecopari_DOP_6___  mmol/m3  ecopari DOP_6___
+            ecopari_DOP_7___  mmol/m3  ecopari DOP_7___
+            ecopari_DOP_8___  mmol/m3  ecopari DOP_8___
+            ecopari_DOP_9___  mmol/m3  ecopari DOP_9___
+            ecopari_DOP_10__  mmol/m3  ecopari DOP_10__
+            ecopari_ADOC____  mmol/m3  ecopari ADOC____
+            ecopari_BAC_1___  mmol/m3  ecopari BAC_1___
+            ecopari_BAC_2___  mmol/m3  ecopari BAC_2___
+            ecopari_BAC_3___  mmol/m3  ecopari BAC_3___
+            ecopari_BAC_4___  mmol/m3  ecopari BAC_4___
+            ecopari_BAC_5___  mmol/m3  ecopari BAC_5___
+            ecopari_BAC_6___  mmol/m3  ecopari BAC_6___
+            ecopari_BAC_7___  mmol/m3  ecopari BAC_7___
+            ecopari_BAC_8___  mmol/m3  ecopari BAC_8___
+            ecopari_BAC_9___  mmol/m3  ecopari BAC_9___
+            ecopari_BAC_10__  mmol/m3  ecopari BAC_10__
+            ecopari_PZ_1____  mmol/m3  ecopari PZ_1____
+            ecopari_PZ_2____  mmol/m3  ecopari PZ_2____
+            ecopari_PZ_3____  mmol/m3  ecopari PZ_3____
+            ecopari_PZ_4____  mmol/m3  ecopari PZ_4____
+            ecopari_PZ_5____  mmol/m3  ecopari PZ_5____
+            ecopari_PZ_6____  mmol/m3  ecopari PZ_6____
+            ecopari_PZ_7____  mmol/m3  ecopari PZ_7____
+            ecopari_PZ_8____  mmol/m3  ecopari PZ_8____
+            ecopari_PZ_9____  mmol/m3  ecopari PZ_9____
+            ecopari_PZ_10___  mmol/m3  ecopari PZ_10___
+            ecopari_PO4_____  mmol/m3  ecopari PO4_____
+            ecopari_NH4_____  mmol/m3  ecopari NH4_____
+            ecopari_NO2_____  mmol/m3  ecopari NO2_____
+            ecopari_NO3_____  mmol/m3  ecopari NO3_____
+            ecopari_SiO2____  mmol/m3  ecopari SiO2____
+            ecopari_H2S_____  mmol/m3  ecopari H2S_____
+            ecopari_SSS_____  mmol/m3  ecopari SSS_____
+            ecopari_Fe______  mmol/m3  ecopari Fe______
+            ecopari_FeOH3___  mmol/m3  ecopari FeOH3___
+            ecopari_Mn______  mmol/m3  ecopari Mn______
+            ecopari_MnO2____  mmol/m3  ecopari MnO2____
+            ecopari_Al______  mmol/m3  ecopari Al______
+            ecopari_AlPO4___  mmol/m3  ecopari AlPO4___
+            ecopari_DO______  mmol/m3  ecopari DO______
+        FABM bottom-bound state variables:
+        FABM surface-bound state variables:
+        FABM diagnostic variables defined on the full model domain:
+            ecopari_PHY_1____sms  mmol/m3 s-1  ecopari PHY_1___ sources-sinks
+            ecopari_PHY_1____w  m s-1  ecopari PHY_1___ vertical velocity
+            ecopari_PHY_2____sms  mmol/m3 s-1  ecopari PHY_2___ sources-sinks
+            ecopari_PHY_2____w  m s-1  ecopari PHY_2___ vertical velocity
+            ecopari_PHY_3____sms  mmol/m3 s-1  ecopari PHY_3___ sources-sinks
+            ecopari_PHY_3____w  m s-1  ecopari PHY_3___ vertical velocity
+            ecopari_PHY_4____sms  mmol/m3 s-1  ecopari PHY_4___ sources-sinks
+            ecopari_PHY_4____w  m s-1  ecopari PHY_4___ vertical velocity
+            ecopari_PHY_5____sms  mmol/m3 s-1  ecopari PHY_5___ sources-sinks
+            ecopari_PHY_5____w  m s-1  ecopari PHY_5___ vertical velocity
+            ecopari_PHY_6____sms  mmol/m3 s-1  ecopari PHY_6___ sources-sinks
+            ecopari_PHY_6____w  m s-1  ecopari PHY_6___ vertical velocity
+            ecopari_PHY_7____sms  mmol/m3 s-1  ecopari PHY_7___ sources-sinks
+            ecopari_PHY_7____w  m s-1  ecopari PHY_7___ vertical velocity
+            ecopari_PHY_8____sms  mmol/m3 s-1  ecopari PHY_8___ sources-sinks
+            ecopari_PHY_8____w  m s-1  ecopari PHY_8___ vertical velocity
+            ecopari_PHY_9____sms  mmol/m3 s-1  ecopari PHY_9___ sources-sinks
+            ecopari_PHY_9____w  m s-1  ecopari PHY_9___ vertical velocity
+            ecopari_PHY_10___sms  mmol/m3 s-1  ecopari PHY_10__ sources-sinks
+            ecopari_PHY_10___w  m s-1  ecopari PHY_10__ vertical velocity
+            ecopari_SQN_1____sms  mmol/m3 s-1  ecopari SQN_1___ sources-sinks
+            ecopari_SQN_1____w  m s-1  ecopari SQN_1___ vertical velocity
+            ecopari_SQN_2____sms  mmol/m3 s-1  ecopari SQN_2___ sources-sinks
+            ecopari_SQN_2____w  m s-1  ecopari SQN_2___ vertical velocity
+            ecopari_SQN_3____sms  mmol/m3 s-1  ecopari SQN_3___ sources-sinks
+            ecopari_SQN_3____w  m s-1  ecopari SQN_3___ vertical velocity
+            ecopari_SQN_4____sms  mmol/m3 s-1  ecopari SQN_4___ sources-sinks
+            ecopari_SQN_4____w  m s-1  ecopari SQN_4___ vertical velocity
+            ecopari_SQN_5____sms  mmol/m3 s-1  ecopari SQN_5___ sources-sinks
+            ecopari_SQN_5____w  m s-1  ecopari SQN_5___ vertical velocity
+            ecopari_SQN_6____sms  mmol/m3 s-1  ecopari SQN_6___ sources-sinks
+            ecopari_SQN_6____w  m s-1  ecopari SQN_6___ vertical velocity
+            ecopari_SQN_7____sms  mmol/m3 s-1  ecopari SQN_7___ sources-sinks
+            ecopari_SQN_7____w  m s-1  ecopari SQN_7___ vertical velocity
+            ecopari_SQN_8____sms  mmol/m3 s-1  ecopari SQN_8___ sources-sinks
+            ecopari_SQN_8____w  m s-1  ecopari SQN_8___ vertical velocity
+            ecopari_SQN_9____sms  mmol/m3 s-1  ecopari SQN_9___ sources-sinks
+            ecopari_SQN_9____w  m s-1  ecopari SQN_9___ vertical velocity
+            ecopari_SQN_10___sms  mmol/m3 s-1  ecopari SQN_10__ sources-sinks
+            ecopari_SQN_10___w  m s-1  ecopari SQN_10__ vertical velocity
+            ecopari_SQP_1____sms  mmol/m3 s-1  ecopari SQP_1___ sources-sinks
+            ecopari_SQP_1____w  m s-1  ecopari SQP_1___ vertical velocity
+            ecopari_SQP_2____sms  mmol/m3 s-1  ecopari SQP_2___ sources-sinks
+            ecopari_SQP_2____w  m s-1  ecopari SQP_2___ vertical velocity
+            ecopari_SQP_3____sms  mmol/m3 s-1  ecopari SQP_3___ sources-sinks
+            ecopari_SQP_3____w  m s-1  ecopari SQP_3___ vertical velocity
+            ecopari_SQP_4____sms  mmol/m3 s-1  ecopari SQP_4___ sources-sinks
+            ecopari_SQP_4____w  m s-1  ecopari SQP_4___ vertical velocity
+            ecopari_SQP_5____sms  mmol/m3 s-1  ecopari SQP_5___ sources-sinks
+            ecopari_SQP_5____w  m s-1  ecopari SQP_5___ vertical velocity
+            ecopari_SQP_6____sms  mmol/m3 s-1  ecopari SQP_6___ sources-sinks
+            ecopari_SQP_6____w  m s-1  ecopari SQP_6___ vertical velocity
+            ecopari_SQP_7____sms  mmol/m3 s-1  ecopari SQP_7___ sources-sinks
+            ecopari_SQP_7____w  m s-1  ecopari SQP_7___ vertical velocity
+            ecopari_SQP_8____sms  mmol/m3 s-1  ecopari SQP_8___ sources-sinks
+            ecopari_SQP_8____w  m s-1  ecopari SQP_8___ vertical velocity
+            ecopari_SQP_9____sms  mmol/m3 s-1  ecopari SQP_9___ sources-sinks
+            ecopari_SQP_9____w  m s-1  ecopari SQP_9___ vertical velocity
+            ecopari_SQP_10___sms  mmol/m3 s-1  ecopari SQP_10__ sources-sinks
+            ecopari_SQP_10___w  m s-1  ecopari SQP_10__ vertical velocity
+            ecopari_ZOO_1____sms  mmol/m3 s-1  ecopari ZOO_1___ sources-sinks
+            ecopari_ZOO_1____w  m s-1  ecopari ZOO_1___ vertical velocity
+            ecopari_ZOO_2____sms  mmol/m3 s-1  ecopari ZOO_2___ sources-sinks
+            ecopari_ZOO_2____w  m s-1  ecopari ZOO_2___ vertical velocity
+            ecopari_ZOO_3____sms  mmol/m3 s-1  ecopari ZOO_3___ sources-sinks
+            ecopari_ZOO_3____w  m s-1  ecopari ZOO_3___ vertical velocity
+            ecopari_ZOO_4____sms  mmol/m3 s-1  ecopari ZOO_4___ sources-sinks
+            ecopari_ZOO_4____w  m s-1  ecopari ZOO_4___ vertical velocity
+            ecopari_ZOO_5____sms  mmol/m3 s-1  ecopari ZOO_5___ sources-sinks
+            ecopari_ZOO_5____w  m s-1  ecopari ZOO_5___ vertical velocity
+            ecopari_ZOO_6____sms  mmol/m3 s-1  ecopari ZOO_6___ sources-sinks
+            ecopari_ZOO_6____w  m s-1  ecopari ZOO_6___ vertical velocity
+            ecopari_ZOO_7____sms  mmol/m3 s-1  ecopari ZOO_7___ sources-sinks
+            ecopari_ZOO_7____w  m s-1  ecopari ZOO_7___ vertical velocity
+            ecopari_ZOO_8____sms  mmol/m3 s-1  ecopari ZOO_8___ sources-sinks
+            ecopari_ZOO_8____w  m s-1  ecopari ZOO_8___ vertical velocity
+            ecopari_ZOO_9____sms  mmol/m3 s-1  ecopari ZOO_9___ sources-sinks
+            ecopari_ZOO_9____w  m s-1  ecopari ZOO_9___ vertical velocity
+            ecopari_ZOO_10___sms  mmol/m3 s-1  ecopari ZOO_10__ sources-sinks
+            ecopari_ZOO_10___w  m s-1  ecopari ZOO_10__ vertical velocity
+            ecopari_POC_1____sms  mmol/m3 s-1  ecopari POC_1___ sources-sinks
+            ecopari_POC_1____w  m s-1  ecopari POC_1___ vertical velocity
+            ecopari_POC_2____sms  mmol/m3 s-1  ecopari POC_2___ sources-sinks
+            ecopari_POC_2____w  m s-1  ecopari POC_2___ vertical velocity
+            ecopari_POC_3____sms  mmol/m3 s-1  ecopari POC_3___ sources-sinks
+            ecopari_POC_3____w  m s-1  ecopari POC_3___ vertical velocity
+            ecopari_POC_4____sms  mmol/m3 s-1  ecopari POC_4___ sources-sinks
+            ecopari_POC_4____w  m s-1  ecopari POC_4___ vertical velocity
+            ecopari_POC_5____sms  mmol/m3 s-1  ecopari POC_5___ sources-sinks
+            ecopari_POC_5____w  m s-1  ecopari POC_5___ vertical velocity
+            ecopari_POC_6____sms  mmol/m3 s-1  ecopari POC_6___ sources-sinks
+            ecopari_POC_6____w  m s-1  ecopari POC_6___ vertical velocity
+            ecopari_POC_7____sms  mmol/m3 s-1  ecopari POC_7___ sources-sinks
+            ecopari_POC_7____w  m s-1  ecopari POC_7___ vertical velocity
+            ecopari_POC_8____sms  mmol/m3 s-1  ecopari POC_8___ sources-sinks
+            ecopari_POC_8____w  m s-1  ecopari POC_8___ vertical velocity
+            ecopari_POC_9____sms  mmol/m3 s-1  ecopari POC_9___ sources-sinks
+            ecopari_POC_9____w  m s-1  ecopari POC_9___ vertical velocity
+            ecopari_POC_10___sms  mmol/m3 s-1  ecopari POC_10__ sources-sinks
+            ecopari_POC_10___w  m s-1  ecopari POC_10__ vertical velocity
+            ecopari_PON_1____sms  mmol/m3 s-1  ecopari PON_1___ sources-sinks
+            ecopari_PON_1____w  m s-1  ecopari PON_1___ vertical velocity
+            ecopari_PON_2____sms  mmol/m3 s-1  ecopari PON_2___ sources-sinks
+            ecopari_PON_2____w  m s-1  ecopari PON_2___ vertical velocity
+            ecopari_PON_3____sms  mmol/m3 s-1  ecopari PON_3___ sources-sinks
+            ecopari_PON_3____w  m s-1  ecopari PON_3___ vertical velocity
+            ecopari_PON_4____sms  mmol/m3 s-1  ecopari PON_4___ sources-sinks
+            ecopari_PON_4____w  m s-1  ecopari PON_4___ vertical velocity
+            ecopari_PON_5____sms  mmol/m3 s-1  ecopari PON_5___ sources-sinks
+            ecopari_PON_5____w  m s-1  ecopari PON_5___ vertical velocity
+            ecopari_PON_6____sms  mmol/m3 s-1  ecopari PON_6___ sources-sinks
+            ecopari_PON_6____w  m s-1  ecopari PON_6___ vertical velocity
+            ecopari_PON_7____sms  mmol/m3 s-1  ecopari PON_7___ sources-sinks
+            ecopari_PON_7____w  m s-1  ecopari PON_7___ vertical velocity
+            ecopari_PON_8____sms  mmol/m3 s-1  ecopari PON_8___ sources-sinks
+            ecopari_PON_8____w  m s-1  ecopari PON_8___ vertical velocity
+            ecopari_PON_9____sms  mmol/m3 s-1  ecopari PON_9___ sources-sinks
+            ecopari_PON_9____w  m s-1  ecopari PON_9___ vertical velocity
+            ecopari_PON_10___sms  mmol/m3 s-1  ecopari PON_10__ sources-sinks
+            ecopari_PON_10___w  m s-1  ecopari PON_10__ vertical velocity
+            ecopari_POP_1____sms  mmol/m3 s-1  ecopari POP_1___ sources-sinks
+            ecopari_POP_1____w  m s-1  ecopari POP_1___ vertical velocity
+            ecopari_POP_2____sms  mmol/m3 s-1  ecopari POP_2___ sources-sinks
+            ecopari_POP_2____w  m s-1  ecopari POP_2___ vertical velocity
+            ecopari_POP_3____sms  mmol/m3 s-1  ecopari POP_3___ sources-sinks
+            ecopari_POP_3____w  m s-1  ecopari POP_3___ vertical velocity
+            ecopari_POP_4____sms  mmol/m3 s-1  ecopari POP_4___ sources-sinks
+            ecopari_POP_4____w  m s-1  ecopari POP_4___ vertical velocity
+            ecopari_POP_5____sms  mmol/m3 s-1  ecopari POP_5___ sources-sinks
+            ecopari_POP_5____w  m s-1  ecopari POP_5___ vertical velocity
+            ecopari_POP_6____sms  mmol/m3 s-1  ecopari POP_6___ sources-sinks
+            ecopari_POP_6____w  m s-1  ecopari POP_6___ vertical velocity
+            ecopari_POP_7____sms  mmol/m3 s-1  ecopari POP_7___ sources-sinks
+            ecopari_POP_7____w  m s-1  ecopari POP_7___ vertical velocity
+            ecopari_POP_8____sms  mmol/m3 s-1  ecopari POP_8___ sources-sinks
+            ecopari_POP_8____w  m s-1  ecopari POP_8___ vertical velocity
+            ecopari_POP_9____sms  mmol/m3 s-1  ecopari POP_9___ sources-sinks
+            ecopari_POP_9____w  m s-1  ecopari POP_9___ vertical velocity
+            ecopari_POP_10___sms  mmol/m3 s-1  ecopari POP_10__ sources-sinks
+            ecopari_POP_10___w  m s-1  ecopari POP_10__ vertical velocity
+            ecopari_DOC_1____sms  mmol/m3 s-1  ecopari DOC_1___ sources-sinks
+            ecopari_DOC_1____w  m s-1  ecopari DOC_1___ vertical velocity
+            ecopari_DOC_2____sms  mmol/m3 s-1  ecopari DOC_2___ sources-sinks
+            ecopari_DOC_2____w  m s-1  ecopari DOC_2___ vertical velocity
+            ecopari_DOC_3____sms  mmol/m3 s-1  ecopari DOC_3___ sources-sinks
+            ecopari_DOC_3____w  m s-1  ecopari DOC_3___ vertical velocity
+            ecopari_DOC_4____sms  mmol/m3 s-1  ecopari DOC_4___ sources-sinks
+            ecopari_DOC_4____w  m s-1  ecopari DOC_4___ vertical velocity
+            ecopari_DOC_5____sms  mmol/m3 s-1  ecopari DOC_5___ sources-sinks
+            ecopari_DOC_5____w  m s-1  ecopari DOC_5___ vertical velocity
+            ecopari_DOC_6____sms  mmol/m3 s-1  ecopari DOC_6___ sources-sinks
+            ecopari_DOC_6____w  m s-1  ecopari DOC_6___ vertical velocity
+            ecopari_DOC_7____sms  mmol/m3 s-1  ecopari DOC_7___ sources-sinks
+            ecopari_DOC_7____w  m s-1  ecopari DOC_7___ vertical velocity
+            ecopari_DOC_8____sms  mmol/m3 s-1  ecopari DOC_8___ sources-sinks
+            ecopari_DOC_8____w  m s-1  ecopari DOC_8___ vertical velocity
+            ecopari_DOC_9____sms  mmol/m3 s-1  ecopari DOC_9___ sources-sinks
+            ecopari_DOC_9____w  m s-1  ecopari DOC_9___ vertical velocity
+            ecopari_DOC_10___sms  mmol/m3 s-1  ecopari DOC_10__ sources-sinks
+            ecopari_DOC_10___w  m s-1  ecopari DOC_10__ vertical velocity
+            ecopari_DON_1____sms  mmol/m3 s-1  ecopari DON_1___ sources-sinks
+            ecopari_DON_1____w  m s-1  ecopari DON_1___ vertical velocity
+            ecopari_DON_2____sms  mmol/m3 s-1  ecopari DON_2___ sources-sinks
+            ecopari_DON_2____w  m s-1  ecopari DON_2___ vertical velocity
+            ecopari_DON_3____sms  mmol/m3 s-1  ecopari DON_3___ sources-sinks
+            ecopari_DON_3____w  m s-1  ecopari DON_3___ vertical velocity
+            ecopari_DON_4____sms  mmol/m3 s-1  ecopari DON_4___ sources-sinks
+            ecopari_DON_4____w  m s-1  ecopari DON_4___ vertical velocity
+            ecopari_DON_5____sms  mmol/m3 s-1  ecopari DON_5___ sources-sinks
+            ecopari_DON_5____w  m s-1  ecopari DON_5___ vertical velocity
+            ecopari_DON_6____sms  mmol/m3 s-1  ecopari DON_6___ sources-sinks
+            ecopari_DON_6____w  m s-1  ecopari DON_6___ vertical velocity
+            ecopari_DON_7____sms  mmol/m3 s-1  ecopari DON_7___ sources-sinks
+            ecopari_DON_7____w  m s-1  ecopari DON_7___ vertical velocity
+            ecopari_DON_8____sms  mmol/m3 s-1  ecopari DON_8___ sources-sinks
+            ecopari_DON_8____w  m s-1  ecopari DON_8___ vertical velocity
+            ecopari_DON_9____sms  mmol/m3 s-1  ecopari DON_9___ sources-sinks
+            ecopari_DON_9____w  m s-1  ecopari DON_9___ vertical velocity
+            ecopari_DON_10___sms  mmol/m3 s-1  ecopari DON_10__ sources-sinks
+            ecopari_DON_10___w  m s-1  ecopari DON_10__ vertical velocity
+            ecopari_DOP_1____sms  mmol/m3 s-1  ecopari DOP_1___ sources-sinks
+            ecopari_DOP_1____w  m s-1  ecopari DOP_1___ vertical velocity
+            ecopari_DOP_2____sms  mmol/m3 s-1  ecopari DOP_2___ sources-sinks
+            ecopari_DOP_2____w  m s-1  ecopari DOP_2___ vertical velocity
+            ecopari_DOP_3____sms  mmol/m3 s-1  ecopari DOP_3___ sources-sinks
+            ecopari_DOP_3____w  m s-1  ecopari DOP_3___ vertical velocity
+            ecopari_DOP_4____sms  mmol/m3 s-1  ecopari DOP_4___ sources-sinks
+            ecopari_DOP_4____w  m s-1  ecopari DOP_4___ vertical velocity
+            ecopari_DOP_5____sms  mmol/m3 s-1  ecopari DOP_5___ sources-sinks
+            ecopari_DOP_5____w  m s-1  ecopari DOP_5___ vertical velocity
+            ecopari_DOP_6____sms  mmol/m3 s-1  ecopari DOP_6___ sources-sinks
+            ecopari_DOP_6____w  m s-1  ecopari DOP_6___ vertical velocity
+            ecopari_DOP_7____sms  mmol/m3 s-1  ecopari DOP_7___ sources-sinks
+            ecopari_DOP_7____w  m s-1  ecopari DOP_7___ vertical velocity
+            ecopari_DOP_8____sms  mmol/m3 s-1  ecopari DOP_8___ sources-sinks
+            ecopari_DOP_8____w  m s-1  ecopari DOP_8___ vertical velocity
+            ecopari_DOP_9____sms  mmol/m3 s-1  ecopari DOP_9___ sources-sinks
+            ecopari_DOP_9____w  m s-1  ecopari DOP_9___ vertical velocity
+            ecopari_DOP_10___sms  mmol/m3 s-1  ecopari DOP_10__ sources-sinks
+            ecopari_DOP_10___w  m s-1  ecopari DOP_10__ vertical velocity
+            ecopari_ADOC_____sms  mmol/m3 s-1  ecopari ADOC____ sources-sinks
+            ecopari_ADOC_____w  m s-1  ecopari ADOC____ vertical velocity
+            ecopari_BAC_1____sms  mmol/m3 s-1  ecopari BAC_1___ sources-sinks
+            ecopari_BAC_1____w  m s-1  ecopari BAC_1___ vertical velocity
+            ecopari_BAC_2____sms  mmol/m3 s-1  ecopari BAC_2___ sources-sinks
+            ecopari_BAC_2____w  m s-1  ecopari BAC_2___ vertical velocity
+            ecopari_BAC_3____sms  mmol/m3 s-1  ecopari BAC_3___ sources-sinks
+            ecopari_BAC_3____w  m s-1  ecopari BAC_3___ vertical velocity
+            ecopari_BAC_4____sms  mmol/m3 s-1  ecopari BAC_4___ sources-sinks
+            ecopari_BAC_4____w  m s-1  ecopari BAC_4___ vertical velocity
+            ecopari_BAC_5____sms  mmol/m3 s-1  ecopari BAC_5___ sources-sinks
+            ecopari_BAC_5____w  m s-1  ecopari BAC_5___ vertical velocity
+            ecopari_BAC_6____sms  mmol/m3 s-1  ecopari BAC_6___ sources-sinks
+            ecopari_BAC_6____w  m s-1  ecopari BAC_6___ vertical velocity
+            ecopari_BAC_7____sms  mmol/m3 s-1  ecopari BAC_7___ sources-sinks
+            ecopari_BAC_7____w  m s-1  ecopari BAC_7___ vertical velocity
+            ecopari_BAC_8____sms  mmol/m3 s-1  ecopari BAC_8___ sources-sinks
+            ecopari_BAC_8____w  m s-1  ecopari BAC_8___ vertical velocity
+            ecopari_BAC_9____sms  mmol/m3 s-1  ecopari BAC_9___ sources-sinks
+            ecopari_BAC_9____w  m s-1  ecopari BAC_9___ vertical velocity
+            ecopari_BAC_10___sms  mmol/m3 s-1  ecopari BAC_10__ sources-sinks
+            ecopari_BAC_10___w  m s-1  ecopari BAC_10__ vertical velocity
+            ecopari_PZ_1_____sms  mmol/m3 s-1  ecopari PZ_1____ sources-sinks
+            ecopari_PZ_1_____w  m s-1  ecopari PZ_1____ vertical velocity
+            ecopari_PZ_2_____sms  mmol/m3 s-1  ecopari PZ_2____ sources-sinks
+            ecopari_PZ_2_____w  m s-1  ecopari PZ_2____ vertical velocity
+            ecopari_PZ_3_____sms  mmol/m3 s-1  ecopari PZ_3____ sources-sinks
+            ecopari_PZ_3_____w  m s-1  ecopari PZ_3____ vertical velocity
+            ecopari_PZ_4_____sms  mmol/m3 s-1  ecopari PZ_4____ sources-sinks
+            ecopari_PZ_4_____w  m s-1  ecopari PZ_4____ vertical velocity
+            ecopari_PZ_5_____sms  mmol/m3 s-1  ecopari PZ_5____ sources-sinks
+            ecopari_PZ_5_____w  m s-1  ecopari PZ_5____ vertical velocity
+            ecopari_PZ_6_____sms  mmol/m3 s-1  ecopari PZ_6____ sources-sinks
+            ecopari_PZ_6_____w  m s-1  ecopari PZ_6____ vertical velocity
+            ecopari_PZ_7_____sms  mmol/m3 s-1  ecopari PZ_7____ sources-sinks
+            ecopari_PZ_7_____w  m s-1  ecopari PZ_7____ vertical velocity
+            ecopari_PZ_8_____sms  mmol/m3 s-1  ecopari PZ_8____ sources-sinks
+            ecopari_PZ_8_____w  m s-1  ecopari PZ_8____ vertical velocity
+            ecopari_PZ_9_____sms  mmol/m3 s-1  ecopari PZ_9____ sources-sinks
+            ecopari_PZ_9_____w  m s-1  ecopari PZ_9____ vertical velocity
+            ecopari_PZ_10____sms  mmol/m3 s-1  ecopari PZ_10___ sources-sinks
+            ecopari_PZ_10____w  m s-1  ecopari PZ_10___ vertical velocity
+            ecopari_PO4______sms  mmol/m3 s-1  ecopari PO4_____ sources-sinks
+            ecopari_PO4______w  m s-1  ecopari PO4_____ vertical velocity
+            ecopari_NH4______sms  mmol/m3 s-1  ecopari NH4_____ sources-sinks
+            ecopari_NH4______w  m s-1  ecopari NH4_____ vertical velocity
+            ecopari_NO2______sms  mmol/m3 s-1  ecopari NO2_____ sources-sinks
+            ecopari_NO2______w  m s-1  ecopari NO2_____ vertical velocity
+            ecopari_NO3______sms  mmol/m3 s-1  ecopari NO3_____ sources-sinks
+            ecopari_NO3______w  m s-1  ecopari NO3_____ vertical velocity
+            ecopari_SiO2_____sms  mmol/m3 s-1  ecopari SiO2____ sources-sinks
+            ecopari_SiO2_____w  m s-1  ecopari SiO2____ vertical velocity
+            ecopari_H2S______sms  mmol/m3 s-1  ecopari H2S_____ sources-sinks
+            ecopari_H2S______w  m s-1  ecopari H2S_____ vertical velocity
+            ecopari_SSS______sms  mmol/m3 s-1  ecopari SSS_____ sources-sinks
+            ecopari_SSS______w  m s-1  ecopari SSS_____ vertical velocity
+            ecopari_Fe_______sms  mmol/m3 s-1  ecopari Fe______ sources-sinks
+            ecopari_Fe_______w  m s-1  ecopari Fe______ vertical velocity
+            ecopari_FeOH3____sms  mmol/m3 s-1  ecopari FeOH3___ sources-sinks
+            ecopari_FeOH3____w  m s-1  ecopari FeOH3___ vertical velocity
+            ecopari_Mn_______sms  mmol/m3 s-1  ecopari Mn______ sources-sinks
+            ecopari_Mn_______w  m s-1  ecopari Mn______ vertical velocity
+            ecopari_MnO2_____sms  mmol/m3 s-1  ecopari MnO2____ sources-sinks
+            ecopari_MnO2_____w  m s-1  ecopari MnO2____ vertical velocity
+            ecopari_Al_______sms  mmol/m3 s-1  ecopari Al______ sources-sinks
+            ecopari_Al_______w  m s-1  ecopari Al______ vertical velocity
+            ecopari_AlPO4____sms  mmol/m3 s-1  ecopari AlPO4___ sources-sinks
+            ecopari_AlPO4____w  m s-1  ecopari AlPO4___ vertical velocity
+            ecopari_DO_______sms  mmol/m3 s-1  ecopari DO______ sources-sinks
+            ecopari_DO_______w  m s-1  ecopari DO______ vertical velocity
+            zero    zero
+            zero_sms_tot_calculator_result   s-1  zero_sms_tot_calculator result
+            zero_w_tot_calculator_result  m s-1  zero_w_tot_calculator result
+            ecopari_PHY_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_1____sms_tot_calculator result
+            ecopari_PHY_1____w_tot_calculator_result  m s-1  
+ ecopari PHY_1____w_tot_calculator result
+            ecopari_PHY_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_2____sms_tot_calculator result
+            ecopari_PHY_2____w_tot_calculator_result  m s-1  
+ ecopari PHY_2____w_tot_calculator result
+            ecopari_PHY_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_3____sms_tot_calculator result
+            ecopari_PHY_3____w_tot_calculator_result  m s-1  
+ ecopari PHY_3____w_tot_calculator result
+            ecopari_PHY_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_4____sms_tot_calculator result
+            ecopari_PHY_4____w_tot_calculator_result  m s-1  
+ ecopari PHY_4____w_tot_calculator result
+            ecopari_PHY_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_5____sms_tot_calculator result
+            ecopari_PHY_5____w_tot_calculator_result  m s-1  
+ ecopari PHY_5____w_tot_calculator result
+            ecopari_PHY_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_6____sms_tot_calculator result
+            ecopari_PHY_6____w_tot_calculator_result  m s-1  
+ ecopari PHY_6____w_tot_calculator result
+            ecopari_PHY_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_7____sms_tot_calculator result
+            ecopari_PHY_7____w_tot_calculator_result  m s-1  
+ ecopari PHY_7____w_tot_calculator result
+            ecopari_PHY_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_8____sms_tot_calculator result
+            ecopari_PHY_8____w_tot_calculator_result  m s-1  
+ ecopari PHY_8____w_tot_calculator result
+            ecopari_PHY_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_9____sms_tot_calculator result
+            ecopari_PHY_9____w_tot_calculator_result  m s-1  
+ ecopari PHY_9____w_tot_calculator result
+            ecopari_PHY_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PHY_10___sms_tot_calculator result
+            ecopari_PHY_10___w_tot_calculator_result  m s-1  
+ ecopari PHY_10___w_tot_calculator result
+            ecopari_SQN_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_1____sms_tot_calculator result
+            ecopari_SQN_1____w_tot_calculator_result  m s-1  
+ ecopari SQN_1____w_tot_calculator result
+            ecopari_SQN_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_2____sms_tot_calculator result
+            ecopari_SQN_2____w_tot_calculator_result  m s-1  
+ ecopari SQN_2____w_tot_calculator result
+            ecopari_SQN_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_3____sms_tot_calculator result
+            ecopari_SQN_3____w_tot_calculator_result  m s-1  
+ ecopari SQN_3____w_tot_calculator result
+            ecopari_SQN_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_4____sms_tot_calculator result
+            ecopari_SQN_4____w_tot_calculator_result  m s-1  
+ ecopari SQN_4____w_tot_calculator result
+            ecopari_SQN_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_5____sms_tot_calculator result
+            ecopari_SQN_5____w_tot_calculator_result  m s-1  
+ ecopari SQN_5____w_tot_calculator result
+            ecopari_SQN_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_6____sms_tot_calculator result
+            ecopari_SQN_6____w_tot_calculator_result  m s-1  
+ ecopari SQN_6____w_tot_calculator result
+            ecopari_SQN_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_7____sms_tot_calculator result
+            ecopari_SQN_7____w_tot_calculator_result  m s-1  
+ ecopari SQN_7____w_tot_calculator result
+            ecopari_SQN_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_8____sms_tot_calculator result
+            ecopari_SQN_8____w_tot_calculator_result  m s-1  
+ ecopari SQN_8____w_tot_calculator result
+            ecopari_SQN_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_9____sms_tot_calculator result
+            ecopari_SQN_9____w_tot_calculator_result  m s-1  
+ ecopari SQN_9____w_tot_calculator result
+            ecopari_SQN_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQN_10___sms_tot_calculator result
+            ecopari_SQN_10___w_tot_calculator_result  m s-1  
+ ecopari SQN_10___w_tot_calculator result
+            ecopari_SQP_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_1____sms_tot_calculator result
+            ecopari_SQP_1____w_tot_calculator_result  m s-1  
+ ecopari SQP_1____w_tot_calculator result
+            ecopari_SQP_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_2____sms_tot_calculator result
+            ecopari_SQP_2____w_tot_calculator_result  m s-1  
+ ecopari SQP_2____w_tot_calculator result
+            ecopari_SQP_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_3____sms_tot_calculator result
+            ecopari_SQP_3____w_tot_calculator_result  m s-1  
+ ecopari SQP_3____w_tot_calculator result
+            ecopari_SQP_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_4____sms_tot_calculator result
+            ecopari_SQP_4____w_tot_calculator_result  m s-1  
+ ecopari SQP_4____w_tot_calculator result
+            ecopari_SQP_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_5____sms_tot_calculator result
+            ecopari_SQP_5____w_tot_calculator_result  m s-1  
+ ecopari SQP_5____w_tot_calculator result
+            ecopari_SQP_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_6____sms_tot_calculator result
+            ecopari_SQP_6____w_tot_calculator_result  m s-1  
+ ecopari SQP_6____w_tot_calculator result
+            ecopari_SQP_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_7____sms_tot_calculator result
+            ecopari_SQP_7____w_tot_calculator_result  m s-1  
+ ecopari SQP_7____w_tot_calculator result
+            ecopari_SQP_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_8____sms_tot_calculator result
+            ecopari_SQP_8____w_tot_calculator_result  m s-1  
+ ecopari SQP_8____w_tot_calculator result
+            ecopari_SQP_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_9____sms_tot_calculator result
+            ecopari_SQP_9____w_tot_calculator_result  m s-1  
+ ecopari SQP_9____w_tot_calculator result
+            ecopari_SQP_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SQP_10___sms_tot_calculator result
+            ecopari_SQP_10___w_tot_calculator_result  m s-1  
+ ecopari SQP_10___w_tot_calculator result
+            ecopari_ZOO_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_1____sms_tot_calculator result
+            ecopari_ZOO_1____w_tot_calculator_result  m s-1  
+ ecopari ZOO_1____w_tot_calculator result
+            ecopari_ZOO_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_2____sms_tot_calculator result
+            ecopari_ZOO_2____w_tot_calculator_result  m s-1  
+ ecopari ZOO_2____w_tot_calculator result
+            ecopari_ZOO_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_3____sms_tot_calculator result
+            ecopari_ZOO_3____w_tot_calculator_result  m s-1  
+ ecopari ZOO_3____w_tot_calculator result
+            ecopari_ZOO_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_4____sms_tot_calculator result
+            ecopari_ZOO_4____w_tot_calculator_result  m s-1  
+ ecopari ZOO_4____w_tot_calculator result
+            ecopari_ZOO_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_5____sms_tot_calculator result
+            ecopari_ZOO_5____w_tot_calculator_result  m s-1  
+ ecopari ZOO_5____w_tot_calculator result
+            ecopari_ZOO_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_6____sms_tot_calculator result
+            ecopari_ZOO_6____w_tot_calculator_result  m s-1  
+ ecopari ZOO_6____w_tot_calculator result
+            ecopari_ZOO_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_7____sms_tot_calculator result
+            ecopari_ZOO_7____w_tot_calculator_result  m s-1  
+ ecopari ZOO_7____w_tot_calculator result
+            ecopari_ZOO_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_8____sms_tot_calculator result
+            ecopari_ZOO_8____w_tot_calculator_result  m s-1  
+ ecopari ZOO_8____w_tot_calculator result
+            ecopari_ZOO_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_9____sms_tot_calculator result
+            ecopari_ZOO_9____w_tot_calculator_result  m s-1  
+ ecopari ZOO_9____w_tot_calculator result
+            ecopari_ZOO_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ZOO_10___sms_tot_calculator result
+            ecopari_ZOO_10___w_tot_calculator_result  m s-1  
+ ecopari ZOO_10___w_tot_calculator result
+            ecopari_POC_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_1____sms_tot_calculator result
+            ecopari_POC_1____w_tot_calculator_result  m s-1  
+ ecopari POC_1____w_tot_calculator result
+            ecopari_POC_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_2____sms_tot_calculator result
+            ecopari_POC_2____w_tot_calculator_result  m s-1  
+ ecopari POC_2____w_tot_calculator result
+            ecopari_POC_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_3____sms_tot_calculator result
+            ecopari_POC_3____w_tot_calculator_result  m s-1  
+ ecopari POC_3____w_tot_calculator result
+            ecopari_POC_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_4____sms_tot_calculator result
+            ecopari_POC_4____w_tot_calculator_result  m s-1  
+ ecopari POC_4____w_tot_calculator result
+            ecopari_POC_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_5____sms_tot_calculator result
+            ecopari_POC_5____w_tot_calculator_result  m s-1  
+ ecopari POC_5____w_tot_calculator result
+            ecopari_POC_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_6____sms_tot_calculator result
+            ecopari_POC_6____w_tot_calculator_result  m s-1  
+ ecopari POC_6____w_tot_calculator result
+            ecopari_POC_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_7____sms_tot_calculator result
+            ecopari_POC_7____w_tot_calculator_result  m s-1  
+ ecopari POC_7____w_tot_calculator result
+            ecopari_POC_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_8____sms_tot_calculator result
+            ecopari_POC_8____w_tot_calculator_result  m s-1  
+ ecopari POC_8____w_tot_calculator result
+            ecopari_POC_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_9____sms_tot_calculator result
+            ecopari_POC_9____w_tot_calculator_result  m s-1  
+ ecopari POC_9____w_tot_calculator result
+            ecopari_POC_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POC_10___sms_tot_calculator result
+            ecopari_POC_10___w_tot_calculator_result  m s-1  
+ ecopari POC_10___w_tot_calculator result
+            ecopari_PON_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_1____sms_tot_calculator result
+            ecopari_PON_1____w_tot_calculator_result  m s-1  
+ ecopari PON_1____w_tot_calculator result
+            ecopari_PON_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_2____sms_tot_calculator result
+            ecopari_PON_2____w_tot_calculator_result  m s-1  
+ ecopari PON_2____w_tot_calculator result
+            ecopari_PON_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_3____sms_tot_calculator result
+            ecopari_PON_3____w_tot_calculator_result  m s-1  
+ ecopari PON_3____w_tot_calculator result
+            ecopari_PON_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_4____sms_tot_calculator result
+            ecopari_PON_4____w_tot_calculator_result  m s-1  
+ ecopari PON_4____w_tot_calculator result
+            ecopari_PON_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_5____sms_tot_calculator result
+            ecopari_PON_5____w_tot_calculator_result  m s-1  
+ ecopari PON_5____w_tot_calculator result
+            ecopari_PON_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_6____sms_tot_calculator result
+            ecopari_PON_6____w_tot_calculator_result  m s-1  
+ ecopari PON_6____w_tot_calculator result
+            ecopari_PON_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_7____sms_tot_calculator result
+            ecopari_PON_7____w_tot_calculator_result  m s-1  
+ ecopari PON_7____w_tot_calculator result
+            ecopari_PON_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_8____sms_tot_calculator result
+            ecopari_PON_8____w_tot_calculator_result  m s-1  
+ ecopari PON_8____w_tot_calculator result
+            ecopari_PON_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_9____sms_tot_calculator result
+            ecopari_PON_9____w_tot_calculator_result  m s-1  
+ ecopari PON_9____w_tot_calculator result
+            ecopari_PON_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PON_10___sms_tot_calculator result
+            ecopari_PON_10___w_tot_calculator_result  m s-1  
+ ecopari PON_10___w_tot_calculator result
+            ecopari_POP_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_1____sms_tot_calculator result
+            ecopari_POP_1____w_tot_calculator_result  m s-1  
+ ecopari POP_1____w_tot_calculator result
+            ecopari_POP_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_2____sms_tot_calculator result
+            ecopari_POP_2____w_tot_calculator_result  m s-1  
+ ecopari POP_2____w_tot_calculator result
+            ecopari_POP_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_3____sms_tot_calculator result
+            ecopari_POP_3____w_tot_calculator_result  m s-1  
+ ecopari POP_3____w_tot_calculator result
+            ecopari_POP_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_4____sms_tot_calculator result
+            ecopari_POP_4____w_tot_calculator_result  m s-1  
+ ecopari POP_4____w_tot_calculator result
+            ecopari_POP_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_5____sms_tot_calculator result
+            ecopari_POP_5____w_tot_calculator_result  m s-1  
+ ecopari POP_5____w_tot_calculator result
+            ecopari_POP_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_6____sms_tot_calculator result
+            ecopari_POP_6____w_tot_calculator_result  m s-1  
+ ecopari POP_6____w_tot_calculator result
+            ecopari_POP_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_7____sms_tot_calculator result
+            ecopari_POP_7____w_tot_calculator_result  m s-1  
+ ecopari POP_7____w_tot_calculator result
+            ecopari_POP_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_8____sms_tot_calculator result
+            ecopari_POP_8____w_tot_calculator_result  m s-1  
+ ecopari POP_8____w_tot_calculator result
+            ecopari_POP_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_9____sms_tot_calculator result
+            ecopari_POP_9____w_tot_calculator_result  m s-1  
+ ecopari POP_9____w_tot_calculator result
+            ecopari_POP_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari POP_10___sms_tot_calculator result
+            ecopari_POP_10___w_tot_calculator_result  m s-1  
+ ecopari POP_10___w_tot_calculator result
+            ecopari_DOC_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_1____sms_tot_calculator result
+            ecopari_DOC_1____w_tot_calculator_result  m s-1  
+ ecopari DOC_1____w_tot_calculator result
+            ecopari_DOC_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_2____sms_tot_calculator result
+            ecopari_DOC_2____w_tot_calculator_result  m s-1  
+ ecopari DOC_2____w_tot_calculator result
+            ecopari_DOC_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_3____sms_tot_calculator result
+            ecopari_DOC_3____w_tot_calculator_result  m s-1  
+ ecopari DOC_3____w_tot_calculator result
+            ecopari_DOC_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_4____sms_tot_calculator result
+            ecopari_DOC_4____w_tot_calculator_result  m s-1  
+ ecopari DOC_4____w_tot_calculator result
+            ecopari_DOC_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_5____sms_tot_calculator result
+            ecopari_DOC_5____w_tot_calculator_result  m s-1  
+ ecopari DOC_5____w_tot_calculator result
+            ecopari_DOC_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_6____sms_tot_calculator result
+            ecopari_DOC_6____w_tot_calculator_result  m s-1  
+ ecopari DOC_6____w_tot_calculator result
+            ecopari_DOC_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_7____sms_tot_calculator result
+            ecopari_DOC_7____w_tot_calculator_result  m s-1  
+ ecopari DOC_7____w_tot_calculator result
+            ecopari_DOC_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_8____sms_tot_calculator result
+            ecopari_DOC_8____w_tot_calculator_result  m s-1  
+ ecopari DOC_8____w_tot_calculator result
+            ecopari_DOC_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_9____sms_tot_calculator result
+            ecopari_DOC_9____w_tot_calculator_result  m s-1  
+ ecopari DOC_9____w_tot_calculator result
+            ecopari_DOC_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOC_10___sms_tot_calculator result
+            ecopari_DOC_10___w_tot_calculator_result  m s-1  
+ ecopari DOC_10___w_tot_calculator result
+            ecopari_DON_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_1____sms_tot_calculator result
+            ecopari_DON_1____w_tot_calculator_result  m s-1  
+ ecopari DON_1____w_tot_calculator result
+            ecopari_DON_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_2____sms_tot_calculator result
+            ecopari_DON_2____w_tot_calculator_result  m s-1  
+ ecopari DON_2____w_tot_calculator result
+            ecopari_DON_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_3____sms_tot_calculator result
+            ecopari_DON_3____w_tot_calculator_result  m s-1  
+ ecopari DON_3____w_tot_calculator result
+            ecopari_DON_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_4____sms_tot_calculator result
+            ecopari_DON_4____w_tot_calculator_result  m s-1  
+ ecopari DON_4____w_tot_calculator result
+            ecopari_DON_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_5____sms_tot_calculator result
+            ecopari_DON_5____w_tot_calculator_result  m s-1  
+ ecopari DON_5____w_tot_calculator result
+            ecopari_DON_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_6____sms_tot_calculator result
+            ecopari_DON_6____w_tot_calculator_result  m s-1  
+ ecopari DON_6____w_tot_calculator result
+            ecopari_DON_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_7____sms_tot_calculator result
+            ecopari_DON_7____w_tot_calculator_result  m s-1  
+ ecopari DON_7____w_tot_calculator result
+            ecopari_DON_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_8____sms_tot_calculator result
+            ecopari_DON_8____w_tot_calculator_result  m s-1  
+ ecopari DON_8____w_tot_calculator result
+            ecopari_DON_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_9____sms_tot_calculator result
+            ecopari_DON_9____w_tot_calculator_result  m s-1  
+ ecopari DON_9____w_tot_calculator result
+            ecopari_DON_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DON_10___sms_tot_calculator result
+            ecopari_DON_10___w_tot_calculator_result  m s-1  
+ ecopari DON_10___w_tot_calculator result
+            ecopari_DOP_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_1____sms_tot_calculator result
+            ecopari_DOP_1____w_tot_calculator_result  m s-1  
+ ecopari DOP_1____w_tot_calculator result
+            ecopari_DOP_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_2____sms_tot_calculator result
+            ecopari_DOP_2____w_tot_calculator_result  m s-1  
+ ecopari DOP_2____w_tot_calculator result
+            ecopari_DOP_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_3____sms_tot_calculator result
+            ecopari_DOP_3____w_tot_calculator_result  m s-1  
+ ecopari DOP_3____w_tot_calculator result
+            ecopari_DOP_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_4____sms_tot_calculator result
+            ecopari_DOP_4____w_tot_calculator_result  m s-1  
+ ecopari DOP_4____w_tot_calculator result
+            ecopari_DOP_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_5____sms_tot_calculator result
+            ecopari_DOP_5____w_tot_calculator_result  m s-1  
+ ecopari DOP_5____w_tot_calculator result
+            ecopari_DOP_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_6____sms_tot_calculator result
+            ecopari_DOP_6____w_tot_calculator_result  m s-1  
+ ecopari DOP_6____w_tot_calculator result
+            ecopari_DOP_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_7____sms_tot_calculator result
+            ecopari_DOP_7____w_tot_calculator_result  m s-1  
+ ecopari DOP_7____w_tot_calculator result
+            ecopari_DOP_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_8____sms_tot_calculator result
+            ecopari_DOP_8____w_tot_calculator_result  m s-1  
+ ecopari DOP_8____w_tot_calculator result
+            ecopari_DOP_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_9____sms_tot_calculator result
+            ecopari_DOP_9____w_tot_calculator_result  m s-1  
+ ecopari DOP_9____w_tot_calculator result
+            ecopari_DOP_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DOP_10___sms_tot_calculator result
+            ecopari_DOP_10___w_tot_calculator_result  m s-1  
+ ecopari DOP_10___w_tot_calculator result
+            ecopari_ADOC_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari ADOC_____sms_tot_calculator result
+            ecopari_ADOC_____w_tot_calculator_result  m s-1  
+ ecopari ADOC_____w_tot_calculator result
+            ecopari_BAC_1____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_1____sms_tot_calculator result
+            ecopari_BAC_1____w_tot_calculator_result  m s-1  
+ ecopari BAC_1____w_tot_calculator result
+            ecopari_BAC_2____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_2____sms_tot_calculator result
+            ecopari_BAC_2____w_tot_calculator_result  m s-1  
+ ecopari BAC_2____w_tot_calculator result
+            ecopari_BAC_3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_3____sms_tot_calculator result
+            ecopari_BAC_3____w_tot_calculator_result  m s-1  
+ ecopari BAC_3____w_tot_calculator result
+            ecopari_BAC_4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_4____sms_tot_calculator result
+            ecopari_BAC_4____w_tot_calculator_result  m s-1  
+ ecopari BAC_4____w_tot_calculator result
+            ecopari_BAC_5____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_5____sms_tot_calculator result
+            ecopari_BAC_5____w_tot_calculator_result  m s-1  
+ ecopari BAC_5____w_tot_calculator result
+            ecopari_BAC_6____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_6____sms_tot_calculator result
+            ecopari_BAC_6____w_tot_calculator_result  m s-1  
+ ecopari BAC_6____w_tot_calculator result
+            ecopari_BAC_7____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_7____sms_tot_calculator result
+            ecopari_BAC_7____w_tot_calculator_result  m s-1  
+ ecopari BAC_7____w_tot_calculator result
+            ecopari_BAC_8____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_8____sms_tot_calculator result
+            ecopari_BAC_8____w_tot_calculator_result  m s-1  
+ ecopari BAC_8____w_tot_calculator result
+            ecopari_BAC_9____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_9____sms_tot_calculator result
+            ecopari_BAC_9____w_tot_calculator_result  m s-1  
+ ecopari BAC_9____w_tot_calculator result
+            ecopari_BAC_10___sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari BAC_10___sms_tot_calculator result
+            ecopari_BAC_10___w_tot_calculator_result  m s-1  
+ ecopari BAC_10___w_tot_calculator result
+            ecopari_PZ_1_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_1_____sms_tot_calculator result
+            ecopari_PZ_1_____w_tot_calculator_result  m s-1  
+ ecopari PZ_1_____w_tot_calculator result
+            ecopari_PZ_2_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_2_____sms_tot_calculator result
+            ecopari_PZ_2_____w_tot_calculator_result  m s-1  
+ ecopari PZ_2_____w_tot_calculator result
+            ecopari_PZ_3_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_3_____sms_tot_calculator result
+            ecopari_PZ_3_____w_tot_calculator_result  m s-1  
+ ecopari PZ_3_____w_tot_calculator result
+            ecopari_PZ_4_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_4_____sms_tot_calculator result
+            ecopari_PZ_4_____w_tot_calculator_result  m s-1  
+ ecopari PZ_4_____w_tot_calculator result
+            ecopari_PZ_5_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_5_____sms_tot_calculator result
+            ecopari_PZ_5_____w_tot_calculator_result  m s-1  
+ ecopari PZ_5_____w_tot_calculator result
+            ecopari_PZ_6_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_6_____sms_tot_calculator result
+            ecopari_PZ_6_____w_tot_calculator_result  m s-1  
+ ecopari PZ_6_____w_tot_calculator result
+            ecopari_PZ_7_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_7_____sms_tot_calculator result
+            ecopari_PZ_7_____w_tot_calculator_result  m s-1  
+ ecopari PZ_7_____w_tot_calculator result
+            ecopari_PZ_8_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_8_____sms_tot_calculator result
+            ecopari_PZ_8_____w_tot_calculator_result  m s-1  
+ ecopari PZ_8_____w_tot_calculator result
+            ecopari_PZ_9_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_9_____sms_tot_calculator result
+            ecopari_PZ_9_____w_tot_calculator_result  m s-1  
+ ecopari PZ_9_____w_tot_calculator result
+            ecopari_PZ_10____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PZ_10____sms_tot_calculator result
+            ecopari_PZ_10____w_tot_calculator_result  m s-1  
+ ecopari PZ_10____w_tot_calculator result
+            ecopari_PO4______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari PO4______sms_tot_calculator result
+            ecopari_PO4______w_tot_calculator_result  m s-1  
+ ecopari PO4______w_tot_calculator result
+            ecopari_NH4______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari NH4______sms_tot_calculator result
+            ecopari_NH4______w_tot_calculator_result  m s-1  
+ ecopari NH4______w_tot_calculator result
+            ecopari_NO2______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari NO2______sms_tot_calculator result
+            ecopari_NO2______w_tot_calculator_result  m s-1  
+ ecopari NO2______w_tot_calculator result
+            ecopari_NO3______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari NO3______sms_tot_calculator result
+            ecopari_NO3______w_tot_calculator_result  m s-1  
+ ecopari NO3______w_tot_calculator result
+            ecopari_SiO2_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SiO2_____sms_tot_calculator result
+            ecopari_SiO2_____w_tot_calculator_result  m s-1  
+ ecopari SiO2_____w_tot_calculator result
+            ecopari_H2S______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari H2S______sms_tot_calculator result
+            ecopari_H2S______w_tot_calculator_result  m s-1  
+ ecopari H2S______w_tot_calculator result
+            ecopari_SSS______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari SSS______sms_tot_calculator result
+            ecopari_SSS______w_tot_calculator_result  m s-1  
+ ecopari SSS______w_tot_calculator result
+            ecopari_Fe_______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari Fe_______sms_tot_calculator result
+            ecopari_Fe_______w_tot_calculator_result  m s-1  
+ ecopari Fe_______w_tot_calculator result
+            ecopari_FeOH3____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari FeOH3____sms_tot_calculator result
+            ecopari_FeOH3____w_tot_calculator_result  m s-1  
+ ecopari FeOH3____w_tot_calculator result
+            ecopari_Mn_______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari Mn_______sms_tot_calculator result
+            ecopari_Mn_______w_tot_calculator_result  m s-1  
+ ecopari Mn_______w_tot_calculator result
+            ecopari_MnO2_____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari MnO2_____sms_tot_calculator result
+            ecopari_MnO2_____w_tot_calculator_result  m s-1  
+ ecopari MnO2_____w_tot_calculator result
+            ecopari_Al_______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari Al_______sms_tot_calculator result
+            ecopari_Al_______w_tot_calculator_result  m s-1  
+ ecopari Al_______w_tot_calculator result
+            ecopari_AlPO4____sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari AlPO4____sms_tot_calculator result
+            ecopari_AlPO4____w_tot_calculator_result  m s-1  
+ ecopari AlPO4____w_tot_calculator result
+            ecopari_DO_______sms_tot_calculator_result  mmol/m3 s-1  
+ ecopari DO_______sms_tot_calculator result
+            ecopari_DO_______w_tot_calculator_result  m s-1  
+ ecopari DO_______w_tot_calculator result
+        
+ FABM diagnostic variables defined on a horizontal slice of the model domain:
+            ecopari_PHY_1____sfl  mmol/m3 m s-1  ecopari PHY_1___ surface flux
+            ecopari_PHY_1____bfl  mmol/m3 m s-1  ecopari PHY_1___ bottom flux
+            ecopari_PHY_2____sfl  mmol/m3 m s-1  ecopari PHY_2___ surface flux
+            ecopari_PHY_2____bfl  mmol/m3 m s-1  ecopari PHY_2___ bottom flux
+            ecopari_PHY_3____sfl  mmol/m3 m s-1  ecopari PHY_3___ surface flux
+            ecopari_PHY_3____bfl  mmol/m3 m s-1  ecopari PHY_3___ bottom flux
+            ecopari_PHY_4____sfl  mmol/m3 m s-1  ecopari PHY_4___ surface flux
+            ecopari_PHY_4____bfl  mmol/m3 m s-1  ecopari PHY_4___ bottom flux
+            ecopari_PHY_5____sfl  mmol/m3 m s-1  ecopari PHY_5___ surface flux
+            ecopari_PHY_5____bfl  mmol/m3 m s-1  ecopari PHY_5___ bottom flux
+            ecopari_PHY_6____sfl  mmol/m3 m s-1  ecopari PHY_6___ surface flux
+            ecopari_PHY_6____bfl  mmol/m3 m s-1  ecopari PHY_6___ bottom flux
+            ecopari_PHY_7____sfl  mmol/m3 m s-1  ecopari PHY_7___ surface flux
+            ecopari_PHY_7____bfl  mmol/m3 m s-1  ecopari PHY_7___ bottom flux
+            ecopari_PHY_8____sfl  mmol/m3 m s-1  ecopari PHY_8___ surface flux
+            ecopari_PHY_8____bfl  mmol/m3 m s-1  ecopari PHY_8___ bottom flux
+            ecopari_PHY_9____sfl  mmol/m3 m s-1  ecopari PHY_9___ surface flux
+            ecopari_PHY_9____bfl  mmol/m3 m s-1  ecopari PHY_9___ bottom flux
+            ecopari_PHY_10___sfl  mmol/m3 m s-1  ecopari PHY_10__ surface flux
+            ecopari_PHY_10___bfl  mmol/m3 m s-1  ecopari PHY_10__ bottom flux
+            ecopari_SQN_1____sfl  mmol/m3 m s-1  ecopari SQN_1___ surface flux
+            ecopari_SQN_1____bfl  mmol/m3 m s-1  ecopari SQN_1___ bottom flux
+            ecopari_SQN_2____sfl  mmol/m3 m s-1  ecopari SQN_2___ surface flux
+            ecopari_SQN_2____bfl  mmol/m3 m s-1  ecopari SQN_2___ bottom flux
+            ecopari_SQN_3____sfl  mmol/m3 m s-1  ecopari SQN_3___ surface flux
+            ecopari_SQN_3____bfl  mmol/m3 m s-1  ecopari SQN_3___ bottom flux
+            ecopari_SQN_4____sfl  mmol/m3 m s-1  ecopari SQN_4___ surface flux
+            ecopari_SQN_4____bfl  mmol/m3 m s-1  ecopari SQN_4___ bottom flux
+            ecopari_SQN_5____sfl  mmol/m3 m s-1  ecopari SQN_5___ surface flux
+            ecopari_SQN_5____bfl  mmol/m3 m s-1  ecopari SQN_5___ bottom flux
+            ecopari_SQN_6____sfl  mmol/m3 m s-1  ecopari SQN_6___ surface flux
+            ecopari_SQN_6____bfl  mmol/m3 m s-1  ecopari SQN_6___ bottom flux
+            ecopari_SQN_7____sfl  mmol/m3 m s-1  ecopari SQN_7___ surface flux
+            ecopari_SQN_7____bfl  mmol/m3 m s-1  ecopari SQN_7___ bottom flux
+            ecopari_SQN_8____sfl  mmol/m3 m s-1  ecopari SQN_8___ surface flux
+            ecopari_SQN_8____bfl  mmol/m3 m s-1  ecopari SQN_8___ bottom flux
+            ecopari_SQN_9____sfl  mmol/m3 m s-1  ecopari SQN_9___ surface flux
+            ecopari_SQN_9____bfl  mmol/m3 m s-1  ecopari SQN_9___ bottom flux
+            ecopari_SQN_10___sfl  mmol/m3 m s-1  ecopari SQN_10__ surface flux
+            ecopari_SQN_10___bfl  mmol/m3 m s-1  ecopari SQN_10__ bottom flux
+            ecopari_SQP_1____sfl  mmol/m3 m s-1  ecopari SQP_1___ surface flux
+            ecopari_SQP_1____bfl  mmol/m3 m s-1  ecopari SQP_1___ bottom flux
+            ecopari_SQP_2____sfl  mmol/m3 m s-1  ecopari SQP_2___ surface flux
+            ecopari_SQP_2____bfl  mmol/m3 m s-1  ecopari SQP_2___ bottom flux
+            ecopari_SQP_3____sfl  mmol/m3 m s-1  ecopari SQP_3___ surface flux
+            ecopari_SQP_3____bfl  mmol/m3 m s-1  ecopari SQP_3___ bottom flux
+            ecopari_SQP_4____sfl  mmol/m3 m s-1  ecopari SQP_4___ surface flux
+            ecopari_SQP_4____bfl  mmol/m3 m s-1  ecopari SQP_4___ bottom flux
+            ecopari_SQP_5____sfl  mmol/m3 m s-1  ecopari SQP_5___ surface flux
+            ecopari_SQP_5____bfl  mmol/m3 m s-1  ecopari SQP_5___ bottom flux
+            ecopari_SQP_6____sfl  mmol/m3 m s-1  ecopari SQP_6___ surface flux
+            ecopari_SQP_6____bfl  mmol/m3 m s-1  ecopari SQP_6___ bottom flux
+            ecopari_SQP_7____sfl  mmol/m3 m s-1  ecopari SQP_7___ surface flux
+            ecopari_SQP_7____bfl  mmol/m3 m s-1  ecopari SQP_7___ bottom flux
+            ecopari_SQP_8____sfl  mmol/m3 m s-1  ecopari SQP_8___ surface flux
+            ecopari_SQP_8____bfl  mmol/m3 m s-1  ecopari SQP_8___ bottom flux
+            ecopari_SQP_9____sfl  mmol/m3 m s-1  ecopari SQP_9___ surface flux
+            ecopari_SQP_9____bfl  mmol/m3 m s-1  ecopari SQP_9___ bottom flux
+            ecopari_SQP_10___sfl  mmol/m3 m s-1  ecopari SQP_10__ surface flux
+            ecopari_SQP_10___bfl  mmol/m3 m s-1  ecopari SQP_10__ bottom flux
+            ecopari_ZOO_1____sfl  mmol/m3 m s-1  ecopari ZOO_1___ surface flux
+            ecopari_ZOO_1____bfl  mmol/m3 m s-1  ecopari ZOO_1___ bottom flux
+            ecopari_ZOO_2____sfl  mmol/m3 m s-1  ecopari ZOO_2___ surface flux
+            ecopari_ZOO_2____bfl  mmol/m3 m s-1  ecopari ZOO_2___ bottom flux
+            ecopari_ZOO_3____sfl  mmol/m3 m s-1  ecopari ZOO_3___ surface flux
+            ecopari_ZOO_3____bfl  mmol/m3 m s-1  ecopari ZOO_3___ bottom flux
+            ecopari_ZOO_4____sfl  mmol/m3 m s-1  ecopari ZOO_4___ surface flux
+            ecopari_ZOO_4____bfl  mmol/m3 m s-1  ecopari ZOO_4___ bottom flux
+            ecopari_ZOO_5____sfl  mmol/m3 m s-1  ecopari ZOO_5___ surface flux
+            ecopari_ZOO_5____bfl  mmol/m3 m s-1  ecopari ZOO_5___ bottom flux
+            ecopari_ZOO_6____sfl  mmol/m3 m s-1  ecopari ZOO_6___ surface flux
+            ecopari_ZOO_6____bfl  mmol/m3 m s-1  ecopari ZOO_6___ bottom flux
+            ecopari_ZOO_7____sfl  mmol/m3 m s-1  ecopari ZOO_7___ surface flux
+            ecopari_ZOO_7____bfl  mmol/m3 m s-1  ecopari ZOO_7___ bottom flux
+            ecopari_ZOO_8____sfl  mmol/m3 m s-1  ecopari ZOO_8___ surface flux
+            ecopari_ZOO_8____bfl  mmol/m3 m s-1  ecopari ZOO_8___ bottom flux
+            ecopari_ZOO_9____sfl  mmol/m3 m s-1  ecopari ZOO_9___ surface flux
+            ecopari_ZOO_9____bfl  mmol/m3 m s-1  ecopari ZOO_9___ bottom flux
+            ecopari_ZOO_10___sfl  mmol/m3 m s-1  ecopari ZOO_10__ surface flux
+            ecopari_ZOO_10___bfl  mmol/m3 m s-1  ecopari ZOO_10__ bottom flux
+            ecopari_POC_1____sfl  mmol/m3 m s-1  ecopari POC_1___ surface flux
+            ecopari_POC_1____bfl  mmol/m3 m s-1  ecopari POC_1___ bottom flux
+            ecopari_POC_2____sfl  mmol/m3 m s-1  ecopari POC_2___ surface flux
+            ecopari_POC_2____bfl  mmol/m3 m s-1  ecopari POC_2___ bottom flux
+            ecopari_POC_3____sfl  mmol/m3 m s-1  ecopari POC_3___ surface flux
+            ecopari_POC_3____bfl  mmol/m3 m s-1  ecopari POC_3___ bottom flux
+            ecopari_POC_4____sfl  mmol/m3 m s-1  ecopari POC_4___ surface flux
+            ecopari_POC_4____bfl  mmol/m3 m s-1  ecopari POC_4___ bottom flux
+            ecopari_POC_5____sfl  mmol/m3 m s-1  ecopari POC_5___ surface flux
+            ecopari_POC_5____bfl  mmol/m3 m s-1  ecopari POC_5___ bottom flux
+            ecopari_POC_6____sfl  mmol/m3 m s-1  ecopari POC_6___ surface flux
+            ecopari_POC_6____bfl  mmol/m3 m s-1  ecopari POC_6___ bottom flux
+            ecopari_POC_7____sfl  mmol/m3 m s-1  ecopari POC_7___ surface flux
+            ecopari_POC_7____bfl  mmol/m3 m s-1  ecopari POC_7___ bottom flux
+            ecopari_POC_8____sfl  mmol/m3 m s-1  ecopari POC_8___ surface flux
+            ecopari_POC_8____bfl  mmol/m3 m s-1  ecopari POC_8___ bottom flux
+            ecopari_POC_9____sfl  mmol/m3 m s-1  ecopari POC_9___ surface flux
+            ecopari_POC_9____bfl  mmol/m3 m s-1  ecopari POC_9___ bottom flux
+            ecopari_POC_10___sfl  mmol/m3 m s-1  ecopari POC_10__ surface flux
+            ecopari_POC_10___bfl  mmol/m3 m s-1  ecopari POC_10__ bottom flux
+            ecopari_PON_1____sfl  mmol/m3 m s-1  ecopari PON_1___ surface flux
+            ecopari_PON_1____bfl  mmol/m3 m s-1  ecopari PON_1___ bottom flux
+            ecopari_PON_2____sfl  mmol/m3 m s-1  ecopari PON_2___ surface flux
+            ecopari_PON_2____bfl  mmol/m3 m s-1  ecopari PON_2___ bottom flux
+            ecopari_PON_3____sfl  mmol/m3 m s-1  ecopari PON_3___ surface flux
+            ecopari_PON_3____bfl  mmol/m3 m s-1  ecopari PON_3___ bottom flux
+            ecopari_PON_4____sfl  mmol/m3 m s-1  ecopari PON_4___ surface flux
+            ecopari_PON_4____bfl  mmol/m3 m s-1  ecopari PON_4___ bottom flux
+            ecopari_PON_5____sfl  mmol/m3 m s-1  ecopari PON_5___ surface flux
+            ecopari_PON_5____bfl  mmol/m3 m s-1  ecopari PON_5___ bottom flux
+            ecopari_PON_6____sfl  mmol/m3 m s-1  ecopari PON_6___ surface flux
+            ecopari_PON_6____bfl  mmol/m3 m s-1  ecopari PON_6___ bottom flux
+            ecopari_PON_7____sfl  mmol/m3 m s-1  ecopari PON_7___ surface flux
+            ecopari_PON_7____bfl  mmol/m3 m s-1  ecopari PON_7___ bottom flux
+            ecopari_PON_8____sfl  mmol/m3 m s-1  ecopari PON_8___ surface flux
+            ecopari_PON_8____bfl  mmol/m3 m s-1  ecopari PON_8___ bottom flux
+            ecopari_PON_9____sfl  mmol/m3 m s-1  ecopari PON_9___ surface flux
+            ecopari_PON_9____bfl  mmol/m3 m s-1  ecopari PON_9___ bottom flux
+            ecopari_PON_10___sfl  mmol/m3 m s-1  ecopari PON_10__ surface flux
+            ecopari_PON_10___bfl  mmol/m3 m s-1  ecopari PON_10__ bottom flux
+            ecopari_POP_1____sfl  mmol/m3 m s-1  ecopari POP_1___ surface flux
+            ecopari_POP_1____bfl  mmol/m3 m s-1  ecopari POP_1___ bottom flux
+            ecopari_POP_2____sfl  mmol/m3 m s-1  ecopari POP_2___ surface flux
+            ecopari_POP_2____bfl  mmol/m3 m s-1  ecopari POP_2___ bottom flux
+            ecopari_POP_3____sfl  mmol/m3 m s-1  ecopari POP_3___ surface flux
+            ecopari_POP_3____bfl  mmol/m3 m s-1  ecopari POP_3___ bottom flux
+            ecopari_POP_4____sfl  mmol/m3 m s-1  ecopari POP_4___ surface flux
+            ecopari_POP_4____bfl  mmol/m3 m s-1  ecopari POP_4___ bottom flux
+            ecopari_POP_5____sfl  mmol/m3 m s-1  ecopari POP_5___ surface flux
+            ecopari_POP_5____bfl  mmol/m3 m s-1  ecopari POP_5___ bottom flux
+            ecopari_POP_6____sfl  mmol/m3 m s-1  ecopari POP_6___ surface flux
+            ecopari_POP_6____bfl  mmol/m3 m s-1  ecopari POP_6___ bottom flux
+            ecopari_POP_7____sfl  mmol/m3 m s-1  ecopari POP_7___ surface flux
+            ecopari_POP_7____bfl  mmol/m3 m s-1  ecopari POP_7___ bottom flux
+            ecopari_POP_8____sfl  mmol/m3 m s-1  ecopari POP_8___ surface flux
+            ecopari_POP_8____bfl  mmol/m3 m s-1  ecopari POP_8___ bottom flux
+            ecopari_POP_9____sfl  mmol/m3 m s-1  ecopari POP_9___ surface flux
+            ecopari_POP_9____bfl  mmol/m3 m s-1  ecopari POP_9___ bottom flux
+            ecopari_POP_10___sfl  mmol/m3 m s-1  ecopari POP_10__ surface flux
+            ecopari_POP_10___bfl  mmol/m3 m s-1  ecopari POP_10__ bottom flux
+            ecopari_DOC_1____sfl  mmol/m3 m s-1  ecopari DOC_1___ surface flux
+            ecopari_DOC_1____bfl  mmol/m3 m s-1  ecopari DOC_1___ bottom flux
+            ecopari_DOC_2____sfl  mmol/m3 m s-1  ecopari DOC_2___ surface flux
+            ecopari_DOC_2____bfl  mmol/m3 m s-1  ecopari DOC_2___ bottom flux
+            ecopari_DOC_3____sfl  mmol/m3 m s-1  ecopari DOC_3___ surface flux
+            ecopari_DOC_3____bfl  mmol/m3 m s-1  ecopari DOC_3___ bottom flux
+            ecopari_DOC_4____sfl  mmol/m3 m s-1  ecopari DOC_4___ surface flux
+            ecopari_DOC_4____bfl  mmol/m3 m s-1  ecopari DOC_4___ bottom flux
+            ecopari_DOC_5____sfl  mmol/m3 m s-1  ecopari DOC_5___ surface flux
+            ecopari_DOC_5____bfl  mmol/m3 m s-1  ecopari DOC_5___ bottom flux
+            ecopari_DOC_6____sfl  mmol/m3 m s-1  ecopari DOC_6___ surface flux
+            ecopari_DOC_6____bfl  mmol/m3 m s-1  ecopari DOC_6___ bottom flux
+            ecopari_DOC_7____sfl  mmol/m3 m s-1  ecopari DOC_7___ surface flux
+            ecopari_DOC_7____bfl  mmol/m3 m s-1  ecopari DOC_7___ bottom flux
+            ecopari_DOC_8____sfl  mmol/m3 m s-1  ecopari DOC_8___ surface flux
+            ecopari_DOC_8____bfl  mmol/m3 m s-1  ecopari DOC_8___ bottom flux
+            ecopari_DOC_9____sfl  mmol/m3 m s-1  ecopari DOC_9___ surface flux
+            ecopari_DOC_9____bfl  mmol/m3 m s-1  ecopari DOC_9___ bottom flux
+            ecopari_DOC_10___sfl  mmol/m3 m s-1  ecopari DOC_10__ surface flux
+            ecopari_DOC_10___bfl  mmol/m3 m s-1  ecopari DOC_10__ bottom flux
+            ecopari_DON_1____sfl  mmol/m3 m s-1  ecopari DON_1___ surface flux
+            ecopari_DON_1____bfl  mmol/m3 m s-1  ecopari DON_1___ bottom flux
+            ecopari_DON_2____sfl  mmol/m3 m s-1  ecopari DON_2___ surface flux
+            ecopari_DON_2____bfl  mmol/m3 m s-1  ecopari DON_2___ bottom flux
+            ecopari_DON_3____sfl  mmol/m3 m s-1  ecopari DON_3___ surface flux
+            ecopari_DON_3____bfl  mmol/m3 m s-1  ecopari DON_3___ bottom flux
+            ecopari_DON_4____sfl  mmol/m3 m s-1  ecopari DON_4___ surface flux
+            ecopari_DON_4____bfl  mmol/m3 m s-1  ecopari DON_4___ bottom flux
+            ecopari_DON_5____sfl  mmol/m3 m s-1  ecopari DON_5___ surface flux
+            ecopari_DON_5____bfl  mmol/m3 m s-1  ecopari DON_5___ bottom flux
+            ecopari_DON_6____sfl  mmol/m3 m s-1  ecopari DON_6___ surface flux
+            ecopari_DON_6____bfl  mmol/m3 m s-1  ecopari DON_6___ bottom flux
+            ecopari_DON_7____sfl  mmol/m3 m s-1  ecopari DON_7___ surface flux
+            ecopari_DON_7____bfl  mmol/m3 m s-1  ecopari DON_7___ bottom flux
+            ecopari_DON_8____sfl  mmol/m3 m s-1  ecopari DON_8___ surface flux
+            ecopari_DON_8____bfl  mmol/m3 m s-1  ecopari DON_8___ bottom flux
+            ecopari_DON_9____sfl  mmol/m3 m s-1  ecopari DON_9___ surface flux
+            ecopari_DON_9____bfl  mmol/m3 m s-1  ecopari DON_9___ bottom flux
+            ecopari_DON_10___sfl  mmol/m3 m s-1  ecopari DON_10__ surface flux
+            ecopari_DON_10___bfl  mmol/m3 m s-1  ecopari DON_10__ bottom flux
+            ecopari_DOP_1____sfl  mmol/m3 m s-1  ecopari DOP_1___ surface flux
+            ecopari_DOP_1____bfl  mmol/m3 m s-1  ecopari DOP_1___ bottom flux
+            ecopari_DOP_2____sfl  mmol/m3 m s-1  ecopari DOP_2___ surface flux
+            ecopari_DOP_2____bfl  mmol/m3 m s-1  ecopari DOP_2___ bottom flux
+            ecopari_DOP_3____sfl  mmol/m3 m s-1  ecopari DOP_3___ surface flux
+            ecopari_DOP_3____bfl  mmol/m3 m s-1  ecopari DOP_3___ bottom flux
+            ecopari_DOP_4____sfl  mmol/m3 m s-1  ecopari DOP_4___ surface flux
+            ecopari_DOP_4____bfl  mmol/m3 m s-1  ecopari DOP_4___ bottom flux
+            ecopari_DOP_5____sfl  mmol/m3 m s-1  ecopari DOP_5___ surface flux
+            ecopari_DOP_5____bfl  mmol/m3 m s-1  ecopari DOP_5___ bottom flux
+            ecopari_DOP_6____sfl  mmol/m3 m s-1  ecopari DOP_6___ surface flux
+            ecopari_DOP_6____bfl  mmol/m3 m s-1  ecopari DOP_6___ bottom flux
+            ecopari_DOP_7____sfl  mmol/m3 m s-1  ecopari DOP_7___ surface flux
+            ecopari_DOP_7____bfl  mmol/m3 m s-1  ecopari DOP_7___ bottom flux
+            ecopari_DOP_8____sfl  mmol/m3 m s-1  ecopari DOP_8___ surface flux
+            ecopari_DOP_8____bfl  mmol/m3 m s-1  ecopari DOP_8___ bottom flux
+            ecopari_DOP_9____sfl  mmol/m3 m s-1  ecopari DOP_9___ surface flux
+            ecopari_DOP_9____bfl  mmol/m3 m s-1  ecopari DOP_9___ bottom flux
+            ecopari_DOP_10___sfl  mmol/m3 m s-1  ecopari DOP_10__ surface flux
+            ecopari_DOP_10___bfl  mmol/m3 m s-1  ecopari DOP_10__ bottom flux
+            ecopari_ADOC_____sfl  mmol/m3 m s-1  ecopari ADOC____ surface flux
+            ecopari_ADOC_____bfl  mmol/m3 m s-1  ecopari ADOC____ bottom flux
+            ecopari_BAC_1____sfl  mmol/m3 m s-1  ecopari BAC_1___ surface flux
+            ecopari_BAC_1____bfl  mmol/m3 m s-1  ecopari BAC_1___ bottom flux
+            ecopari_BAC_2____sfl  mmol/m3 m s-1  ecopari BAC_2___ surface flux
+            ecopari_BAC_2____bfl  mmol/m3 m s-1  ecopari BAC_2___ bottom flux
+            ecopari_BAC_3____sfl  mmol/m3 m s-1  ecopari BAC_3___ surface flux
+            ecopari_BAC_3____bfl  mmol/m3 m s-1  ecopari BAC_3___ bottom flux
+            ecopari_BAC_4____sfl  mmol/m3 m s-1  ecopari BAC_4___ surface flux
+            ecopari_BAC_4____bfl  mmol/m3 m s-1  ecopari BAC_4___ bottom flux
+            ecopari_BAC_5____sfl  mmol/m3 m s-1  ecopari BAC_5___ surface flux
+            ecopari_BAC_5____bfl  mmol/m3 m s-1  ecopari BAC_5___ bottom flux
+            ecopari_BAC_6____sfl  mmol/m3 m s-1  ecopari BAC_6___ surface flux
+            ecopari_BAC_6____bfl  mmol/m3 m s-1  ecopari BAC_6___ bottom flux
+            ecopari_BAC_7____sfl  mmol/m3 m s-1  ecopari BAC_7___ surface flux
+            ecopari_BAC_7____bfl  mmol/m3 m s-1  ecopari BAC_7___ bottom flux
+            ecopari_BAC_8____sfl  mmol/m3 m s-1  ecopari BAC_8___ surface flux
+            ecopari_BAC_8____bfl  mmol/m3 m s-1  ecopari BAC_8___ bottom flux
+            ecopari_BAC_9____sfl  mmol/m3 m s-1  ecopari BAC_9___ surface flux
+            ecopari_BAC_9____bfl  mmol/m3 m s-1  ecopari BAC_9___ bottom flux
+            ecopari_BAC_10___sfl  mmol/m3 m s-1  ecopari BAC_10__ surface flux
+            ecopari_BAC_10___bfl  mmol/m3 m s-1  ecopari BAC_10__ bottom flux
+            ecopari_PZ_1_____sfl  mmol/m3 m s-1  ecopari PZ_1____ surface flux
+            ecopari_PZ_1_____bfl  mmol/m3 m s-1  ecopari PZ_1____ bottom flux
+            ecopari_PZ_2_____sfl  mmol/m3 m s-1  ecopari PZ_2____ surface flux
+            ecopari_PZ_2_____bfl  mmol/m3 m s-1  ecopari PZ_2____ bottom flux
+            ecopari_PZ_3_____sfl  mmol/m3 m s-1  ecopari PZ_3____ surface flux
+            ecopari_PZ_3_____bfl  mmol/m3 m s-1  ecopari PZ_3____ bottom flux
+            ecopari_PZ_4_____sfl  mmol/m3 m s-1  ecopari PZ_4____ surface flux
+            ecopari_PZ_4_____bfl  mmol/m3 m s-1  ecopari PZ_4____ bottom flux
+            ecopari_PZ_5_____sfl  mmol/m3 m s-1  ecopari PZ_5____ surface flux
+            ecopari_PZ_5_____bfl  mmol/m3 m s-1  ecopari PZ_5____ bottom flux
+            ecopari_PZ_6_____sfl  mmol/m3 m s-1  ecopari PZ_6____ surface flux
+            ecopari_PZ_6_____bfl  mmol/m3 m s-1  ecopari PZ_6____ bottom flux
+            ecopari_PZ_7_____sfl  mmol/m3 m s-1  ecopari PZ_7____ surface flux
+            ecopari_PZ_7_____bfl  mmol/m3 m s-1  ecopari PZ_7____ bottom flux
+            ecopari_PZ_8_____sfl  mmol/m3 m s-1  ecopari PZ_8____ surface flux
+            ecopari_PZ_8_____bfl  mmol/m3 m s-1  ecopari PZ_8____ bottom flux
+            ecopari_PZ_9_____sfl  mmol/m3 m s-1  ecopari PZ_9____ surface flux
+            ecopari_PZ_9_____bfl  mmol/m3 m s-1  ecopari PZ_9____ bottom flux
+            ecopari_PZ_10____sfl  mmol/m3 m s-1  ecopari PZ_10___ surface flux
+            ecopari_PZ_10____bfl  mmol/m3 m s-1  ecopari PZ_10___ bottom flux
+            ecopari_PO4______sfl  mmol/m3 m s-1  ecopari PO4_____ surface flux
+            ecopari_PO4______bfl  mmol/m3 m s-1  ecopari PO4_____ bottom flux
+            ecopari_NH4______sfl  mmol/m3 m s-1  ecopari NH4_____ surface flux
+            ecopari_NH4______bfl  mmol/m3 m s-1  ecopari NH4_____ bottom flux
+            ecopari_NO2______sfl  mmol/m3 m s-1  ecopari NO2_____ surface flux
+            ecopari_NO2______bfl  mmol/m3 m s-1  ecopari NO2_____ bottom flux
+            ecopari_NO3______sfl  mmol/m3 m s-1  ecopari NO3_____ surface flux
+            ecopari_NO3______bfl  mmol/m3 m s-1  ecopari NO3_____ bottom flux
+            ecopari_SiO2_____sfl  mmol/m3 m s-1  ecopari SiO2____ surface flux
+            ecopari_SiO2_____bfl  mmol/m3 m s-1  ecopari SiO2____ bottom flux
+            ecopari_H2S______sfl  mmol/m3 m s-1  ecopari H2S_____ surface flux
+            ecopari_H2S______bfl  mmol/m3 m s-1  ecopari H2S_____ bottom flux
+            ecopari_SSS______sfl  mmol/m3 m s-1  ecopari SSS_____ surface flux
+            ecopari_SSS______bfl  mmol/m3 m s-1  ecopari SSS_____ bottom flux
+            ecopari_Fe_______sfl  mmol/m3 m s-1  ecopari Fe______ surface flux
+            ecopari_Fe_______bfl  mmol/m3 m s-1  ecopari Fe______ bottom flux
+            ecopari_FeOH3____sfl  mmol/m3 m s-1  ecopari FeOH3___ surface flux
+            ecopari_FeOH3____bfl  mmol/m3 m s-1  ecopari FeOH3___ bottom flux
+            ecopari_Mn_______sfl  mmol/m3 m s-1  ecopari Mn______ surface flux
+            ecopari_Mn_______bfl  mmol/m3 m s-1  ecopari Mn______ bottom flux
+            ecopari_MnO2_____sfl  mmol/m3 m s-1  ecopari MnO2____ surface flux
+            ecopari_MnO2_____bfl  mmol/m3 m s-1  ecopari MnO2____ bottom flux
+            ecopari_Al_______sfl  mmol/m3 m s-1  ecopari Al______ surface flux
+            ecopari_Al_______bfl  mmol/m3 m s-1  ecopari Al______ bottom flux
+            ecopari_AlPO4____sfl  mmol/m3 m s-1  ecopari AlPO4___ surface flux
+            ecopari_AlPO4____bfl  mmol/m3 m s-1  ecopari AlPO4___ bottom flux
+            ecopari_DO_______sfl  mmol/m3 m s-1  ecopari DO______ surface flux
+            ecopari_DO_______bfl  mmol/m3 m s-1  ecopari DO______ bottom flux
+            zero_hz    zero_hz
+            zero_sfl_tot_calculator_result   m s-1  
+ zero_sfl_tot_calculator result
+            zero_bfl_tot_calculator_result   m s-1  
+ zero_bfl_tot_calculator result
+            zero_hz_sms_tot_calculator_result   s-1  
+ zero_hz_sms_tot_calculator result
+            ecopari_PHY_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_1____sfl_tot_calculator result
+            ecopari_PHY_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_1____bfl_tot_calculator result
+            ecopari_PHY_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_2____sfl_tot_calculator result
+            ecopari_PHY_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_2____bfl_tot_calculator result
+            ecopari_PHY_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_3____sfl_tot_calculator result
+            ecopari_PHY_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_3____bfl_tot_calculator result
+            ecopari_PHY_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_4____sfl_tot_calculator result
+            ecopari_PHY_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_4____bfl_tot_calculator result
+            ecopari_PHY_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_5____sfl_tot_calculator result
+            ecopari_PHY_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_5____bfl_tot_calculator result
+            ecopari_PHY_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_6____sfl_tot_calculator result
+            ecopari_PHY_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_6____bfl_tot_calculator result
+            ecopari_PHY_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_7____sfl_tot_calculator result
+            ecopari_PHY_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_7____bfl_tot_calculator result
+            ecopari_PHY_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_8____sfl_tot_calculator result
+            ecopari_PHY_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_8____bfl_tot_calculator result
+            ecopari_PHY_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_9____sfl_tot_calculator result
+            ecopari_PHY_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_9____bfl_tot_calculator result
+            ecopari_PHY_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_10___sfl_tot_calculator result
+            ecopari_PHY_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PHY_10___bfl_tot_calculator result
+            ecopari_SQN_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_1____sfl_tot_calculator result
+            ecopari_SQN_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_1____bfl_tot_calculator result
+            ecopari_SQN_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_2____sfl_tot_calculator result
+            ecopari_SQN_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_2____bfl_tot_calculator result
+            ecopari_SQN_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_3____sfl_tot_calculator result
+            ecopari_SQN_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_3____bfl_tot_calculator result
+            ecopari_SQN_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_4____sfl_tot_calculator result
+            ecopari_SQN_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_4____bfl_tot_calculator result
+            ecopari_SQN_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_5____sfl_tot_calculator result
+            ecopari_SQN_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_5____bfl_tot_calculator result
+            ecopari_SQN_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_6____sfl_tot_calculator result
+            ecopari_SQN_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_6____bfl_tot_calculator result
+            ecopari_SQN_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_7____sfl_tot_calculator result
+            ecopari_SQN_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_7____bfl_tot_calculator result
+            ecopari_SQN_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_8____sfl_tot_calculator result
+            ecopari_SQN_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_8____bfl_tot_calculator result
+            ecopari_SQN_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_9____sfl_tot_calculator result
+            ecopari_SQN_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_9____bfl_tot_calculator result
+            ecopari_SQN_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_10___sfl_tot_calculator result
+            ecopari_SQN_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQN_10___bfl_tot_calculator result
+            ecopari_SQP_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_1____sfl_tot_calculator result
+            ecopari_SQP_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_1____bfl_tot_calculator result
+            ecopari_SQP_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_2____sfl_tot_calculator result
+            ecopari_SQP_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_2____bfl_tot_calculator result
+            ecopari_SQP_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_3____sfl_tot_calculator result
+            ecopari_SQP_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_3____bfl_tot_calculator result
+            ecopari_SQP_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_4____sfl_tot_calculator result
+            ecopari_SQP_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_4____bfl_tot_calculator result
+            ecopari_SQP_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_5____sfl_tot_calculator result
+            ecopari_SQP_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_5____bfl_tot_calculator result
+            ecopari_SQP_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_6____sfl_tot_calculator result
+            ecopari_SQP_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_6____bfl_tot_calculator result
+            ecopari_SQP_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_7____sfl_tot_calculator result
+            ecopari_SQP_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_7____bfl_tot_calculator result
+            ecopari_SQP_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_8____sfl_tot_calculator result
+            ecopari_SQP_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_8____bfl_tot_calculator result
+            ecopari_SQP_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_9____sfl_tot_calculator result
+            ecopari_SQP_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_9____bfl_tot_calculator result
+            ecopari_SQP_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_10___sfl_tot_calculator result
+            ecopari_SQP_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SQP_10___bfl_tot_calculator result
+            ecopari_ZOO_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_1____sfl_tot_calculator result
+            ecopari_ZOO_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_1____bfl_tot_calculator result
+            ecopari_ZOO_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_2____sfl_tot_calculator result
+            ecopari_ZOO_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_2____bfl_tot_calculator result
+            ecopari_ZOO_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_3____sfl_tot_calculator result
+            ecopari_ZOO_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_3____bfl_tot_calculator result
+            ecopari_ZOO_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_4____sfl_tot_calculator result
+            ecopari_ZOO_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_4____bfl_tot_calculator result
+            ecopari_ZOO_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_5____sfl_tot_calculator result
+            ecopari_ZOO_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_5____bfl_tot_calculator result
+            ecopari_ZOO_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_6____sfl_tot_calculator result
+            ecopari_ZOO_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_6____bfl_tot_calculator result
+            ecopari_ZOO_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_7____sfl_tot_calculator result
+            ecopari_ZOO_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_7____bfl_tot_calculator result
+            ecopari_ZOO_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_8____sfl_tot_calculator result
+            ecopari_ZOO_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_8____bfl_tot_calculator result
+            ecopari_ZOO_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_9____sfl_tot_calculator result
+            ecopari_ZOO_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_9____bfl_tot_calculator result
+            ecopari_ZOO_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_10___sfl_tot_calculator result
+            ecopari_ZOO_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ZOO_10___bfl_tot_calculator result
+            ecopari_POC_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_1____sfl_tot_calculator result
+            ecopari_POC_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_1____bfl_tot_calculator result
+            ecopari_POC_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_2____sfl_tot_calculator result
+            ecopari_POC_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_2____bfl_tot_calculator result
+            ecopari_POC_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_3____sfl_tot_calculator result
+            ecopari_POC_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_3____bfl_tot_calculator result
+            ecopari_POC_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_4____sfl_tot_calculator result
+            ecopari_POC_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_4____bfl_tot_calculator result
+            ecopari_POC_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_5____sfl_tot_calculator result
+            ecopari_POC_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_5____bfl_tot_calculator result
+            ecopari_POC_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_6____sfl_tot_calculator result
+            ecopari_POC_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_6____bfl_tot_calculator result
+            ecopari_POC_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_7____sfl_tot_calculator result
+            ecopari_POC_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_7____bfl_tot_calculator result
+            ecopari_POC_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_8____sfl_tot_calculator result
+            ecopari_POC_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_8____bfl_tot_calculator result
+            ecopari_POC_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_9____sfl_tot_calculator result
+            ecopari_POC_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_9____bfl_tot_calculator result
+            ecopari_POC_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_10___sfl_tot_calculator result
+            ecopari_POC_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POC_10___bfl_tot_calculator result
+            ecopari_PON_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_1____sfl_tot_calculator result
+            ecopari_PON_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_1____bfl_tot_calculator result
+            ecopari_PON_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_2____sfl_tot_calculator result
+            ecopari_PON_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_2____bfl_tot_calculator result
+            ecopari_PON_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_3____sfl_tot_calculator result
+            ecopari_PON_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_3____bfl_tot_calculator result
+            ecopari_PON_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_4____sfl_tot_calculator result
+            ecopari_PON_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_4____bfl_tot_calculator result
+            ecopari_PON_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_5____sfl_tot_calculator result
+            ecopari_PON_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_5____bfl_tot_calculator result
+            ecopari_PON_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_6____sfl_tot_calculator result
+            ecopari_PON_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_6____bfl_tot_calculator result
+            ecopari_PON_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_7____sfl_tot_calculator result
+            ecopari_PON_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_7____bfl_tot_calculator result
+            ecopari_PON_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_8____sfl_tot_calculator result
+            ecopari_PON_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_8____bfl_tot_calculator result
+            ecopari_PON_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_9____sfl_tot_calculator result
+            ecopari_PON_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_9____bfl_tot_calculator result
+            ecopari_PON_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_10___sfl_tot_calculator result
+            ecopari_PON_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PON_10___bfl_tot_calculator result
+            ecopari_POP_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_1____sfl_tot_calculator result
+            ecopari_POP_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_1____bfl_tot_calculator result
+            ecopari_POP_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_2____sfl_tot_calculator result
+            ecopari_POP_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_2____bfl_tot_calculator result
+            ecopari_POP_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_3____sfl_tot_calculator result
+            ecopari_POP_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_3____bfl_tot_calculator result
+            ecopari_POP_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_4____sfl_tot_calculator result
+            ecopari_POP_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_4____bfl_tot_calculator result
+            ecopari_POP_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_5____sfl_tot_calculator result
+            ecopari_POP_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_5____bfl_tot_calculator result
+            ecopari_POP_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_6____sfl_tot_calculator result
+            ecopari_POP_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_6____bfl_tot_calculator result
+            ecopari_POP_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_7____sfl_tot_calculator result
+            ecopari_POP_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_7____bfl_tot_calculator result
+            ecopari_POP_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_8____sfl_tot_calculator result
+            ecopari_POP_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_8____bfl_tot_calculator result
+            ecopari_POP_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_9____sfl_tot_calculator result
+            ecopari_POP_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_9____bfl_tot_calculator result
+            ecopari_POP_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_10___sfl_tot_calculator result
+            ecopari_POP_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari POP_10___bfl_tot_calculator result
+            ecopari_DOC_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_1____sfl_tot_calculator result
+            ecopari_DOC_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_1____bfl_tot_calculator result
+            ecopari_DOC_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_2____sfl_tot_calculator result
+            ecopari_DOC_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_2____bfl_tot_calculator result
+            ecopari_DOC_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_3____sfl_tot_calculator result
+            ecopari_DOC_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_3____bfl_tot_calculator result
+            ecopari_DOC_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_4____sfl_tot_calculator result
+            ecopari_DOC_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_4____bfl_tot_calculator result
+            ecopari_DOC_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_5____sfl_tot_calculator result
+            ecopari_DOC_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_5____bfl_tot_calculator result
+            ecopari_DOC_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_6____sfl_tot_calculator result
+            ecopari_DOC_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_6____bfl_tot_calculator result
+            ecopari_DOC_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_7____sfl_tot_calculator result
+            ecopari_DOC_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_7____bfl_tot_calculator result
+            ecopari_DOC_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_8____sfl_tot_calculator result
+            ecopari_DOC_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_8____bfl_tot_calculator result
+            ecopari_DOC_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_9____sfl_tot_calculator result
+            ecopari_DOC_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_9____bfl_tot_calculator result
+            ecopari_DOC_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_10___sfl_tot_calculator result
+            ecopari_DOC_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOC_10___bfl_tot_calculator result
+            ecopari_DON_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_1____sfl_tot_calculator result
+            ecopari_DON_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_1____bfl_tot_calculator result
+            ecopari_DON_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_2____sfl_tot_calculator result
+            ecopari_DON_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_2____bfl_tot_calculator result
+            ecopari_DON_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_3____sfl_tot_calculator result
+            ecopari_DON_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_3____bfl_tot_calculator result
+            ecopari_DON_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_4____sfl_tot_calculator result
+            ecopari_DON_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_4____bfl_tot_calculator result
+            ecopari_DON_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_5____sfl_tot_calculator result
+            ecopari_DON_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_5____bfl_tot_calculator result
+            ecopari_DON_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_6____sfl_tot_calculator result
+            ecopari_DON_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_6____bfl_tot_calculator result
+            ecopari_DON_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_7____sfl_tot_calculator result
+            ecopari_DON_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_7____bfl_tot_calculator result
+            ecopari_DON_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_8____sfl_tot_calculator result
+            ecopari_DON_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_8____bfl_tot_calculator result
+            ecopari_DON_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_9____sfl_tot_calculator result
+            ecopari_DON_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_9____bfl_tot_calculator result
+            ecopari_DON_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_10___sfl_tot_calculator result
+            ecopari_DON_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DON_10___bfl_tot_calculator result
+            ecopari_DOP_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_1____sfl_tot_calculator result
+            ecopari_DOP_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_1____bfl_tot_calculator result
+            ecopari_DOP_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_2____sfl_tot_calculator result
+            ecopari_DOP_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_2____bfl_tot_calculator result
+            ecopari_DOP_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_3____sfl_tot_calculator result
+            ecopari_DOP_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_3____bfl_tot_calculator result
+            ecopari_DOP_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_4____sfl_tot_calculator result
+            ecopari_DOP_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_4____bfl_tot_calculator result
+            ecopari_DOP_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_5____sfl_tot_calculator result
+            ecopari_DOP_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_5____bfl_tot_calculator result
+            ecopari_DOP_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_6____sfl_tot_calculator result
+            ecopari_DOP_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_6____bfl_tot_calculator result
+            ecopari_DOP_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_7____sfl_tot_calculator result
+            ecopari_DOP_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_7____bfl_tot_calculator result
+            ecopari_DOP_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_8____sfl_tot_calculator result
+            ecopari_DOP_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_8____bfl_tot_calculator result
+            ecopari_DOP_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_9____sfl_tot_calculator result
+            ecopari_DOP_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_9____bfl_tot_calculator result
+            ecopari_DOP_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_10___sfl_tot_calculator result
+            ecopari_DOP_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DOP_10___bfl_tot_calculator result
+            ecopari_ADOC_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ADOC_____sfl_tot_calculator result
+            ecopari_ADOC_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari ADOC_____bfl_tot_calculator result
+            ecopari_BAC_1____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_1____sfl_tot_calculator result
+            ecopari_BAC_1____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_1____bfl_tot_calculator result
+            ecopari_BAC_2____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_2____sfl_tot_calculator result
+            ecopari_BAC_2____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_2____bfl_tot_calculator result
+            ecopari_BAC_3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_3____sfl_tot_calculator result
+            ecopari_BAC_3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_3____bfl_tot_calculator result
+            ecopari_BAC_4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_4____sfl_tot_calculator result
+            ecopari_BAC_4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_4____bfl_tot_calculator result
+            ecopari_BAC_5____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_5____sfl_tot_calculator result
+            ecopari_BAC_5____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_5____bfl_tot_calculator result
+            ecopari_BAC_6____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_6____sfl_tot_calculator result
+            ecopari_BAC_6____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_6____bfl_tot_calculator result
+            ecopari_BAC_7____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_7____sfl_tot_calculator result
+            ecopari_BAC_7____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_7____bfl_tot_calculator result
+            ecopari_BAC_8____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_8____sfl_tot_calculator result
+            ecopari_BAC_8____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_8____bfl_tot_calculator result
+            ecopari_BAC_9____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_9____sfl_tot_calculator result
+            ecopari_BAC_9____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_9____bfl_tot_calculator result
+            ecopari_BAC_10___sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_10___sfl_tot_calculator result
+            ecopari_BAC_10___bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari BAC_10___bfl_tot_calculator result
+            ecopari_PZ_1_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_1_____sfl_tot_calculator result
+            ecopari_PZ_1_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_1_____bfl_tot_calculator result
+            ecopari_PZ_2_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_2_____sfl_tot_calculator result
+            ecopari_PZ_2_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_2_____bfl_tot_calculator result
+            ecopari_PZ_3_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_3_____sfl_tot_calculator result
+            ecopari_PZ_3_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_3_____bfl_tot_calculator result
+            ecopari_PZ_4_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_4_____sfl_tot_calculator result
+            ecopari_PZ_4_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_4_____bfl_tot_calculator result
+            ecopari_PZ_5_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_5_____sfl_tot_calculator result
+            ecopari_PZ_5_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_5_____bfl_tot_calculator result
+            ecopari_PZ_6_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_6_____sfl_tot_calculator result
+            ecopari_PZ_6_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_6_____bfl_tot_calculator result
+            ecopari_PZ_7_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_7_____sfl_tot_calculator result
+            ecopari_PZ_7_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_7_____bfl_tot_calculator result
+            ecopari_PZ_8_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_8_____sfl_tot_calculator result
+            ecopari_PZ_8_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_8_____bfl_tot_calculator result
+            ecopari_PZ_9_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_9_____sfl_tot_calculator result
+            ecopari_PZ_9_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_9_____bfl_tot_calculator result
+            ecopari_PZ_10____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_10____sfl_tot_calculator result
+            ecopari_PZ_10____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PZ_10____bfl_tot_calculator result
+            ecopari_PO4______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PO4______sfl_tot_calculator result
+            ecopari_PO4______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari PO4______bfl_tot_calculator result
+            ecopari_NH4______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari NH4______sfl_tot_calculator result
+            ecopari_NH4______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari NH4______bfl_tot_calculator result
+            ecopari_NO2______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari NO2______sfl_tot_calculator result
+            ecopari_NO2______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari NO2______bfl_tot_calculator result
+            ecopari_NO3______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari NO3______sfl_tot_calculator result
+            ecopari_NO3______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari NO3______bfl_tot_calculator result
+            ecopari_SiO2_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SiO2_____sfl_tot_calculator result
+            ecopari_SiO2_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SiO2_____bfl_tot_calculator result
+            ecopari_H2S______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari H2S______sfl_tot_calculator result
+            ecopari_H2S______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari H2S______bfl_tot_calculator result
+            ecopari_SSS______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SSS______sfl_tot_calculator result
+            ecopari_SSS______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari SSS______bfl_tot_calculator result
+            ecopari_Fe_______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari Fe_______sfl_tot_calculator result
+            ecopari_Fe_______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari Fe_______bfl_tot_calculator result
+            ecopari_FeOH3____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari FeOH3____sfl_tot_calculator result
+            ecopari_FeOH3____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari FeOH3____bfl_tot_calculator result
+            ecopari_Mn_______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari Mn_______sfl_tot_calculator result
+            ecopari_Mn_______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari Mn_______bfl_tot_calculator result
+            ecopari_MnO2_____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari MnO2_____sfl_tot_calculator result
+            ecopari_MnO2_____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari MnO2_____bfl_tot_calculator result
+            ecopari_Al_______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari Al_______sfl_tot_calculator result
+            ecopari_Al_______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari Al_______bfl_tot_calculator result
+            ecopari_AlPO4____sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari AlPO4____sfl_tot_calculator result
+            ecopari_AlPO4____bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari AlPO4____bfl_tot_calculator result
+            ecopari_DO_______sfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DO_______sfl_tot_calculator result
+            ecopari_DO_______bfl_tot_calculator_result  mmol/m3 m s-1  
+ ecopari DO_______bfl_tot_calculator result
+        Using Eulerian solver
+        Using euler_forward()
+        done.
+<table of ecosystem variables>
+ (ccpl : location at ccpl array)
+ (fixed: fixed location independent of input condition)
+
+variable: ccpl: fixed
+ phy( 1):    1:     1
+ phy( 2):    2:     2
+ phy( 3):    3:     3
+ sqn( 1):    4:    11
+ sqn( 2):    5:    12
+ sqn( 3):    6:    13
+ sqp( 1):    7:    21
+ sqp( 2):    8:    22
+ sqp( 3):    9:    23
+ zoo( 1):   10:    31
+ poc( 1):   11:    41
+ poc( 2):   12:    42
+ poc( 3):   13:    43
+ pon( 1):   14:    51
+ pon( 2):   15:    52
+ pon( 3):   16:    53
+ pop( 1):   17:    61
+ pop( 2):   18:    62
+ pop( 3):   19:    63
+ doc( 1):   20:    71
+ doc( 2):   21:    72
+ doc( 3):   22:    73
+ don( 1):   23:    81
+ don( 2):   24:    82
+ don( 3):   25:    83
+ dop( 1):   26:    91
+ dop( 2):   27:    92
+ dop( 3):   28:    93
+ adoc   :   29:   101
+ bac( 1):   30:   102
+ po4    :   31:   122
+ nh4    :   32:   123
+ no2    :   33:   124
+ no3    :   34:   125
+ sio2   :   35:   126
+ h2s    :   36:   127
+ sss    :   37:   128
+ fe     :   38:   129
+ feoh3  :   39:   130
+ mn     :   40:   131
+ mno2   :   41:   132
+ al     :   42:   133
+ alpo4  :   43:   134
+ do     :   44:   135
+<table of ecosystem variables>
+ (ccbt : location at ccbt array)
+ (fixed: fixed location independent of input condition)
+
+variable: ccbt: fixed
+ mei( 1):    1:     1
+ mdf( 1):    2:    11
+ bba    :    3:    31
+ dnb    :    4:    32
+ bma    :    5:    33
+ det( 1):    6:    34
+ det( 2):    7:    35
+ det( 3):    8:    36
+ det( 1):    9:    44
+ det( 2):   10:    45
+ det( 3):   11:    46
+ det( 1):   12:    54
+ det( 2):   13:    55
+ det( 3):   14:    56
+ adoc   :   15:    64
+ doc( 1):   16:    65
+ doc( 2):   17:    66
+ doc( 3):   18:    67
+ don( 1):   19:    75
+ don( 2):   20:    76
+ don( 3):   21:    77
+ dop( 1):   22:    85
+ dop( 2):   23:    86
+ dop( 3):   24:    87
+ po4    :   25:    95
+ nh4    :   26:    96
+ no2    :   27:    97
+ no3    :   28:    98
+ h2s    :   29:    99
+ sss    :   30:   100
+ so4    :   31:   101
+ spo4   :   32:   102
+ snh4   :   33:   103
+ fpo4   :   34:   104
+ fe     :   35:   105
+ feoh3  :   36:   106
+ mn     :   37:   107
+ mno2   :   38:   108
+ fes    :   39:   109
+ al     :   40:   110
+ alpo4  :   41:   111
+ do     :   42:   112
+ Max of phy, zoo, pz, bac and pom =
+           3           1           0           1           3
+ Max of mei, mdf and msf =
+           1           1           0
+ Max bivalve =           1
+        done.
+ ------------------------------------------------------------------------
+    saving initial conditions
+ Processing output category /state:
+   - temp
+   - salt
+   - u
+   - uo
+   - v
+   - vo
+   - u_taubo
+   - xP
+   - h
+   - ho
+   - num
+   - nuh
+   - nus
+   - nucl
+   - tke
+   - tkeo
+   - eps
+   - ecopari_PHY_1___
+   - ecopari_PHY_2___
+   - ecopari_PHY_3___
+   - ecopari_PHY_4___
+   - ecopari_PHY_5___
+   - ecopari_PHY_6___
+   - ecopari_PHY_7___
+   - ecopari_PHY_8___
+   - ecopari_PHY_9___
+   - ecopari_PHY_10__
+   - ecopari_SQN_1___
+   - ecopari_SQN_2___
+   - ecopari_SQN_3___
+   - ecopari_SQN_4___
+   - ecopari_SQN_5___
+   - ecopari_SQN_6___
+   - ecopari_SQN_7___
+   - ecopari_SQN_8___
+   - ecopari_SQN_9___
+   - ecopari_SQN_10__
+   - ecopari_SQP_1___
+   - ecopari_SQP_2___
+   - ecopari_SQP_3___
+   - ecopari_SQP_4___
+   - ecopari_SQP_5___
+   - ecopari_SQP_6___
+   - ecopari_SQP_7___
+   - ecopari_SQP_8___
+   - ecopari_SQP_9___
+   - ecopari_SQP_10__
+   - ecopari_ZOO_1___
+   - ecopari_ZOO_2___
+   - ecopari_ZOO_3___
+   - ecopari_ZOO_4___
+   - ecopari_ZOO_5___
+   - ecopari_ZOO_6___
+   - ecopari_ZOO_7___
+   - ecopari_ZOO_8___
+   - ecopari_ZOO_9___
+   - ecopari_ZOO_10__
+   - ecopari_POC_1___
+   - ecopari_POC_2___
+   - ecopari_POC_3___
+   - ecopari_POC_4___
+   - ecopari_POC_5___
+   - ecopari_POC_6___
+   - ecopari_POC_7___
+   - ecopari_POC_8___
+   - ecopari_POC_9___
+   - ecopari_POC_10__
+   - ecopari_PON_1___
+   - ecopari_PON_2___
+   - ecopari_PON_3___
+   - ecopari_PON_4___
+   - ecopari_PON_5___
+   - ecopari_PON_6___
+   - ecopari_PON_7___
+   - ecopari_PON_8___
+   - ecopari_PON_9___
+   - ecopari_PON_10__
+   - ecopari_POP_1___
+   - ecopari_POP_2___
+   - ecopari_POP_3___
+   - ecopari_POP_4___
+   - ecopari_POP_5___
+   - ecopari_POP_6___
+   - ecopari_POP_7___
+   - ecopari_POP_8___
+   - ecopari_POP_9___
+   - ecopari_POP_10__
+   - ecopari_DOC_1___
+   - ecopari_DOC_2___
+   - ecopari_DOC_3___
+   - ecopari_DOC_4___
+   - ecopari_DOC_5___
+   - ecopari_DOC_6___
+   - ecopari_DOC_7___
+   - ecopari_DOC_8___
+   - ecopari_DOC_9___
+   - ecopari_DOC_10__
+   - ecopari_DON_1___
+   - ecopari_DON_2___
+   - ecopari_DON_3___
+   - ecopari_DON_4___
+   - ecopari_DON_5___
+   - ecopari_DON_6___
+   - ecopari_DON_7___
+   - ecopari_DON_8___
+   - ecopari_DON_9___
+   - ecopari_DON_10__
+   - ecopari_DOP_1___
+   - ecopari_DOP_2___
+   - ecopari_DOP_3___
+   - ecopari_DOP_4___
+   - ecopari_DOP_5___
+   - ecopari_DOP_6___
+   - ecopari_DOP_7___
+   - ecopari_DOP_8___
+   - ecopari_DOP_9___
+   - ecopari_DOP_10__
+   - ecopari_ADOC____
+   - ecopari_BAC_1___
+   - ecopari_BAC_2___
+   - ecopari_BAC_3___
+   - ecopari_BAC_4___
+   - ecopari_BAC_5___
+   - ecopari_BAC_6___
+   - ecopari_BAC_7___
+   - ecopari_BAC_8___
+   - ecopari_BAC_9___
+   - ecopari_BAC_10__
+   - ecopari_PZ_1____
+   - ecopari_PZ_2____
+   - ecopari_PZ_3____
+   - ecopari_PZ_4____
+   - ecopari_PZ_5____
+   - ecopari_PZ_6____
+   - ecopari_PZ_7____
+   - ecopari_PZ_8____
+   - ecopari_PZ_9____
+   - ecopari_PZ_10___
+   - ecopari_PO4_____
+   - ecopari_NH4_____
+   - ecopari_NO2_____
+   - ecopari_NO3_____
+   - ecopari_SiO2____
+   - ecopari_H2S_____
+   - ecopari_SSS_____
+   - ecopari_Fe______
+   - ecopari_FeOH3___
+   - ecopari_Mn______
+   - ecopari_MnO2____
+   - ecopari_Al______
+   - ecopari_AlPO4___
+   - ecopari_DO______
+ Processing output category /:
+   - lon
+   - lat
+   - rho_p
+   - rho
+   - zeta
+   - u_taus
+   - Hice
+   - u10
+   - v10
+   - airt
+   - airp
+   - hum
+   - es
+   - ea
+   - qs
+   - qa
+   - rhoa
+   - cloud
+   - albedo
+   - precip
+   - evap
+   - int_precip
+   - int_evap
+   - int_swr
+   - int_heat
+   - int_total
+   - I_0
+   - qh
+   - qe
+   - ql
+   - heat
+   - tx
+   - ty
+   - sst
+   - sst_obs
+   - sss
+   - mld_surf
+   - temp
+   - salt
+   - temp_p
+   - temp_i
+   - salt_p
+   - temp_obs
+   - salt_obs
+   - u
+   - v
+   - xP
+   - h
+   - num
+   - nuh
+   - nus
+   - nucl
+   - tke
+   - eps
+   - ecopari_PHY_1___
+   - ecopari_PHY_2___
+   - ecopari_PHY_3___
+   - ecopari_PHY_4___
+   - ecopari_PHY_5___
+   - ecopari_PHY_6___
+   - ecopari_PHY_7___
+   - ecopari_PHY_8___
+   - ecopari_PHY_9___
+   - ecopari_PHY_10__
+   - ecopari_SQN_1___
+   - ecopari_SQN_2___
+   - ecopari_SQN_3___
+   - ecopari_SQN_4___
+   - ecopari_SQN_5___
+   - ecopari_SQN_6___
+   - ecopari_SQN_7___
+   - ecopari_SQN_8___
+   - ecopari_SQN_9___
+   - ecopari_SQN_10__
+   - ecopari_SQP_1___
+   - ecopari_SQP_2___
+   - ecopari_SQP_3___
+   - ecopari_SQP_4___
+   - ecopari_SQP_5___
+   - ecopari_SQP_6___
+   - ecopari_SQP_7___
+   - ecopari_SQP_8___
+   - ecopari_SQP_9___
+   - ecopari_SQP_10__
+   - ecopari_ZOO_1___
+   - ecopari_ZOO_2___
+   - ecopari_ZOO_3___
+   - ecopari_ZOO_4___
+   - ecopari_ZOO_5___
+   - ecopari_ZOO_6___
+   - ecopari_ZOO_7___
+   - ecopari_ZOO_8___
+   - ecopari_ZOO_9___
+   - ecopari_ZOO_10__
+   - ecopari_POC_1___
+   - ecopari_POC_2___
+   - ecopari_POC_3___
+   - ecopari_POC_4___
+   - ecopari_POC_5___
+   - ecopari_POC_6___
+   - ecopari_POC_7___
+   - ecopari_POC_8___
+   - ecopari_POC_9___
+   - ecopari_POC_10__
+   - ecopari_PON_1___
+   - ecopari_PON_2___
+   - ecopari_PON_3___
+   - ecopari_PON_4___
+   - ecopari_PON_5___
+   - ecopari_PON_6___
+   - ecopari_PON_7___
+   - ecopari_PON_8___
+   - ecopari_PON_9___
+   - ecopari_PON_10__
+   - ecopari_POP_1___
+   - ecopari_POP_2___
+   - ecopari_POP_3___
+   - ecopari_POP_4___
+   - ecopari_POP_5___
+   - ecopari_POP_6___
+   - ecopari_POP_7___
+   - ecopari_POP_8___
+   - ecopari_POP_9___
+   - ecopari_POP_10__
+   - ecopari_DOC_1___
+   - ecopari_DOC_2___
+   - ecopari_DOC_3___
+   - ecopari_DOC_4___
+   - ecopari_DOC_5___
+   - ecopari_DOC_6___
+   - ecopari_DOC_7___
+   - ecopari_DOC_8___
+   - ecopari_DOC_9___
+   - ecopari_DOC_10__
+   - ecopari_DON_1___
+   - ecopari_DON_2___
+   - ecopari_DON_3___
+   - ecopari_DON_4___
+   - ecopari_DON_5___
+   - ecopari_DON_6___
+   - ecopari_DON_7___
+   - ecopari_DON_8___
+   - ecopari_DON_9___
+   - ecopari_DON_10__
+   - ecopari_DOP_1___
+   - ecopari_DOP_2___
+   - ecopari_DOP_3___
+   - ecopari_DOP_4___
+   - ecopari_DOP_5___
+   - ecopari_DOP_6___
+   - ecopari_DOP_7___
+   - ecopari_DOP_8___
+   - ecopari_DOP_9___
+   - ecopari_DOP_10__
+   - ecopari_ADOC____
+   - ecopari_BAC_1___
+   - ecopari_BAC_2___
+   - ecopari_BAC_3___
+   - ecopari_BAC_4___
+   - ecopari_BAC_5___
+   - ecopari_BAC_6___
+   - ecopari_BAC_7___
+   - ecopari_BAC_8___
+   - ecopari_BAC_9___
+   - ecopari_BAC_10__
+   - ecopari_PZ_1____
+   - ecopari_PZ_2____
+   - ecopari_PZ_3____
+   - ecopari_PZ_4____
+   - ecopari_PZ_5____
+   - ecopari_PZ_6____
+   - ecopari_PZ_7____
+   - ecopari_PZ_8____
+   - ecopari_PZ_9____
+   - ecopari_PZ_10___
+   - ecopari_PO4_____
+   - ecopari_NH4_____
+   - ecopari_NO2_____
+   - ecopari_NO3_____
+   - ecopari_SiO2____
+   - ecopari_H2S_____
+   - ecopari_SSS_____
+   - ecopari_Fe______
+   - ecopari_FeOH3___
+   - ecopari_Mn______
+   - ecopari_MnO2____
+   - ecopari_Al______
+   - ecopari_AlPO4___
+   - ecopari_DO______
+   - u_obs
+   - v_obs
+   - idpdx
+   - idpdy
+   - fric
+   - drag
+   - SS
+   - P
+   - uu
+   - vv
+   - ww
+   - NN
+   - NNT
+   - NNS
+   - buoy
+   - kb
+   - epsb
+   - G
+   - Pb
+   - avh
+   - gamu
+   - gamv
+   - gamh
+   - gams
+   - Rig
+   - L
+   - PSTK
+   - gamb
+   - cmue1
+   - cmue2
+   - gam
+   - an
+   - as
+   - at
+   - r
+   - taux
+   - tauy
+   - u_taub
+   - taub
+   - mld_bott
+   - rad
+   - bioshade
+   - ga
+   - z
+   - zi
+   - us
+   - vs
+   - dusdz
+   - dvsdz
+   - us0
+   - vs0
+   - ds
+   - Ekin
+   - Epot
+   - Eturb
+ ------------------------------------------------------------------------
+    integrate_gotm
+ ------------------------------------------------------------------------
+           0 %
+          10 %
+          20 %
+          30 %
+          40 %
+          50 %
+          60 %
+          70 %
+          80 %
+          90 %
+         100 %
+ ------------------------------------------------------------------------
+    finalize_gotm
+    clean_meanflow
+        de-allocation meanflow memory ...
+        done.
+    clean_turbulence
+        de-allocating turbulence memory ...
+        done.
+    clean_observations
+        de-allocate observation memory ...
+        done.
+    clean_tridiagonal
+    clean_gotm_fabm
+    Time spent on advection of FABM variables:  0.796627000000000     
+    Time spent on diffusion of FABM variables:  0.948740000000000     
+    Time spent on sink/source terms of FABM variables:   8.26274600000000     
+    done.
+ ------------------------------------------------------------------------
+ GOTM finished on 2026/02/24 at 16:19:13
+ ------------------------------------------------------------------------
+ CPU time:                       25.03792      seconds
+ Simulated time/CPU time:        1259529.73757528     
+ ------------------------------------------------------------------------
+ GOTM:    v6.0.0-203-ga2f3be2d (master branch)
+ Config:             7
+ TEOS-10  3.5
+ YAML:    0.1.0 (unknown branch)
+ flexout: 0.1.0 (unknown branch)
+ FABM:    v3.0.0-7-gfa3cd75e-dirty (master branch)
+ Seagrass:included
+ NetCDF:  4.9.2 of Jan  8 2026 15:25:13 $
+ ------------------------------------------------------------------------
+ Compiler: IntelLLVM 2025.3.0
